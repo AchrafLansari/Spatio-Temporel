@@ -21,15 +21,14 @@
 				
 				$.getJSON(adresseComplete, function(data){
 				
-					$.each(data.items, function(i, photo){
-						
-						var photoHTML = '<span>';
-						
-						photoHTML += '<img src="' + photo.media.m.replace('_m', '_s') + '">'+ photo.date_taken +'</span>';
+					$.each(data.items, function(i, photo){						
+						var photoHTML = '<span> <table border="1"> ';						
+						photoHTML += '<tr> <td> <img src="' + photo.media.m.replace('_m', '_s') + '"> </td> '+ "<td>"
+						+ photo.date_taken + "</td> <td> " + photo.getWithGeoData + "</td> </tr> </table>" +'</span>';
 						
 						$('#photos').append(photoHTML);
 						$('h1').text(data.title);
-						
+						$('h2').text(photo.date_posted);
 					});
 				
 				});
@@ -44,5 +43,6 @@
 	<input id="monTexte"><button>Donne-moi mes photos taggées</button>
 	<h1>Hello world</h1>
     <div id="photos"></div>
+	<h2>   </h2>
 </body>
 </html>
