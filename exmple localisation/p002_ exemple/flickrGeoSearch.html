@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Untitled Document</title>
+<script src="jquery-1.11.1.min.js"></script>
+<script>
+
+$(document).ready(function() {
+    var pLocation;
+	
+	$('button').click(function(){
+	
+		var ville = $('#maVille').val();
+		
+		
+	
+		var json01 = 'https://api.flickr.com/services/rest/?method=flickr.tags.getClusterPhotos&api_key=d4e3d6d28b55110213c9c9010f64545a&tag=';
+		var tag = ville;
+		var json02 = '&format=json&jsoncallback=?';
+		
+		var monJSON = json01 + tag + json02;
+		
+		$.getJSON(monJSON, function(data){
+		
+			$.each(data.photos.photo, function(i,maPhoto){
+			
+				var url01 = 'https://api.flickr.com/services/rest/?method=flickr.photos.geo.getLocation&api_key=d4e3d6d28b55110213c9c9010f64545a&photo_id=';
+				var url02 ='&format=json&nojsoncallback=1&auth_token=72157648805009870-c9b8d8b710802a04&api_sig=b1a338c8ca45b3c696f04e53834154ad';
+				
+				var photoID = maPhoto.id;
+				
+				
+				
+				$.getJSON('https://api.flickr.com/services/rest/?method=flickr.photos.geo.getLocation&api_key=d4e3d6d28b55110213c9c9010f64545a&photo_id='+photoID+'&format=json&nojsoncallback=1', function(donnee){
+			 
+					if(donnee.stat != 'fail') {
+						
+						pLocation = maPhoto.title  + ' <a href="http://www.flickr.com/map?fLat=' + 
+						donnee.photo.location.latitude + '&fLon=' + 
+						donnee.photo.location.longitude + '&zl=1" target="_blank" lat="'+donnee.photo.location.latitude+'" long="'+donnee.photo.location.longitude+'">' + 
+						donnee.photo.location.locality._content + ', ' + 
+						donnee.photo.location.region._content + ' (carte sur Flickr, mais enlever la ligne 42 du code)</a>';
+						
+						$('a').click(function(){
+							var lat = $(this).attr("lat");
+							var lon = $(this).attr("long");
+							
+							$('#map').attr('src', 'https://www.google.com/maps/embed/v1/place?q='+lat+'%2C'+lon+'&key=AIzaSyCaI54yZqGyaOYUBEsewD__VvXQKUGpO_M&zoom=15');
+							
+							//$('#map').attr('src','https://www.google.com/maps/embed/v1/place?q='+donnee.photo.location.latitude+'%2C'+donnee.photo.location.longitude+'&key=AIzaSyCaI54yZqGyaOYUBEsewD__VvXQKUGpO_M&zoom=30&center='+donnee.photo.location.latitude+','+donnee.photo.location.longitude);	
+							return false;
+						});
+						
+						
+						
+						$('#photos').append('<p>'+pLocation+'</p>');
+						
+						
+					}
+					
+				});	
+				
+				//$('#photos').append(photoURL);
+			
+			
+			});
+		
+		});	
+	
+	});
+});
+
+
+</script>
+</head>
+
+<body>
+<input id="maVille"><button>Photos géolocalisées</button>
+<div id="photos"></div>
+<iframe id="map" width="700" height="400"></iframe>
+</body>
+</html>
