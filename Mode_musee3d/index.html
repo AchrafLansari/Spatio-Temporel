@@ -9,10 +9,8 @@
 <meta name="msvalidate.01" content="B6C713C1F4E407129EDEF7810A8B9BCB">
 <meta name="description" content="HTML5 CANVAS 3D demo">
 <meta name="keywords" content="canvas,3D,perspective,texturing,gallery">
-<link rel="canonical" href="http://www.dhteumeuleu.com/in-second-lives">
-<!--cssnav-wb-->
-<link rel="shortcut icon" href="http://www.dhteumeuleu.com/favicon.ico">
-<title>in second lives - HTML5 CANVAS 3D demo</title>
+
+<title>HTML5 CANVAS 3D demo</title>
 <style>
 html {
 	overflow: hidden;
@@ -34,7 +32,7 @@ body {
 	background: #fff;
 }
 </style>
-<script src="in%20second%20lives%20-%20HTML5%20CANVAS%203D%20demo_fichiers/ge1doot.js"></script>
+<script src="ge1doot.js"></script>
 <script>
 /* 
  * ==============================================================
@@ -270,7 +268,7 @@ body {
 		load : function (data) {
 			window.addEventListener('load', function () {
 				ge1doot.loadJS(
-					"../library/imageTransform3D.js",
+					"imageTransform3D.js",
 					init, data
 				);
 			}, false);
@@ -284,8 +282,9 @@ body {
 		{img:'962432390_7f2ebf8a46_z.jpg', x:1000,  y:0, z:1500, nx:0, nz:1},
 		// east
 		{img:'498210222_2a945c5275_z.jpg', x:1500,  y:0, z:1000, nx:-1, nz:0},
-		{img:'1804753040_d36878ae4f_z.jpg', x:1500,  y:0, z:0, nx:-1, nz:0},
-		{img:'1807874174_62fd497802_z.jpg', x:1500,  y:0, z:-1000, nx:-1, nz:0},
+		{img:'Desert.jpg', x:1500,  y:0, z:0, nx:-1, nz:0},
+		/*{img:'1804753040_d36878ae4f_z.jpg', x:1500,  y:0, z:0, nx:-1, nz:0},
+		//{img:'1807874174_62fd497802_z.jpg', x:1500,  y:0, z:-1000, nx:-1, nz:0},
 		// south
 		{img:'1842172394_0c98d7a201_z.jpg', x:1000,  y:0, z:-1500, nx:0, nz:-1},
 		{img:'508437742_ef99fb4491_z.jpg', x:0,     y:0, z:-1500, nx:0, nz:-1},
@@ -293,7 +292,7 @@ body {
 		// west
 		{img:'582376652_0bc0318b58_z.jpg', x:-1500, y:0, z:-1000, nx:1, nz:0},
 		{img:'498213199_4b5f7527f2_z.jpg', x:-1500, y:0, z:0, nx:1, nz:0},
-		{img:'498213203_cdc4bd6f6c_z.jpg', x:-1500, y:0, z:1000, nx:1, nz:0}
+		{img:'498213203_cdc4bd6f6c_z.jpg', x:-1500, y:0, z:1000, nx:1, nz:0}*/
 	],
 	structure:[
 		{
@@ -385,11 +384,11 @@ body {
 		}
 	],
 	options:{
-		imagesPath: "../images/"
+		imagesPath: "images/"
 	}
 });
 </script>
-<script src="in%20second%20lives%20-%20HTML5%20CANVAS%203D%20demo_fichiers/imageTransform3D.js"></script></head>
+<script src="imageTransform3D.js"></script></head>
 <body>
 <canvas style="cursor: pointer;" height="631" width="1366" id="canvas">Your browser does not support the HTML5 canvas element</canvas>
 <!--nav-->
