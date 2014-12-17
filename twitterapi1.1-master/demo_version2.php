@@ -43,15 +43,18 @@
                     $connection = new TwitterOAuth($consumer_key, $consumer_secret, $oauth_token, $oauth_token_secret);
 
                     //4 - Start Querying
-                    $query = 'https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=spatio_temporel&count=1'; //Your Twitter API query
-                                      
-                    $content = $connection->get($query);                    
+                    $valeur_search = $_POST["search_valuer"];
+                   //$query = 'https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=spatio_temporel&count=1'; //Your Twitter API query
+                    $query = 'https://api.twitter.com/1.1/search/tweets.json?q=' . $valeur_search .'&result_type=recent' ;
+                    echo $query;
+                    $content = $connection->get($query);
+                    var_dump($content);
                     }
                    
 
                     if(!empty($consumer_key) && !empty($consumer_secret) && !empty($oauth_token) && !empty($oauth_token_secret)) {
                         
-                            if(!empty($content)){ foreach($content as $tweet){
+                       /*     if(!empty($content)){ foreach($content as $tweet){
                                 echo'
                                 <div class="twitter_status" id="'.$tweet->id_str.'">
                                     <div class="bloc_content">
@@ -66,6 +69,8 @@
                                     </div>
                                 </div>';
                             }}
+                        * */
+                        
                                 echo'
                             </p>
                             <div class="visualClear"></div>
