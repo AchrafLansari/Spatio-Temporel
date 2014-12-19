@@ -1,4 +1,6 @@
-<!doctype html>
+
+
+<?php echo '<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">';?>
 <html lang="en">
 	<head>
             <meta charset="utf-8">
@@ -8,25 +10,37 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 		<link rel="stylesheet" href="css/kontext.css">
 		<link rel="stylesheet" href="css/demo.css">
-               
+                <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+                <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
+
+                <link rel="stylesheet" href="">
+                 <script src="js/jquery-1.11.1.min.js"></script>	   
+
+                <script src="js/ge1doot.js"></script>
+                <script src = "js/muse.js"></script>
+                <script src="js/imageTransform3D.js"></script>
+                
+               
 	</head>
 	<body>
 		<article class="kontext">
 			<div class="layer one show">
 				<h2>Kontext</h2>
 				<p>A context-shift transition. Use the dots below or your keyboard arrows.</p>
-				<a class="github-ribbon" href="https://github.com/hakimel/kontext"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+				<a class="github-ribbon" href="https://github.com/hakimel/kontext"><img style="position: absolute; top: 0; right: 0; border: 0;"></a>
 			</div>
-			<div class="layer two"> <h2>Layer Two</h2> </div>
-			<div class="layer three"><h2>Layer Three</h2></div>
-                        <div class="layer"><h2>Layer for</h2></div>
-                        
+			<?php echo "<div class='layer two'> <h2>  Layer Two </h2> </div>" ?>
+			<?php echo "<div class='layer three'><h2> Layer Three </h2></div>" ?>
+                        <div class="layer four"> <canvas style="cursor: pointer;" height="631" width="1366" id="canvas">
+                                Your browser does not support the HTML5 canvas element</canvas>
+                        </div>
 		</article>
+	
 		<ul class="bullets"></ul>
-		<div class="share"><a href="https://twitter.com/share" class="twitter-share-button" data-url="http://lab.hakim.se/kontext" data-text="A context-shifting page transition by @hakimel" data-size="" data-related="hakimel" data-count="none">Tweet</a></div>
+		<div class="share"><a href="https://twitter.com/share" class="twitter-share-button" data-url="http://lab.hakim.se/kontext" data-text="A context-shifting page transition by @hakimel" data-size="" data-related="hakimel" data-count="none"></a></div>
 
-		<div class="credit">by <a href="http://hakim.se">Hakim El Hattab</a></div>
+		<div class="credit"> <a href="http://hakim.se"></a></div>
 
 		<script src="js/kontext.js"></script>
 		<script>
@@ -95,7 +109,7 @@
 
 		</script>
 
-		<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="http://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+		<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 
 	</body>
 </html>
