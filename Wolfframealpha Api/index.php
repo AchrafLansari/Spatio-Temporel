@@ -1,5 +1,5 @@
 <?php
-  include '../wa_wrapper/WolframAlphaEngine.php';
+  include 'wa_wrapper/WolframAlphaEngine.php';
 ?>
 <html>
 <head>
@@ -20,7 +20,7 @@ Search:
 <br><br>
 <hr>
 <?php  
-  $appID = 'PLACE_YOUR_APP_ID_HERE';
+  $appID = '6HGT3T-TLLQQEJH37';
 
   if (!$queryIsSet) die();
 
@@ -68,7 +68,7 @@ Search:
 <?php
           foreach ( $assumptions as $assumption ) {
 ?>
-            <li><?php echo $assumption->name ." - ". $assumption->description;?>, to change search to this assumption <a href="simpleRequest.php?q=<?php echo urlencode($_REQUEST['q']);?>&assumption=<?php echo $assumption->input;?>">click here</a></li>
+            <li><?php echo $assumption->name ." - ". $assumption->description;?>, to change search to this assumption <a href="index.php?q=<?php echo urlencode($_REQUEST['q']);?>&assumption=<?php echo $assumption->input;?>">click here</a></li>
 <?php
           }
 ?>
