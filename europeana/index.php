@@ -14,7 +14,7 @@
         $date_d = "1863";
         $date_f = "2014";
         $path = "http://www.europeana.eu/api/v2/search.json?wskey=".$key."&query=".$query;
-        $path2 = "http://europeana.eu/api/v2/search.json?wskey=".$key."&query=".$query."&qf=YEAR%3A%5B".$date_d."+TO+".$date_f."%5D&start=1&rows=24&profile=standard";
+        $path2 = "http://europeana.eu/api/v2/search.json?wskey=".$key."&query=".$query."&qf=YEAR%3A%5B".$date_d."+TO+".$date_f."%5D&start=1&rows=96&profile=standard";
         
         $json = file_get_contents($path2);
         $parsed_json = json_decode($json,true);
