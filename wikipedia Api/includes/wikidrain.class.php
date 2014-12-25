@@ -98,6 +98,9 @@ class wikidrain
             "rvsection={$section}",
         );
         $result = $this->callApi();
+        echo '<br>';
+        echo $result;
+        echo '<br>';
         $result = $this->parseText($result, $section);
         $this->release();
         return $result;
