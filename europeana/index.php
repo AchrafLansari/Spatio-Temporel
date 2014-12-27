@@ -10,15 +10,15 @@
 <?php
         
         $key = 'wRRkGVyyG';
-        $query= "Volubilis";
+        $query= "Paris";
         $date_d = "1863";
         $date_f = "2014";
-        $path = "http://www.europeana.eu/api/v2/search.json?wskey=".$key."&query=".$query;
+        $path = "http://www.europeana.eu/api/v2/search.json?wskey=".$key."&query=".$query."&rows=94";
         $path2 = "http://europeana.eu/api/v2/search.json?wskey=".$key."&query=".$query."&qf=YEAR%3A%5B".$date_d."+TO+".$date_f."%5D&start=1&rows=96&profile=standard";
         
-        $json = file_get_contents($path2);
+        $json = file_get_contents($path);
         $parsed_json = json_decode($json,true);
-        
+        echo '<br>';
         var_dump($parsed_json);
         
         echo '<br>'.count($parsed_json['items']).'<br>';
@@ -29,8 +29,22 @@
         $url_image = explode('?uri=', $items['edmPreview'][0]); 
         $url_image = explode('&size',$url_image[1]); 
        
-            
+        //echo 'Total items :'.$items['totalResults'].'<br>';
+         
+        //echo 'Fournisseurs :'.$items['dataProvider'][0].'<br>'; 
+        //echo 'Qualité sur 10 des metadatas :'.$items['completeness'].'<br>';
+        //echo 'Lien externes vers l'article :'.$items['guid'].'<br>';
+        //echo 'Lien json pour recuperer informations de l'article :'.$items['link'].'<br>';
+        //echo 'Liens Copiryght de l'article :'.$items['rights'][0].'<br>';
+        //echo 'Type :'.$items['type'].'<br>';
+        //echo 'Contexte temporel  array a retravailler :'.$items['edmTimespanLabel'].'<br>';
+        
+        
         echo $items['id'].'===>'.$items['dcCreator'][0].'===>'.$items['title'][0].'<br>';
+        if($items['edmPlaceLatitude'][0] && $items['edmPlaceLongitude'][0]){
+        echo $items['edmPlaceLatitude'][0]." , ".$items['edmPlaceLongitude'][0]."<br>";
+        echo $items['year'][0];
+        }
         //echo '<img src='.$items['edmPreview'][0].'>';    
         echo '<img src='.urldecode($url_image[0]).'>';
         
