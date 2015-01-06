@@ -4,28 +4,37 @@
         
         $rand_keys = array();
         $band_keys1 = array();
+         $rand_afficher = array();
+         
        for($i = 0 ; $i < count($tab_mots); $i++) {
            
-             // jaffiche bien les payes par random  
-              $band_keys1 = "_" . $tab_mots[mt_rand (0, count($tab_mots)-1)] . "<br>";
-              
-              // mais ici quand je recupire le derniere caractere j'arrive 
-               $rand_afficher = substr($band_keys1,strlen($band_keys1)-2, 1);
+              $band_keys1 =  $tab_mots[mt_rand (0, count($tab_mots)-1)];
                
-              //ici je teste  la derniere caractere 
-              
-           // echo $band_keys1 . " ->" . strlen(count($band_keys1)) . "<br>";
-          /*   if(strcmp($rand_afficher ,"e")==0){
-                 echo "en_" .  $band_keys1 . "<br>";
+              //var_dump(rtrim($band_keys1));
+               $rand_afficher = substr(rtrim($band_keys1) , -1);
+             //  var_dump($rand_afficher);
+//var_dump(substr($band_keys1 ,0,strlen($band_keys1)));
+            if($rand_afficher =='e'){
+               // Combodge,Mexique,Mozambique, Zaïre Zimbabwe
+                if( (substr(rtrim($band_keys1) ,0,strlen(rtrim($band_keys1)))=='Mexique' ) 
+                     or (substr(rtrim($band_keys1) ,0,strlen(rtrim($band_keys1)))=='Combodge' )
+                     or (substr(rtrim($band_keys1) ,0,strlen(rtrim($band_keys1)))=='Mozambique' )
+                     or  (substr(rtrim($band_keys1) ,0,strlen(rtrim($band_keys1)))=='Zaïre Zimbabwe' )
+                  )  
+                {
+                    echo "au_"  .(substr($band_keys1 ,0,strlen($band_keys1)))  .  "<br>";
+                    
+                }
+                else
+                 echo "en_"  .substr($band_keys1 , 0,strlen($band_keys1)) .   "<br>";
              }
              else {
-                 echo "au_" . $band_keys1 . "<br>";
+                 echo "au_"  .substr($band_keys1 ,0,strlen($band_keys1))  .  "<br>";
              }         
-           * 
-           */
+           
         }
   
-         afficher($band_keys1);
+        
 	function tokenisation($separateurs, $texte) 
 	{
 		$arrayElements = array();
@@ -46,7 +55,7 @@
             $i=0;
 		foreach($tab_mots as $valeur) 
 		{
-			echo "$i => " . $valeur. strlen($valeur). "<br>";
+			echo  $valeur. "<br>";
                         $i++;
 		}
 	}
