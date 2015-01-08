@@ -5,8 +5,6 @@
         $rand_keys = array();
         $band_keys1 = array();
          $rand_afficher = array();
-         
-       for($i = 0 ; $i < count($tab_mots); $i++) {
            
               $band_keys1 =  $tab_mots[mt_rand (0, count($tab_mots)-1)];
                
@@ -31,8 +29,6 @@
              else {
                  echo "au_"  .substr($band_keys1 ,0,strlen($band_keys1))  .  "<br>";
              }         
-           
-        }
   
         
 	function tokenisation($separateurs, $texte) 
