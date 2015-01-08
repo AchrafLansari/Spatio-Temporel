@@ -7,34 +7,17 @@ body{
 	font-size:13px;
 	color:#eee;
 	font-family:Arial, Helvetica, sans-serif;
-	background:url('img/bg.jpg') repeat-x #718693;
+	background:url('img/bg.jpg') repeat-x #eee;
 }
 
 #page{
 	/* The main container div */
 	width:620px;
 	margin:100px auto 0;
+        margin-top: 2px;
 }
 
-h1{
-	font-family:Corbel,'Myriad Pro',Arial, Helvetica, sans-serif;
-	background:url('img/heading.png') no-repeat center top;
-	text-indent:-9999px;
-	overflow:hidden;
-	height:90px;
-}
 
-#searchForm{
-	/* The search form. */
-	
-	padding:50px 50px 30px;
-	margin:80px 0;
-	position:relative;
-
-	-moz-border-radius:16px;
-	-webkit-border-radius:16px;
-	border-radius:16px;
-}
 
 fieldset{
 	border:none;

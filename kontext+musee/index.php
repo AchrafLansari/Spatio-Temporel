@@ -28,7 +28,8 @@
 				<p>A context-shift transition. Use the dots below or your keyboard arrows.</p>
 			</div>
 			<?php echo "<div class='layer two'> <h2>  Layer Two </h2> </div>" ?>
-			<?php echo "<div class='layer three'><h2> Layer Three </h2></div>" ?>
+			<?php echo "<div class='layer three'><h2> Layer Three"
+                        . " </h2></div>" ?>
                         <div class="layer four"> <canvas style="cursor: pointer;" height="631" width="1366" id="canvas">
                                 Your browser does not support the HTML5 canvas element</canvas>
                         </div>
