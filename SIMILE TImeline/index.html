@@ -106,7 +106,11 @@ getMaxVisibleDate()
 			}
 			#EmplacementDeMaCarte {
                              margin-top: 12px;
+
+                             height: 85%;
+
                              height: 100%;
+
 			}
 		</style>
 		<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false&libraries=panoramio"></script>
@@ -188,14 +192,12 @@ getMaxVisibleDate()
                
                </div>
          </div>
-      <div id="EmplacementDeMaCarte">
-
- </div>
-      
-
-        <div id="page">    
+      <div id="EmplacementDeMaCarte" style="position: fixed; z-index: -1;">           
+	  
+    </div>
+      <div id="page" >    
             <form id="searchForm" method="post">        
-                <fieldset>        
+                <fieldset >        
                         <input id="s" type="text" />            
                     <input type="submit" value="Submit" id="submitButton" />          
 
@@ -214,7 +216,8 @@ getMaxVisibleDate()
         </div>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
         <script src="script.js"></script>
-		
+ 
+       	
 
 
 <!-- It would be great if you leave the link back to the tutorial. Thanks! -->
