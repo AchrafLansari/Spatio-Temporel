@@ -1,4 +1,12 @@
 $(document).ready(function(){
+    
+    var datastring; 
+    
+    $(".images").each(function(){
+    datastring = $(this).attr('src')+",";
+   
+    });
+    
    
    $('#valider').click(function(){
        
