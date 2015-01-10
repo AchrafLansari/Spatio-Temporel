@@ -11,19 +11,15 @@ $password = 'secret';
 try
 {
     $wiki = new Wikimate($api_url);
-    if ($wiki->login($username,$password))
-        echo 'Success: user logged in.' ;
-    else {
-        $error = $wiki->getError();
-        echo "<b>Wikimate error</b>: ".$error['login'];
-    }
+    
 }
 catch ( Exception $e )
 {
-    echo "<b>Wikimate error</b>: ".$e->getMessage();
+    echo "<b>Wikimate error 2</b>: ".$e->getMessage();
 }
 
 $page = $wiki->getPage('Liste_du_patrimoine_mondial_au_Maroc');
+var_dump($page);
 // check if the page exists or not
 if ( $page->exists() ) die();
 

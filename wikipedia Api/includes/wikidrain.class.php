@@ -98,12 +98,12 @@ class wikidrain
             "rvsection={$section}",
         );
         $result = $this->callApi();
-        echo '<br>';
+        /*echo '<br>';
         echo $result;
-        echo '<br>';
+        echo '<br>';*/
         $result = $this->parseText($result, $section);
         $this->release();
-        return $result;
+        return utf8_decode($result);
     }
 
     /**
