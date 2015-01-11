@@ -45,6 +45,7 @@ if (!$page->exists() ) {
 	echo "'Sausages' doesn't exist.\n";
 
 } else {
+        /*
 	// get the page title
 	echo "Title: ".$page->getTitle()."<br>";
 	// get the number of sections on the page
@@ -60,18 +61,33 @@ if (!$page->exists() ) {
         
         //liste patrimoine mondiale
         echo "<br>".utf8_decode($page->getSection('Patrimoine mondial'))."<br>";
-        $section = utf8_decode($page->getSection('Patrimoine mondial'));
+        
         //echo 'page : <br>';
         //echo $page->getText(true);
-        
-        echo '<br> TEST : <br>';
-        $tab = tokenization($section,"[{}]",0,1);
+        */
+        $section = utf8_decode($page->getSection('Patrimoine mondial'));
+        $tab = tokenization($section,"{}",0,1);
         
         
         // commence par 1 pour enlever le titre inutile 
         for($i=1;$i<count($tab);$i++){
-            echo $tab[$i].'<br>';
-            //print_r(tokenization($tab[$i],"|",0,1)).'<br>';
+           // echo $tab[$i].'<br>';
+            
+            $coord = explode("name=", $tab[$i]);
+            
+            if (isset($coord[1])) { 
+               echo $coord[1].'<br>';
+            }
+            $lien = explode("http", $tab[$i]);
+            
+            if (isset($lien[1])) { 
+               //echo "http".substr($lien[1],0,strlen($lien[1])-7).'<br>';
+                $lien_final = explode("]",$lien[1]);
+                echo "http".$lien_final[0].'<br>';
+                
+            }
+            
+            
         }
   
         
