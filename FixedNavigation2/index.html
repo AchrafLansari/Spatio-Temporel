@@ -10,18 +10,11 @@
     <body>
         <div class="header"></div>
         <div class="scroll"></div>
-        <ul id="navigation">
-            <li class="home"><a   title="Score"> <div id="score"> <img id="icn_score" src="icones/Etoile.png"/>  150 ||<img id="icn_niveau" src="icones/Niveau.png"/> 2/15 </div></a></li>  
-        </ul>
-        
+     
         <ul id="legende">
             <li class=""><a  title="legende"> <div id="legende1">  </div><div id="legende2"> </div> </a></li>  
-        </ul>
-
-       
-        <a href="#?w=500" rel="popup_name" class="poplight">Play the mini-game</a>
-        
-        
+        </ul>     
+               
         <div id="popup_name" class="popup_block">
                 <h2>Mini jeu </h2>
                 <p>Description </p>
@@ -45,7 +38,7 @@
 
                 $('#legende > li').hover(
                     function () {
-                        $('a',$(this)).stop().animate({'marginLeft':'-200px'},1000);
+                        $('a',$(this)).stop().animate({'marginLeft':'-450px'},1000);
                     },
                     function () {
                         $('a',$(this)).stop().animate({'marginLeft':'80px'},1000);
