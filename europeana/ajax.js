@@ -2,10 +2,6 @@ $(document).ready(function(){
     
     var datastring; 
     
-    $(".images").each(function(){
-    datastring = $(this).attr('src')+",";
-   
-    });
     
    
    $('#valider').click(function(){
@@ -25,26 +21,13 @@ $(document).ready(function(){
                         {   
                            
                             
-                         if(data['correction'] != undefined){
-                            
-                         $('#correction').append(data['correction']); 
-                         $('#output').html(" "); 
-                        
-                         }else {
-                             
-                            data.forEach(function(entry) {
-                             
-                             $('#correction').html(" "); 
-                            
-                            var titre = entry['titre'];
-                            var url = entry['url'];           
-                            var poids = entry['poids']; 
+                         
       
                             $('#output').html("<b> mot: </b>"+requete+"<b>titre: </b>"+titre+"<b> url: </b>"+url+"<b> poids: </b>"+poids);     //Set output element html
                          
                     
-                            });   
-                         }
+                            
+                         
                         } 
     });
     
@@ -52,7 +35,7 @@ $(document).ready(function(){
    
    
    
-   $('#requete-corpus').bind("enterKey",function(e){
+   /*$('#requete-corpus').bind("enterKey",function(e){
         
         
     });
@@ -63,7 +46,7 @@ $(document).ready(function(){
         {
         $(this).trigger("enterKey");
         }   
-    });
+    });*/
    
     
 });

@@ -1,49 +1,15 @@
-<!DOCTYPE html>
-<a href="index.php"></a>
 
-<html>
-    <head>
-      <meta http-equiv="content-type" content="text/html; charset=utf-8" />  
-    </head>
-    <body>
-         <div class="input-group input-group-lg" style="margin-top: 100px;margin-left: 350px;width:350px;" >
-                <span class="input-group-addon">#</span>
-                <input type="text" id="requete" class="form-control" placeholder="Recherche Par Tag">
-            </div>
-        
-        <input id="valider"  class="btn btn-lg btn-success " type="button" value="Valider" style="margin-left:500px;margin-top: 35px;">
 <?php
         
         $key = 'wRRkGVyyG';
-        $query= "Paris";
-        $date_d = "1863";
-        $date_f = "2014";
+        $query= $_POST['query'];
+        $rows= $_POST['rows'];
         
         
-        $path = "http://www.europeana.eu/api/v2/search.json?wskey=".$key."&query=".$query."&rows=94";
-        
-        $path2 = "http://europeana.eu/api/v2/search.json?wskey=".$key."&query=".$query."&qf=YEAR%3A%5B".$date_d."+TO+".$date_f."%5D&start=1&rows=96&profile=standard";
-        
-        //search of person  des resultats sans geoposition ni year
-        $path3 = "http://www.europeana.eu/api/v2/search.json?wskey=".$key."&query=who:Leonardo+da+Vinci";
-        
-        //http://www.europeana.eu/api/v2/search.json?wskey=xxxx&query=mona+AND+lisa a executer au query
-        
-        // search of place or many with OR like the example : a corriger
-        $path4 ="http://www.europeana.eu/api/v2/search.json?wskey=".$key."&query=where:(Paris+OR+London)";
-        
-        // search with latitude + longitude 
-        $path5 = "http://www.europeana.eu/api/v2/search.json?wskey=".$key."&query=pl_wgs84_pos_lat:[45+TO+47]+AND+pl_wgs84_pos_long:[7+TO+8]";
-        
-        // search with concatenation
-        $path6 = "http://www.europeana.eu/api/v2/search.json?wskey=".$key."&query=Westminster&qf=where:London";
-        
-        // search with image type only 
-        $path7 = "http://www.europeana.eu/api/v2/search.json?wskey=".$key."&query=Paris&qf=TYPE:IMAGE";
-        
-        //search with range date 
-        $path8 ="http://www.europeana.eu/api/v2/search.json?wskey=".$key."&query=timestamp_created:[2013-11-01T00:00:0.000Z+TO+2013-12-01T00:00:00.000Z]";
-        
+        if($_POST){
+            
+        $path = "http://www.europeana.eu/api/v2/search.json?wskey=".$key."&query=".$query."&rows=".$rows;
+           
         $json = file_get_contents($path);
         $parsed_json = json_decode($json,true);
         
@@ -120,11 +86,8 @@
         }else { 
             echo "Recherche Introuvable"; 
         }
-       
+        }
               //Note il faut voir la possibilités de récuperer le contenu des types textes 
 
 ?>      
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> 
-        <script src="ajax.js"></script>
-    </body>
-</html>
+        
