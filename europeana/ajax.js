@@ -1,6 +1,6 @@
 $(document).ready(function(){
     
-    var datastring; 
+     
     
     
    
@@ -8,27 +8,35 @@ $(document).ready(function(){
        
        
        var requete = $('#requete').val();
-       var dataString = 'requete='+requete;
-       
-       
+       var rows = $('#rows').val();
+       var dataString="query='"+requete+"'&rows="+rows;
+       /*{ query : requete,
+                                rows : rows
+                              },*/
        
        $.ajax({
+                        url: "requete/simple.php",
                         type: "POST",
-                        url: "select.php",
-                        data: dataString,
-		    	dataType: 'json',                //data format      
+                        dataType: 'json',
+                        data: { query : requete,
+                                rows : rows
+                              },
                         success: function(data)          //on recieve of reply
                         {   
-                           
+                           console.log('Response received : '+data["completeness"]);
                             
-                         
-      
-                            $('#output').html("<b> mot: </b>"+requete+"<b>titre: </b>"+titre+"<b> url: </b>"+url+"<b> poids: </b>"+poids);     //Set output element html
-                         
+                           // data.forEach(function(entry) {
+                           //     $('#output').append(entry["completeness"]+"==>"+entry["IMAGE"]);     //Set output element html
+                           // });
+                            
+                            
+                            
                     
                             
                          
-                        } 
+                        },error : function(xhr, status){
+                            console.log(status);
+                        }
     });
     
    });

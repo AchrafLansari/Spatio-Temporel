@@ -6,14 +6,22 @@
       <meta http-equiv="content-type" content="text/html; charset=utf-8" />  
     </head>
     <body>
-         <div class="input-group input-group-lg" style="margin-top: 100px;margin-left: 350px;width:350px;" >
+            <div class="input-group input-group-lg" style="margin-top: 100px;margin-left: 350px;width:350px;" >
                 <span class="input-group-addon">#</span>
                 <input type="text" id="requete" class="form-control" placeholder="Recherche Par Tag">
             </div>
+            <select name="select" id="rows">
+                <option value="12">12</option> 
+                <option value="24" selected>24</option>
+                <option value="36">36</option>
+                <option value="48">48</option>
+                <option value="96">96 </option>
+            </select>
+        
         
         <input id="valider"  class="btn btn-lg btn-success " type="button" value="Valider" style="margin-left:500px;margin-top: 35px;">
 <?php
-        
+        /*
         $key = 'wRRkGVyyG';
         $query= "Paris";
         $date_d = "1863";
@@ -122,8 +130,9 @@
         }
        
               //Note il faut voir la possibilités de récuperer le contenu des types textes 
-
+*/
 ?>      
+        <div id="output"></div>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> 
         <script src="ajax.js"></script>
     </body>
