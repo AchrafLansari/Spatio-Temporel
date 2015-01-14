@@ -1,7 +1,7 @@
 $(document).ready(function(){
     
      
-    
+    $('.bubblingG').css('display','none');
     
    
    $('#valider').click(function(){
@@ -10,9 +10,8 @@ $(document).ready(function(){
        var requete = $('#requete').val();
        var rows = $('#rows').val();
        var dataString="query='"+requete+"'&rows="+rows;
-       /*{ query : requete,
-                                rows : rows
-                              },*/
+       
+       $('.bubblingG').css('display','block');
        
        $.ajax({
                         url: "requete/simple.php",
@@ -24,8 +23,9 @@ $(document).ready(function(){
                         success: function(data)          //on recieve of reply
                         {   
                            //console.log('Response received : '+data["completeness"]);
-                            
+                           $('.bubblingG').css('display','none'); 
                            data.forEach(function(entry) {
+                                
                                 $('#output').append(entry["completeness"]+"==>"+entry["image"]+"<br>");     //Set output element html
                           });
                             
