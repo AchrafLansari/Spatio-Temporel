@@ -24,67 +24,33 @@
 
           
                 <?php
-
-                    //1 - Settings (please update to math your own)
                     $consumer_key='dva9Y9gdPEcVOTVMxtKzwukj1'; //Provide your application consumer key
                     $consumer_secret='F4LFXaglwhNGvoPrjrozo7LXFY3bcarna5fo8lPm0QK5sZqWAb'; //Provide your application consumer secret
                     $oauth_token = '2893405781-ooi2dg0Kma7lqaLM94Q1Y1N8cy3Wl83vhc5hHod'; //Provide your oAuth Token
                     $oauth_token_secret = 'C3g1cpdk1kYt6EBIdqb5BSvyB71sLo09mPooj6CEeQ3m2'; //Provide your oAuth Token Secret
-					  
-                    //You can now copy paste the folowing
-
-                    if(!empty($consumer_key) && !empty($consumer_secret) && !empty($oauth_token) && !empty($oauth_token_secret)) {
-
-                    //2 - Include @abraham's PHP twitteroauth Library
+		    if(!empty($consumer_key) && !empty($consumer_secret) && !empty($oauth_token) && !empty($oauth_token_secret)) {
                     require_once('twitteroauth/twitteroauth.php');
-
-                    //3 - Authentication
-                    /* Create a TwitterOauth object with consumer/user tokens. */
                     $connection = new TwitterOAuth($consumer_key, $consumer_secret, $oauth_token, $oauth_token_secret);
-
-                    //4 - Start Querying
                     $valeur_search = $_POST["search_valuer"];
-                   //$query = 'https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=spatio_temporel&count=1'; //Your Twitter API query
                     $query = 'https://api.twitter.com/1.1/search/tweets.json?q=' . $valeur_search .'&result_type=recent' ;
-                    echo $query.'<br><br>';
-                    $content = $connection->get($query);
-                   
-                    }
-                   
-                    echo '<br> <h1> Status : </h1> <br>' ;
-                    
-
-                    if(!empty($consumer_key) && !empty($consumer_secret) && !empty($oauth_token) && !empty($oauth_token_secret)) {
-                        
+                   // echo $query.'<br><br>';
+                    $content = $connection->get($query);                   
+                    }                   
+                    //echo '<br> <h1> Status : </h1> <br>' ;                   
+                    if(!empty($consumer_key) && !empty($consumer_secret) && !empty($oauth_token) && !empty($oauth_token_secret)) {                        
                             if(!empty($content)){ foreach($content->statuses as $tweet){
-                                echo'
-                                <div class="twitter_status" id="'.$tweet->id_str.'">
-                                    <div class="bloc_content">
-                                        <p class="status tw_status">'.parseTweet($tweet->text).'</p>
-                                    </div>
-                                    <div class="bloc_caption">
-                                        <a href="http://twitter.com/'.$tweet->user->screen_name.'">
-                                            <img src="'.$tweet->user->profile_image_url.'" alt="@'.$tweet->user->name.'" class="userimg tw_userimg"/>
-                                            <span class="username tw_username">@'.$tweet->user->screen_name.'</span>
-                                        </a>
-                                        <span class="timestamp tw_timestamp">'.date('d M / H:i',strtotime($tweet->created_at)).'</span>
-                                    </div>
-                                </div>';
+                                echo '
+                                <div id="'.$tweet->id_str.'">                                    
+                                    <p >'.parseTweet($tweet->text).'</p>
+                                </div>
+                                ';
                             }}
-                        
-                        
-                                echo'
-                            </p>
-                            <div class="visualClear"></div>
-                        </div>';
+
+                            
                     } else {
                         echo'<p>Please update your settings to provide valid credentials</p>';
                     }
-                    echo '</div>';
-
-/*
- * Transform Tweet plain text into clickable text
- */
+                    
 function parseTweet($text) {
     $text = preg_replace('#http://[a-z0-9._/-]+#i', '<a  target="_blank" href="$0">$0</a>', $text); //Link
     $text = preg_replace('#@([a-z0-9_]+)#i', '@<a  target="_blank" href="http://twitter.com/$1">$1</a>', $text); //usernames
@@ -92,17 +58,8 @@ function parseTweet($text) {
     $text = preg_replace('#https://[a-z0-9._/-]+#i', '<a  target="_blank" href="$0">$0</a>', $text); //Links
     return $text;
 }
+?>
 
-                ?>
-            </section>
-        </div>
-    </article>
-</section>
-	</div><!-- #main -->
-
-	<div class="visualClear"></div>
-
- </div><!-- #wrapper -->
 
 </body>
 </html>
