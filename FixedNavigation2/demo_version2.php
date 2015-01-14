@@ -7,7 +7,7 @@
         <script type="text/javascript" src="jquery-1.3.2.js"></script>
         <meta name="viewport" content="width=device-width,initial-scale=1"/>
         <link rel="profile" href="http://gmpg.org/xfn/11" />
-        <link rel="stylesheet" type="text/css" media="all" href="skinNoe/skin.css" />
+        
         <meta name='robots' content='noindex,nofollow' />
         <link rel='stylesheet' id='demo-css'  href='twitterapi.css' type='text/css' media='all' />
         <meta name="description" content="How to use the latest Twitter 1.1 API, by NOE Interactive, by NOE Interactive" />
@@ -31,41 +31,42 @@
                     ?> 
            
 
-        <ul id="legende">
+        
             
-            <li class="">
+            
                 
-                <a  title="legende"> 
-                    <div id="legende1">  
+                
+            <div id="legende1">  
             <?php
 		    if(!empty($consumer_key) && !empty($consumer_secret) && !empty($oauth_token) && !empty($oauth_token_secret)) {
                     require_once('twitteroauth/twitteroauth.php');
                     $connection = new TwitterOAuth($consumer_key, $consumer_secret, $oauth_token, $oauth_token_secret);
                     $valeur_search = $_POST["search_valuer"];
-                    $query = 'https://api.twitter.com/1.1/search/tweets.json?q=' . $valeur_search .'&result_type=recent' ;
+                    $query = 'https://api.twitter.com/1.1/search/tweets.json?q=' . $valeur_search .'&result_type=recent&count=6' ;
                    // echo $query.'<br><br>';
-                    $content = $connection->get($query);                   
+                    $content = $connection->get($query);      
+                    
                     }                   
-                                       
+                    echo  '<ul id="legende">';
+                    echo '<li class=""><a  title="legende">';
                     if(!empty($consumer_key) && !empty($consumer_secret) && !empty($oauth_token) && !empty($oauth_token_secret)) {                        
-                            if(!empty($content)){ foreach($content->statuses as $tweet){
+                            if(!empty($content)){ 
+                                
+                                foreach($content->statuses as $tweet){
                                  
-                                echo '<p>' . parseTweet($tweet->text) . '</p>';
+                                echo '<div id="tweet"> ' . $tweet->text . '</div>';
                                
                                  }}
                         
                     } else {
                         echo'<p>Please update your settings to provide valid credentials</p>';
                     }
-                    
+                    echo '</a></li>';
+                    echo '</ul>';
                 ?>
         </div>
-                    <div id="legende2"> 
-                        
-                    </div>
-                </a>
-            </li>  
-        </ul>  
+                    
+             
 
         <?php
 function parseTweet($text) {
