@@ -133,149 +133,149 @@
 */
 ?>      
         <style>
-.bubblingG {
-text-align: center;
-width:250px;
-height:156px;
-}
+            .bubblingG {
+            text-align: center;
+            width:250px;
+            height:156px;
+            }
 
-.bubblingG span {
-display: inline-block;
-vertical-align: middle;
-width: 31px;
-height: 31px;
-margin: 78px auto;
-background: #000000;
--moz-border-radius: 157px;
--moz-animation: bubblingG 1.2s infinite alternate;
--webkit-border-radius: 157px;
--webkit-animation: bubblingG 1.2s infinite alternate;
--ms-border-radius: 157px;
--ms-animation: bubblingG 1.2s infinite alternate;
--o-border-radius: 157px;
--o-animation: bubblingG 1.2s infinite alternate;
-border-radius: 157px;
-animation: bubblingG 1.2s infinite alternate;
-}
+            .bubblingG span {
+            display: inline-block;
+            vertical-align: middle;
+            width: 31px;
+            height: 31px;
+            margin: 78px auto;
+            background: #000000;
+            -moz-border-radius: 157px;
+            -moz-animation: bubblingG 1.2s infinite alternate;
+            -webkit-border-radius: 157px;
+            -webkit-animation: bubblingG 1.2s infinite alternate;
+            -ms-border-radius: 157px;
+            -ms-animation: bubblingG 1.2s infinite alternate;
+            -o-border-radius: 157px;
+            -o-animation: bubblingG 1.2s infinite alternate;
+            border-radius: 157px;
+            animation: bubblingG 1.2s infinite alternate;
+            }
 
-#bubblingG_1 {
--moz-animation-delay: 0s;
--webkit-animation-delay: 0s;
--ms-animation-delay: 0s;
--o-animation-delay: 0s;
-animation-delay: 0s;
-}
+            #bubblingG_1 {
+            -moz-animation-delay: 0s;
+            -webkit-animation-delay: 0s;
+            -ms-animation-delay: 0s;
+            -o-animation-delay: 0s;
+            animation-delay: 0s;
+            }
 
-#bubblingG_2 {
--moz-animation-delay: 0.36s;
--webkit-animation-delay: 0.36s;
--ms-animation-delay: 0.36s;
--o-animation-delay: 0.36s;
-animation-delay: 0.36s;
-}
+            #bubblingG_2 {
+            -moz-animation-delay: 0.36s;
+            -webkit-animation-delay: 0.36s;
+            -ms-animation-delay: 0.36s;
+            -o-animation-delay: 0.36s;
+            animation-delay: 0.36s;
+            }
 
-#bubblingG_3 {
--moz-animation-delay: 0.72s;
--webkit-animation-delay: 0.72s;
--ms-animation-delay: 0.72s;
--o-animation-delay: 0.72s;
-animation-delay: 0.72s;
-}
+            #bubblingG_3 {
+            -moz-animation-delay: 0.72s;
+            -webkit-animation-delay: 0.72s;
+            -ms-animation-delay: 0.72s;
+            -o-animation-delay: 0.72s;
+            animation-delay: 0.72s;
+            }
 
-@-moz-keyframes bubblingG {
-0% {
-width: 31px;
-height: 31px;
-background-color:#000000;
--moz-transform: translateY(0);
-}
+            @-moz-keyframes bubblingG {
+            0% {
+            width: 31px;
+            height: 31px;
+            background-color:#000000;
+            -moz-transform: translateY(0);
+            }
 
-100% {
-width: 75px;
-height: 75px;
-background-color:#FFFFFF;
--moz-transform: translateY(-66px);
-}
+            100% {
+            width: 75px;
+            height: 75px;
+            background-color:#FFFFFF;
+            -moz-transform: translateY(-66px);
+            }
 
-}
+            }
 
-@-webkit-keyframes bubblingG {
-0% {
-width: 31px;
-height: 31px;
-background-color:#000000;
--webkit-transform: translateY(0);
-}
+            @-webkit-keyframes bubblingG {
+            0% {
+            width: 31px;
+            height: 31px;
+            background-color:#000000;
+            -webkit-transform: translateY(0);
+            }
 
-100% {
-width: 75px;
-height: 75px;
-background-color:#FFFFFF;
--webkit-transform: translateY(-66px);
-}
+            100% {
+            width: 75px;
+            height: 75px;
+            background-color:#FFFFFF;
+            -webkit-transform: translateY(-66px);
+            }
 
-}
+            }
 
-@-ms-keyframes bubblingG {
-0% {
-width: 31px;
-height: 31px;
-background-color:#000000;
--ms-transform: translateY(0);
-}
+            @-ms-keyframes bubblingG {
+            0% {
+            width: 31px;
+            height: 31px;
+            background-color:#000000;
+            -ms-transform: translateY(0);
+            }
 
-100% {
-width: 75px;
-height: 75px;
-background-color:#FFFFFF;
--ms-transform: translateY(-66px);
-}
+            100% {
+            width: 75px;
+            height: 75px;
+            background-color:#FFFFFF;
+            -ms-transform: translateY(-66px);
+            }
 
-}
+            }
 
-@-o-keyframes bubblingG {
-0% {
-width: 31px;
-height: 31px;
-background-color:#000000;
--o-transform: translateY(0);
-}
+            @-o-keyframes bubblingG {
+            0% {
+            width: 31px;
+            height: 31px;
+            background-color:#000000;
+            -o-transform: translateY(0);
+            }
 
-100% {
-width: 75px;
-height: 75px;
-background-color:#FFFFFF;
--o-transform: translateY(-66px);
-}
+            100% {
+            width: 75px;
+            height: 75px;
+            background-color:#FFFFFF;
+            -o-transform: translateY(-66px);
+            }
 
-}
+            }
 
-@keyframes bubblingG {
-0% {
-width: 31px;
-height: 31px;
-background-color:#000000;
-transform: translateY(0);
-}
+            @keyframes bubblingG {
+            0% {
+            width: 31px;
+            height: 31px;
+            background-color:#000000;
+            transform: translateY(0);
+            }
 
-100% {
-width: 75px;
-height: 75px;
-background-color:#FFFFFF;
-transform: translateY(-66px);
-}
+            100% {
+            width: 75px;
+            height: 75px;
+            background-color:#FFFFFF;
+            transform: translateY(-66px);
+            }
 
-}
+            }
 
-</style>
-<div class="bubblingG">
-<span id="bubblingG_1">
-</span>
-<span id="bubblingG_2">
-</span>
-<span id="bubblingG_3">
-</span>
-</div>        
+            </style>
+            <div class="bubblingG">
+            <span id="bubblingG_1">
+            </span>
+            <span id="bubblingG_2">
+            </span>
+            <span id="bubblingG_3">
+            </span>
+            </div>        
         <div id="output"></div>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> 
         <script src="ajax.js"></script>
