@@ -23,11 +23,11 @@ $(document).ready(function(){
                               },
                         success: function(data)          //on recieve of reply
                         {   
-                           console.log('Response received : '+data["completeness"]);
+                           //console.log('Response received : '+data["completeness"]);
                             
-                           // data.forEach(function(entry) {
-                           //     $('#output').append(entry["completeness"]+"==>"+entry["IMAGE"]);     //Set output element html
-                           // });
+                           data.forEach(function(entry) {
+                                $('#output').append(entry["completeness"]+"==>"+entry["image"]+"<br>");     //Set output element html
+                          });
                             
                             
                             

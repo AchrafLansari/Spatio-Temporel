@@ -27,7 +27,7 @@
         
        // echo '<br>'.count($parsed_json['items']).'<br>';
         $data2 =array();
-        $data = array('completeness'=>array(),'type'=>array(),'id'=>array(),'image'=>array());
+        
         $i=0;
         foreach ($parsed_json['items'] as $items) {
          
@@ -63,9 +63,9 @@
         //echo 'Contexte temporel  array a retravailler :'.$items['edmTimespanLabel'].'<br>';
         
         //echo 'Qualité sur 10 des metadatas :';
-        array_push($data['completeness'],$items['completeness']);
-        array_push($data['type'],$items['type']);
-        array_push($data['id'],$items['id']);
+        $data2[$i] = array('completeness'=>$items['completeness'],'type'=>$items['type'],'id'=>$items['id'],'image'=>urldecode($url_image[0]));
+        
+        
         
         
         //if(isset($items['dcCreator'][0])){echo  $items['dcCreator'][0].'<br>';}
@@ -86,8 +86,8 @@
         //echo '<img  width="50px" height="50px" src='.$items['edmPreview'][0].'>';    
         //echo '<img  class="images" width="250px" height="250px"  src='.urldecode($url_image[0]).'>';
         
-        array_push($data['image'],urldecode($url_image[0]));
-        $data2[$i] = $data['completeness'][$i];
+        //array_push($data['image'],urldecode($url_image[0]));
+        //$data2[$i] = $data['completeness'][$i];
         $i++;
         }
          
