@@ -32,9 +32,10 @@
                     require_once('twitteroauth/twitteroauth.php');
                     $connection = new TwitterOAuth($consumer_key, $consumer_secret, $oauth_token, $oauth_token_secret);
                     $valeur_search = $_POST["search_valuer"];
-                    $query = 'https://api.twitter.com/1.1/search/tweets.json?q=' . $valeur_search .'&result_type=recent' ;
+                    $query = 'https://api.twitter.com/1.1/search/tweets.json?q=' . $valeur_search .'&result_type=mixed&geocode=48.8534100,2.3488000,1mi&count=1000' ;
                    // echo $query.'<br><br>';
-                    $content = $connection->get($query);                   
+                    $content = $connection->get($query);  
+                    var_dump($content);
                     }                   
                     //echo '<br> <h1> Status : </h1> <br>' ;                   
                     if(!empty($consumer_key) && !empty($consumer_secret) && !empty($oauth_token) && !empty($oauth_token_secret)) {                        
