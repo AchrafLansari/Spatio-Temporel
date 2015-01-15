@@ -2,6 +2,7 @@
 
 include 'globals.php';
 
+
 function tokenization ($text,$delimiteurs,$nb_carac,$state)
         {
             $arrayElements = array();
@@ -34,11 +35,47 @@ $api_url = 'http://fr.wikipedia.org/w/api.php';
 
 
 $wiki = new Wikimate($api_url);
+
+
+
+
+
+
 #$wiki->setDebugMode(TRUE);
-
-
-
-$page = $wiki->getPage('Liste_du_patrimoine_mondial_en_France');
+$texte = file_get_contents("pays.txt");
+	$tab_mots = tokenization($texte , "\n",0,1); 
+        
+        $rand_keys = array();
+        $band_keys1 = array();
+         $rand_afficher = array();
+           
+              $band_keys1 =  $tab_mots[mt_rand (0, count($tab_mots)-1)];
+               
+              //var_dump(rtrim($band_keys1));
+               $rand_afficher = substr(rtrim($band_keys1) , -1);
+             //  var_dump($rand_afficher);
+//var_dump(substr($band_keys1 ,0,strlen($band_keys1)));
+            if($rand_afficher =='e'){
+               // Combodge,Mexique,Mozambique, Zaïre Zimbabwe
+                if( (substr(rtrim($band_keys1) ,0,strlen(rtrim($band_keys1)))=='Mexique' ) 
+                     or (substr(rtrim($band_keys1) ,0,strlen(rtrim($band_keys1)))=='Combodge' )
+                     or (substr(rtrim($band_keys1) ,0,strlen(rtrim($band_keys1)))=='Mozambique' )
+                     or  (substr(rtrim($band_keys1) ,0,strlen(rtrim($band_keys1)))=='Zaïre Zimbabwe' )
+                  )  
+                {
+                    $paye =  "au_"  .(substr($band_keys1 ,0,strlen($band_keys1))) ;
+                    
+                }
+                else
+                $paye = "en_"  .substr($band_keys1 , 0,strlen($band_keys1));
+             }
+             else {
+                 $paye = "au_"  .substr($band_keys1 ,0,strlen($band_keys1));
+             }
+//var_dump($paye);die;
+$url_final = 'Liste_du_patrimoine_mondial_'.$paye;
+$url_final = rtrim($url_final) ;
+$page = $wiki->getPage($url_final);
 
 // check if the page exists or not
 if (!$page->exists() ) {
@@ -93,5 +130,7 @@ if (!$page->exists() ) {
         
         // note : on peut pas recuperer les images : l'url recupérer n'est pas descriptive de l'url ou se trouve l'image
 }
+
+
 
 
