@@ -16,6 +16,7 @@
 "use strict";
 
 (function () {
+         
 	/* ==== definitions ==== */
 	var diapo = [], layers = [], ctx, pointer, scr, camera, light, fps = 0, quality = [1,2],
 	// ---- poly constructor ----
@@ -38,6 +39,9 @@
 	},
 	// ---- diapo constructor ----
 	Diapo = function (path, img, structure) {
+            
+               
+
 		// ---- create image ----
 		this.img = new ge1doot.transform3D.Image(
 			this, path + img.img, 1, {
@@ -66,6 +70,9 @@
 	},
 	// ---- init section ----
 	init = function (json) {
+                
+                
+                
 		// draw poly primitive
 		Poly.prototype.drawPoly = ge1doot.transform3D.drawPoly;
 		// ---- init screen ----
@@ -127,22 +134,39 @@
 		});
 		camera.z  = -10000;
 		camera.py = 0;
-		// ---- create images ----
-		for (var i = 0, img; img = json.imgdata[i++];) {
-			diapo.push(
-				new Diapo(
-					json.options.imagesPath, 
-					img, 
-					json.structure
-				)
-			);
-		}	
-		// ---- start engine ---- >>>
-		setInterval(function() {
-			quality = (fps > 50) ? [2,3] : [1,2];
-			fps = 0;
-		}, 1000);
-		run();
+                var tab_images;
+                 $.ajax({
+                        url: "dossier.php",
+		    	dataType: 'json',                //data format      
+                        success: function(data)          //on recieve of reply
+                        {   
+                            
+                          
+                          // ---- create images ----
+                            for (var i = 0, img; img = json.imgdata[i++];) {
+                                    
+                                    img.img = data[i];
+                                    diapo.push(
+                                            new Diapo(
+                                                    json.options.imagesPath, 
+                                                    img, 
+                                                    json.structure
+                                            )
+                                    );
+                            }	
+                            // ---- start engine ---- >>>
+                            setInterval(function() {
+                                    quality = (fps > 50) ? [2,3] : [1,2];
+                                    fps = 0;
+                            }, 1000);
+                            run(); 
+                       
+                    } 
+                 });
+                
+                
+                
+		
 	},
 	// ---- main loop ----
 	run = function () {
@@ -242,16 +266,17 @@
 })().load({
 	imgdata:[
 		// north
-		{img:'498213165_03041df9ff_z.jpg', x:-1000, y:0, z:1500, nx:0, nz:1},
-		{img:'1799496961_5fccc642c5_z.jpg', x:0,     y:0, z:1500, nx:0, nz:1},
-		{img:'962432390_7f2ebf8a46_z.jpg', x:1000,  y:0, z:1500, nx:0, nz:1},
+		{img:'', x:-1000, y:0, z:1500, nx:0, nz:1},
+		{img:'', x:0,     y:0, z:1500, nx:0, nz:1},
+		{img:'', x:1000,  y:0, z:1500, nx:0, nz:1},
+		{img:'', x:-2000,  y:0, z:1500, nx:0, nz:1},
 		// east
-		{img:'498210222_2a945c5275_z.jpg', x:1500,  y:0, z:1000, nx:-1, nz:0},
-		{img:'Desert.jpg', x:1500,  y:0, z:0, nx:-1, nz:0},
-		/*{img:'1804753040_d36878ae4f_z.jpg', x:1500,  y:0, z:0, nx:-1, nz:0},
-		//{img:'1807874174_62fd497802_z.jpg', x:1500,  y:0, z:-1000, nx:-1, nz:0},
+		{img:'', x:1500,  y:0, z:1000, nx:-1, nz:0},
+		{img:'', x:1500,  y:0, z:0, nx:-1, nz:0},
+		{img:'', x:1500,  y:0, z:-1000, nx:-1, nz:0},
+		{img:'', x:1500,  y:0, z:-2000, nx:-1, nz:0},
 		// south
-		{img:'1842172394_0c98d7a201_z.jpg', x:1000,  y:0, z:-1500, nx:0, nz:-1},
+		/*{img:'1842172394_0c98d7a201_z.jpg', x:1000,  y:0, z:-1500, nx:0, nz:-1},
 		{img:'508437742_ef99fb4491_z.jpg', x:0,     y:0, z:-1500, nx:0, nz:-1},
 		{img:'1786945502_3d57eaeef2_z.jpg', x:-1000, y:0, z:-1500, nx:0, nz:-1},
 		// west

@@ -65,7 +65,7 @@
         //echo 'Qualité sur 10 des metadatas :';
         $data2[$i] = array('completeness'=>$items['completeness'],'type'=>$items['type'],'id'=>$items['id'],'image'=>urldecode($url_image[0]));
         
-        
+        //<a href="/path/to/image.png" download> image a mettre dans le path image de kontext + musee
         
         
         //if(isset($items['dcCreator'][0])){echo  $items['dcCreator'][0].'<br>';}
