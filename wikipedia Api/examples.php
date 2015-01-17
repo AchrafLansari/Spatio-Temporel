@@ -72,14 +72,22 @@ $texte = file_get_contents("pays.txt");
              else {
                  $paye = "au_"  .substr($band_keys1 ,0,strlen($band_keys1));
              }
-//var_dump($paye);die;
-$url_final = 'Liste_du_patrimoine_mondial_'.$paye;
-$url_final = rtrim($url_final) ;
-$page = $wiki->getPage($url_final);
+
+            for($i=0;$i<strlen($paye);$i++){
+                if($paye[$i]==" ")str_replace ($i, $paye, $rand_afficher);
+            }
+             
+            
+            $url_final = 'Liste_du_patrimoine_mondial_'.$paye;
+            $url_final = rtrim($url_final);
+            
+            
+            
+            $page = $wiki->getPage($url_final);
 
 // check if the page exists or not
 if (!$page->exists() ) {
-	echo "'Sausages' doesn't exist.\n";
+	echo "Page doesn't exist.\n";
 
 } else {
         /*
