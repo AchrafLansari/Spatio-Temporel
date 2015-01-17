@@ -42,7 +42,7 @@ $wiki = new Wikimate($api_url);
 
 
 #$wiki->setDebugMode(TRUE);
-$texte = file_get_contents("pays.txt");
+$texte = file_get_contents("Data/pays.txt");
 	$tab_mots = tokenization($texte , "\n",0,1); 
         
         $rand_keys = array();
