@@ -70,18 +70,25 @@ $texte = file_get_contents("pays.txt");
                 $paye = "en_"  .substr($band_keys1 , 0,strlen($band_keys1));
              }
              else {
+                 if( (substr(rtrim($band_keys1) ,0,strlen(rtrim($band_keys1)))=='Cuba')){
+                 $paye = "à_"  .substr($band_keys1 ,0,strlen($band_keys1));
+                 }else if( (substr(rtrim($band_keys1) ,0,strlen(rtrim($band_keys1)))=='Kiribati') || (substr(rtrim($band_keys1) ,0,strlen(rtrim($band_keys1)))=='Ile Christmas')  ){
+                 $paye = "aux_"  .substr($band_keys1 ,0,strlen($band_keys1));
+                 }
+                 else {
                  $paye = "au_"  .substr($band_keys1 ,0,strlen($band_keys1));
              }
+             }
 
-            for($i=0;$i<strlen($paye);$i++){
-                if($paye[$i]==" ")str_replace ($i, $paye, $rand_afficher);
-            }
+            
+            $pays = str_replace (" ", "_", $paye);
+            
              
             
-            $url_final = 'Liste_du_patrimoine_mondial_'.$paye;
+            $url_final = 'Liste_du_patrimoine_mondial_'.$pays;
             $url_final = rtrim($url_final);
             
-            
+            var_dump($url_final);echo'<br>';
             
             $page = $wiki->getPage($url_final);
 
