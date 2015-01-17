@@ -12,7 +12,8 @@ $(document).ready(function(){
 		    	dataType: 'html',                //data format      
                         success: function(data)          //on recieve of reply
                         {   
-                            $('#output').append(data)    //Set output element html
+                            $('#output').html("")    
+                            $('#output').append(data);    //Set output element html
                         } 
         });
    });
