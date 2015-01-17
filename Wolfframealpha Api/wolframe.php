@@ -1,39 +1,21 @@
 <?php
   include 'wa_wrapper/WolframAlphaEngine.php';
-?>
-<html>
-<head>
-  <meta charset="UTF-8">
-</head>
-<body>
-<form method='POST' action='#'>
-Search:
-<input type="text" name="q" value="
-<?php
-  $queryIsSet = isset($_REQUEST['q']);
-  if ($queryIsSet) {
-    echo $_REQUEST['q'];
-  };
-?>"
->&nbsp;&nbsp; <input type="submit" name="Search" value="Search">
-</form>
-<br><br>
-<hr>
-<?php  
+
+ 
+  
+
+  if($_POST){
+				
   $appID = '6HGT3T-TLLQQEJH37';
-
-  if (!$queryIsSet) die();
-
-  //$qArgs = array();
-  //if (isset($_REQUEST['assumption']))
-  //$qArgs['assumption'] = $_REQUEST['assumption'];
+  
+ 
 
   // instantiate an engine object with your app id
   $engine = new WolframAlphaEngine( $appID );
 
   // we will construct a basic query to the api with the input 'pi'
   // only the bare minimum will be used
-  $response = $engine->getResults( $_REQUEST['q']);
+  $response = $engine->getResults( $_POST['q']);
 
   // getResults will send back a WAResponse object
   // this object has a parsed version of the wolfram alpha response
@@ -43,8 +25,7 @@ Search:
   if ( $response->isError() ) {
 ?>
   <h1>There was an error in the request</h1>
-  </body>
-  </html>
+  
 <?php
     die();
   }
@@ -115,8 +96,7 @@ Search:
 ?>
     </table>
 <?php
-  }
+  }}
 ?>
 
-</body>
-</html>
+
