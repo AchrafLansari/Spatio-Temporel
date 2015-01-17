@@ -135,7 +135,7 @@ if (!$page->exists() ) {
             if (isset($lien[1])) { 
                //echo "http".substr($lien[1],0,strlen($lien[1])-7).'<br>';
                 $lien_final = explode("]",$lien[1]);
-                echo "http".$lien_final[0].'<br>';
+                echo '<a href="http'.$lien_final[0].'" target="_blank"> --></a> <br>';
                 
             }
             
