@@ -21,11 +21,7 @@
 
 
 <div id="container2"><!-- Website stuff goes in here -->  
-    <input id="timeFrom" value="" type="text"/>
-<input id="timeTo" value="" type="text"/>
-
-
-</div>
+    
 <div class=" timeline-container" id="timeline" style="width:99%; height:100px; border:1px solid black; margin-left:0.5%">
         <div style="top: 35px; left: -1em;" class="timeline-band-input">
             <input type="text"></div>
@@ -81,8 +77,10 @@
                
                </div>
          </div>
-     
+    <input id="timeFrom" value="" type="text"/>
+    <input id="timeTo" value="" type="text"/>     
 </div>
+
 <div id="container"><!-- Website stuff goes in here -->  
     <form id="searchForm" method="post">
 		<fieldset>
@@ -201,7 +199,10 @@ function initialisation(){
        center: maLatlng,
        mapTypeId: google.maps.MapTypeId.ROADMAP
     }
-
+    
+    
+    
+    
     // On crée notre carte en lui passant toutes nos options en paramètre
     carte = new google.maps.Map(document.getElementById("map"), mesOptions);
 
@@ -210,7 +211,8 @@ function initialisation(){
     google.maps.event.addListener(carte,'zoom_changed', function() {
        setTimeout(allerChezTCM,3000);
     });
-
+    
+    /*
     // On crée un marqueur que l'on positionne grâce au paramètre "position"
     var marker = new google.maps.Marker ({
        position: maLatlng,
@@ -223,14 +225,24 @@ function initialisation(){
     google.maps.event.addListener(marker, 'click', function(){
        carte.setZoom(8);
     });
-}
-function allerChezTCM() {
-   var tcm = new google.maps.Latlng(48.8695490, 2.3513734);
-   map.setCenter(tcm);
+    */
 }
 
-
-
+if (navigator.geolocation){
+    var watchId = navigator.geolocation.watchPosition(successCallback,
+                            null,
+                            {enableHighAccuracy:true});}
+    else{
+      alert("Votre navigateur ne prend pas en compte la géolocalisation HTML5");   
+    }
+    
+    function successCallback(position){
+      carte.panTo(new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
+      var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(position.coords.latitude, position.coords.longitude),
+        map: carte
+      }); 
+  }
 </script>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
 <script src="script.js"></script>
