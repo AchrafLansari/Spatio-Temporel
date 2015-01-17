@@ -9,7 +9,7 @@
   $appID = '6HGT3T-TLLQQEJH37';
   
  
-
+  
   // instantiate an engine object with your app id
   $engine = new WolframAlphaEngine( $appID );
 

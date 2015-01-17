@@ -2,7 +2,7 @@ $(document).ready(function(){
    
    $('#valider').click(function(){
          
-       var requete = $('#requete').val();
+       var requete = $('#q').val();
        var dataString = 'q='+requete;
       
        $.ajax({
