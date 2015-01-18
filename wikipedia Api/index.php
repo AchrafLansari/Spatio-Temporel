@@ -56,6 +56,21 @@ $texte = file_get_contents("Data/pays.txt");
                $paye = "au_" . 'iles heart et mcdonald';
         elseif ($pays_test =='Tokélaou')
                $paye = "au_" . 'Tokélou';
+        elseif ($pays_test =='oman')
+               $paye = "au_" . 'omar';
+        elseif ($pays_test =='sainte-Lucie')
+               $paye = "en_" . 'saint-lucie';
+        elseif ($pays_test =='Ouganda')
+               $paye = "au_" . 'ouanda';
+        elseif ($pays_test =='Antigua-et-Barbuda')
+               $paye = "au_" . 'Antiqua-et-Barbuda';        
+        elseif ($pays_test =='Somalie')
+               $paye = "en_" . 'somalia';
+        elseif ($pays_test =='Mariannes_du_Nord')
+               $paye = "au_" . 'Marianne_du_Nord';
+        elseif ($pays_test =='Cambodge')
+               $paye = "en_" . 'cambridge';
+        
         else {
         if( (substr(rtrim($band_keys1) ,0,strlen(rtrim($band_keys1)))=='Cuba')){
                 $paye = "�_"  .substr($band_keys1 ,0,strlen($band_keys1));
