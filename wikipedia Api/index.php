@@ -67,7 +67,7 @@ $texte = file_get_contents("Data/pays.txt");
                     
                 }
                 else
-                $paye = "en_"  .substr($band_keys1 , 0,strlen($band_keys1));
+                    $paye = "en_"  .substr($band_keys1 , 0,strlen($band_keys1));
              }
              else {
                  if( (substr(rtrim($band_keys1) ,0,strlen(rtrim($band_keys1)))=='Cuba')){

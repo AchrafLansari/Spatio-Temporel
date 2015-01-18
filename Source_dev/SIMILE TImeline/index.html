@@ -2,14 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
    <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
- 
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> 
     <script src="js/timeline-api.js" type="text/javascript"></script>   
     <script src="js/timeline.js" type="text/javascript"></script>
     <script src="js/labellers.js" type="text/javascript"></script>
     <script src="js/timeline_002.js" type="text/javascript"></script>
     <script src="js/labellers_002.js" type="text/javascript"></script>
     <script src="js/date.js" type="text/javascript"></script>
-
     <script type="text/javascript">
    
 // timeline
@@ -31,9 +30,29 @@ function update(thisTimer) {
       
     }
     else {
-      console.log(document.getElementById("timeFrom").value);
-      console.log(document.getElementById("timeTo").value);
-      
+
+      $.ajax({
+                        url: "requete/simple.php",
+                        type: "POST",
+                        dataType: 'json',
+                        data: { query : 'requete',
+                                date_d : document.getElementById("timeFrom").value,
+                                date_f : document.getElementById("timeTo").value,
+                              },
+                        success: function(data)          //on recieve of reply
+                        {   
+                           console.log('Response received : '+data["completeness"]);
+                           //$('.bubblingG').css('display','none'); 
+                           
+                           data.forEach(function(entry) {
+                                
+                                $('#output').append(entry["completeness"]+"==>"+entry["image"]+"<br>");     //Set output element html
+                          });   
+                         
+                        },error : function(xhr, status){
+                            console.log(status);
+                        }
+    });
       currentMilis = totalMilis;
       lastTimer = 1;
       

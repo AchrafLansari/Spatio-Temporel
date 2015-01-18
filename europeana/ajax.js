@@ -27,12 +27,7 @@ $(document).ready(function(){
                            data.forEach(function(entry) {
                                 
                                 $('#output').append(entry["completeness"]+"==>"+entry["image"]+"<br>");     //Set output element html
-                          });
-                            
-                            
-                            
-                    
-                            
+                          });   
                          
                         },error : function(xhr, status){
                             console.log(status);
