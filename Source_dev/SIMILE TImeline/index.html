@@ -66,24 +66,30 @@ function setupTimeline() {
 		Timeline.createBandInfo({
       eventSource:    eventSource,
       width:          "70%",
-      intervalUnit:   Timeline.DateTime.WEEK,
+      intervalUnit:   Timeline.DateTime.MONTH,
       intervalPixels: 80
 		}),
 		Timeline.createBandInfo({
+      overview:       true,
       eventSource:    eventSource,
       width:          "30%",
-      intervalUnit:   Timeline.DateTime.MONTH,
-      intervalPixels: 60,
+      intervalUnit:   Timeline.DateTime.YEAR,
+      intervalPixels: 150,
       showEventText:  false,
       trackHeight:    0.4,
       trackGap:       0.2
     })
   ];
 
+   
+  
   // synchronise bands
   bands[1].syncWith = 0;
   bands[1].highlight = true;
   timeline = Timeline.create(document.getElementById("timeline"), bands);
+  
+  
+        
 
   for(var i = 0; i < timeline.getBandCount(); i++) {
       
@@ -104,6 +110,14 @@ function setupTimeline() {
   } 
 }
 
+function Change(){
+    var date_d = document.getElementById("timeFrom").value;
+    var date_f = document.getElementById("timeTo").value;
+    
+      timeline.getBand(0).setMinVisibleDate(Timeline.DateTime.parseGregorianDateTime(date_d)); 
+      //timeline.getBand(0).setMaxVisibleDate(Timeline.DateTime.parseGregorianDateTime(date_f)); 
+    //timeline.getBand(0).setCenterVisibleDate(Timeline.DateTime.parseGregorianDateTime(date_d));
+}
 /*
 addOnScrollListener  ( listener ) 
 getMinVisibleDate()
@@ -120,7 +134,7 @@ getMaxVisibleDate()
 
 <input id="timeFrom" value="" type="text"/>
 <input id="timeTo" value="" type="text"/>
-
+<button value="change" style="width:50px;height:50px;" onclick="Change();"/>
 
 </div>
 <div class=" timeline-container" id="timeline" style="width:99%; height:100px; border:1px solid black; margin-left:0.5%">
