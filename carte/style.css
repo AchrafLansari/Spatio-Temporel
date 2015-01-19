@@ -75,7 +75,7 @@ fieldset{
 	text-shadow:1px 1px 0 white;
 	width:385px;
 }
-#rows{
+#rows2{
 	/* The search text box. */
 	
 	border:none;
@@ -93,6 +93,94 @@ fieldset{
 	text-shadow:1px 1px 0 white;
 	width:80px;
 }
+
+.dropdown {
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  height: 33px;
+  width: 50px;
+  background: #f2f2f2;
+  border: 1px solid;
+  border-color: white #f7f7f7 #f5f5f5;
+  border-radius: 3px;
+  @include linear-gradient(top, transparent, rgba(black, .06));
+  @include box-shadow(0 1px 1px rgba(black, .08));
+
+  &:before, &:after {
+    content: '';
+    position: absolute;
+    z-index: 2;
+    top: 9px;
+    right: 10px;
+    width: 0;
+    height: 0;
+    border: 4px dashed;
+    border-color: #888 transparent;
+    pointer-events: none;
+  }
+
+  &:before {
+    border-bottom-style: solid;
+    border-top: none;
+  }
+
+  &:after {
+    margin-top: 7px;
+    border-top-style: solid;
+    border-bottom: none;
+  }
+}
+
+.dropdown-select {
+  position: relative;
+  width: 137%;
+  margin: 0;
+  padding: 6px 8px 6px 10px;
+  height: 28px;
+  line-height: 14px;
+  font-size: 12px;
+  color: #62717a;
+  text-shadow: 0 1px white;
+  /* Fallback for IE 8 */
+  background: #f2f2f2;
+  /* "transparent" doesn't work with Opera */
+  background: rgba(black, 0) !important;
+  border: 0;
+  border-radius: 0;
+  -webkit-appearance: none;
+
+  &:focus {
+    z-index: 3;
+    width: 100%;
+    color: #394349;
+    outline: 2px solid #49aff2;
+    outline: 2px solid -webkit-focus-ring-color;
+    outline-offset: -2px;
+  }
+
+  > option {
+    margin: 3px;
+    padding: 6px 8px;
+    text-shadow: none;
+    background: #f2f2f2;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+}
+
+/* Fix for IE 8 putting the arrows behind the select element. */
+.lt-ie9 {
+  .dropdown { z-index: 1; }
+  .dropdown-select { z-index: -1; }
+  .dropdown-select:focus { z-index: 3; }
+}
+
+/* Dirty fix for Firefox adding padding where it shouldn't. */
+@-moz-document url-prefix() { .dropdown-select { padding-left: 6px; } }
+
+
+
 
 /* The UL that contains the search type icons */
 
@@ -159,3 +247,139 @@ span.arrow{
 #submitButton:hover{
 	background-position:left bottom;
 }
+.bubblingG {
+            text-align: center;
+            width:250px;
+            height:156px;
+            position: fixed;
+            top: 50%;
+            left: 40%;
+            }
+
+            .bubblingG span {
+            display: inline-block;
+            vertical-align: middle;
+            width: 31px;
+            height: 31px;
+            margin: 78px auto;
+            background: #000000;
+            -moz-border-radius: 157px;
+            -moz-animation: bubblingG 1.2s infinite alternate;
+            -webkit-border-radius: 157px;
+            -webkit-animation: bubblingG 1.2s infinite alternate;
+            -ms-border-radius: 157px;
+            -ms-animation: bubblingG 1.2s infinite alternate;
+            -o-border-radius: 157px;
+            -o-animation: bubblingG 1.2s infinite alternate;
+            border-radius: 157px;
+            animation: bubblingG 1.2s infinite alternate;
+            }
+
+            #bubblingG_1 {
+            -moz-animation-delay: 0s;
+            -webkit-animation-delay: 0s;
+            -ms-animation-delay: 0s;
+            -o-animation-delay: 0s;
+            animation-delay: 0s;
+            }
+
+            #bubblingG_2 {
+            -moz-animation-delay: 0.36s;
+            -webkit-animation-delay: 0.36s;
+            -ms-animation-delay: 0.36s;
+            -o-animation-delay: 0.36s;
+            animation-delay: 0.36s;
+            }
+
+            #bubblingG_3 {
+            -moz-animation-delay: 0.72s;
+            -webkit-animation-delay: 0.72s;
+            -ms-animation-delay: 0.72s;
+            -o-animation-delay: 0.72s;
+            animation-delay: 0.72s;
+            }
+
+            @-moz-keyframes bubblingG {
+            0% {
+            width: 31px;
+            height: 31px;
+            background-color:#000000;
+            -moz-transform: translateY(0);
+            }
+
+            100% {
+            width: 75px;
+            height: 75px;
+            background-color:#FFFFFF;
+            -moz-transform: translateY(-66px);
+            }
+
+            }
+
+            @-webkit-keyframes bubblingG {
+            0% {
+            width: 31px;
+            height: 31px;
+            background-color:#000000;
+            -webkit-transform: translateY(0);
+            }
+
+            100% {
+            width: 75px;
+            height: 75px;
+            background-color:#FFFFFF;
+            -webkit-transform: translateY(-66px);
+            }
+
+            }
+
+            @-ms-keyframes bubblingG {
+            0% {
+            width: 31px;
+            height: 31px;
+            background-color:#000000;
+            -ms-transform: translateY(0);
+            }
+
+            100% {
+            width: 75px;
+            height: 75px;
+            background-color:#FFFFFF;
+            -ms-transform: translateY(-66px);
+            }
+
+            }
+
+            @-o-keyframes bubblingG {
+            0% {
+            width: 31px;
+            height: 31px;
+            background-color:#000000;
+            -o-transform: translateY(0);
+            }
+
+            100% {
+            width: 75px;
+            height: 75px;
+            background-color:#FFFFFF;
+            -o-transform: translateY(-66px);
+            }
+
+            }
+
+            @keyframes bubblingG {
+            0% {
+            width: 31px;
+            height: 31px;
+            background-color:#000000;
+            transform: translateY(0);
+            }
+
+            100% {
+            width: 75px;
+            height: 75px;
+            background-color:#FFFFFF;
+            transform: translateY(-66px);
+            }
+
+            }
