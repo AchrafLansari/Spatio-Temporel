@@ -42,13 +42,14 @@
                     require_once('twitteroauth/twitteroauth.php');
                     $connection = new TwitterOAuth($consumer_key, $consumer_secret, $oauth_token, $oauth_token_secret);
                     $valeur_search = $_POST["search_valuer"];
-                    $query = 'https://api.twitter.com/1.1/search/tweets.json?q=' . $valeur_search .'&result_type=recent&count=6' ;
+                    $query = 'https://api.twitter.com/1.1/search/tweets.json?q=' . $valeur_search .'&result_type=recent&count=5' ;
                    // echo $query.'<br><br>';
                     $content = $connection->get($query);      
                     
                     }                   
                     echo  '<ul id="legende">';
-                    echo '<li class=""><a  title="legende">';
+                            
+                    echo '<li class=""><a  title="legende"><img id="twitter_icones" src="icones/twitter2.png" />';
                     if(!empty($consumer_key) && !empty($consumer_secret) && !empty($oauth_token) && !empty($oauth_token_secret)) {                        
                             if(!empty($content)){ 
                                 
@@ -90,14 +91,14 @@ function parseTweet($text) {
                     }
                 );
                     
-                   $('#legende a').stop().animate({'marginLeft':'80px'},500);
+                   $('#legende a').stop().animate({'marginLeft':'100px'},500);
 
                 $('#legende > li').hover(
                     function () {
                         $('a',$(this)).stop().animate({'marginLeft':'-450px'},1000);
                     },
                     function () {
-                        $('a',$(this)).stop().animate({'marginLeft':'80px'},1000);
+                        $('a',$(this)).stop().animate({'marginLeft':'100px'},1000);
                     }
                 );
                 $('a.poplight[href^=#]').click(function() {

@@ -1,3 +1,7 @@
+@font-face {
+  font-family: "Journal";
+  src: url('../font/JOURNAL.TTF');
+}
 ul#navigation {
     position: fixed;
     margin: 0px;
@@ -73,9 +77,11 @@ ul#legende li a{
 #tweet{
     display:block;
     position : relative;
-    top :0px;
+    top :-20px;
     width :550px;
     height:100px;
+    font-family: 'Journal';
+    font-size: 24px;
 }
 
 #fade { /*--Masque opaque noir de fond--*/
@@ -116,11 +122,10 @@ position: absolute;
 *html .popup_block {
 position: absolute;
 }
-#icn_score {
-width : 35px;
-height:   35px;
-}
-#icn_niveau {
-width : 35px;
-height:   35px;
+#twitter_icones{
+    display:block;
+    position : relative;
+    top :-40px;
+    right: 45px;
+    transform: rotate(45deg);
 }
