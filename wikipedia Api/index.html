@@ -27,7 +27,8 @@
             
 
                     $(function() {
-                            $('a.poplight[href^=#]').click(function() {
+                    $('a.poplight[href^=#]').click(function() {
+                        $('#minijeu').load('index.php');
                     var popID = $(this).attr('rel'); //Trouver la pop-up correspondante
                     var popURL = $(this).attr('href'); //Retrouver la largeur dans le href
 
