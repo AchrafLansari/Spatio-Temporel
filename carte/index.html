@@ -86,7 +86,13 @@
 		<fieldset>
         
            	<input id="s" type="text" />
-            
+                <select name="select" id="rows">
+                <option value="12">12</option> 
+                <option value="24" selected>24</option>
+                <option value="36">36</option>
+                <option value="48">48</option>
+                <option value="96">96 </option>
+                </select>
             <input type="submit" value="Submit" id="submitButton" />
             
             
@@ -195,7 +201,7 @@ function initialisation(){
     // On établit les options de notre choix :
     // la profondeur du zoom, les coordonnées sur lesquelles la carte sera centrée, le type de vue (satellite, plan...)
     var mesOptions = {
-       zoom: 4,
+       zoom: 3,
        center: maLatlng,
        mapTypeId: google.maps.MapTypeId.ROADMAP
     }
