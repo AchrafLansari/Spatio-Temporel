@@ -1,5 +1,12 @@
 <?php
 include 'globals.php';
+$rand_keys = array();
+$band_keys1 = array();
+$rand_afficher = array();
+$api_url = 'http://fr.wikipedia.org/w/api.php';
+$texte = file_get_contents("Data/pays.txt");
+$pays_test = '';
+
 function tokenization ($text,$delimiteurs,$nb_carac,$state)
     {
         $arrayElements = array();
@@ -23,70 +30,47 @@ function tokenization ($text,$delimiteurs,$nb_carac,$state)
         }
         return $arrayElements;
         }
-$api_url = 'http://fr.wikipedia.org/w/api.php';
+
 $wiki = new Wikimate($api_url);
-$texte = file_get_contents("Data/pays.txt");
-    $tab_mots = tokenization($texte , "\n",0,1); 
-    $rand_keys = array();
-    $band_keys1 = array();
-    $rand_afficher = array();
+
+    $tab_mots = tokenization($texte , "\n",0,1);
+    
     $band_keys1 =  $tab_mots[mt_rand (0, count($tab_mots)-1)];
     $rand_afficher = substr(rtrim($band_keys1) , -1);
     
         if($rand_afficher =='e'){
-        $pays_test = substr(rtrim($band_keys1) ,0,strlen(rtrim($band_keys1)));
-        if(($pays_test =='Mexique' ) 
-                or ($pays_test=='Combodge' )
-                or ($pays_test=='Mozambique' )
-                or  ($pays_test=='Zaïre Zimbabwe') 
-                
-                        
-              )  
-        {
-            $paye =  "au_"  .(substr($band_keys1 ,0,strlen($band_keys1))) ;
-        }
-         elseif ($pays_test =='Guadeloupe')
-               $paye = "en_" . 'guadalupe';
-         
-        else 
-           $paye = "en_"  .substr($band_keys1 , 0,strlen($band_keys1));
-      
-        }
-        elseif ($pays_test =='Iles_Heard_et_McDonald')
-               $paye = "au_" . 'iles heart et mcdonald';
-        elseif ($pays_test =='Tokélaou')
-               $paye = "au_" . 'Tokélou';
-        elseif ($pays_test =='oman')
-               $paye = "au_" . 'omar';
-        elseif ($pays_test =='sainte-Lucie')
-               $paye = "en_" . 'saint-lucie';
-        elseif ($pays_test =='Ouganda')
-               $paye = "au_" . 'ouanda';
-        elseif ($pays_test =='Antigua-et-Barbuda')
-               $paye = "au_" . 'Antiqua-et-Barbuda';        
-        elseif ($pays_test =='Somalie')
-               $paye = "en_" . 'somalia';
-        elseif ($pays_test =='Mariannes_du_Nord')
-               $paye = "au_" . 'Marianne_du_Nord';
-        elseif ($pays_test =='Cambodge')
-               $paye = "en_" . 'cambridge';
-        
-        else {
-        if( (substr(rtrim($band_keys1) ,0,strlen(rtrim($band_keys1)))=='Cuba')){
-                $paye = "�_"  .substr($band_keys1 ,0,strlen($band_keys1));
-            }
-        else if( (substr(rtrim($band_keys1) ,0,strlen(rtrim($band_keys1)))=='Kiribati') || (substr(rtrim($band_keys1) ,0,strlen(rtrim($band_keys1)))=='Ile Christmas')  ){
-                 $paye = "aux_"  .substr($band_keys1 ,0,strlen($band_keys1));
+                $pays_test = substr(rtrim($band_keys1) ,0,strlen(rtrim($band_keys1)));
+                if(($pays_test =='Mexique' ) or ($pays_test=='Combodge' ) or ($pays_test=='Mozambique' ) or ($pays_test=='Zaïre Zimbabwe'))  
+                {
+                    $paye =  "au_"  .(substr($band_keys1 ,0,strlen($band_keys1))) ;
                 }
+                else 
+                   $paye = "en_"  .substr($band_keys1 , 0,strlen($band_keys1));
+        }
+        elseif( (substr(rtrim($band_keys1) ,0,strlen(rtrim($band_keys1)))=='Cuba')|| (substr(rtrim($band_keys1) ,0,strlen(rtrim($band_keys1)))=='Singapour')){
+                        $paye = "à_"  .substr($band_keys1 ,0,strlen($band_keys1));
+                    }
         else {
-                 $paye = "au_"  .substr($band_keys1 ,0,strlen($band_keys1));
-             }
-             } 
+                $pos = strpos(substr($band_keys1 ,0,strlen($band_keys1)),' ');
+                if($pos === false) {
+
+                $paye = "au_"  .(substr($band_keys1 ,0,strlen($band_keys1)));
+                }
+                else {
+                    $paye = "aux_"  .(substr($band_keys1 ,0,strlen($band_keys1)));
+                }           
+        }    
+
              $pays = str_replace (" ", "_", $paye);
             $url_final = 'Liste_du_patrimoine_mondial_'.$pays;
             $url_final = rtrim($url_final);            
             var_dump($url_final);echo'<br>';            
             $page = $wiki->getPage($url_final);
+    if($url_final = '') {
+      
+       echo 'Error';
+    }   
+    else {
     if (!$page->exists() ) {
 	echo "Page doesn't exist.\n";
        } 
@@ -105,6 +89,17 @@ $texte = file_get_contents("Data/pays.txt");
             }
         }
 }
+         
+           /* else if( (substr(rtrim($band_keys1) ,0,strlen(rtrim($band_keys1)))=='Kiribati') || (substr(rtrim($band_keys1) ,0,strlen(rtrim($band_keys1)))=='Ile Christmas')  ){
+                     $paye = "aux_"  .substr($band_keys1 ,0,strlen($band_keys1));
+                    }
+            else {
+                     $paye = "au_"  .substr($band_keys1 ,0,strlen($band_keys1));
+                 }
+            * 
+            */
+
+    }
 
 
 
