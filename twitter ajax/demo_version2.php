@@ -1,18 +1,16 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
     <head>
-        <title>Fixed Navigation - Codrops</title>
+        
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8"/>
         <script type="text/javascript" src="jquery-1.3.2.js"></script>
-        <meta name="viewport" content="width=device-width,initial-scale=1"/>
+        
         <link rel="profile" href="http://gmpg.org/xfn/11" />
         
-        <meta name='robots' content='noindex,nofollow' />
+        
         <link rel='stylesheet' id='demo-css'  href='twitterapi.css' type='text/css' media='all' />
-        <meta name="description" content="How to use the latest Twitter 1.1 API, by NOE Interactive, by NOE Interactive" />
-        <meta name="keywords" content="Twitter, oAuth, NOE Interactive, php" />
-        <link rel="canonical" href="http://noe-interactive.com/demo/!/twitterapi"/>
+       
     </head>
     
     <body>
