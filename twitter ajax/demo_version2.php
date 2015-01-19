@@ -42,7 +42,7 @@
                     require_once('twitteroauth/twitteroauth.php');
                     $connection = new TwitterOAuth($consumer_key, $consumer_secret, $oauth_token, $oauth_token_secret);
                     $valeur_search = $_POST["search_valuer"];
-                    $query = 'https://api.twitter.com/1.1/search/tweets.json?q=' . $valeur_search .'&result_type=recent&count=5' ;
+                    $query = 'https://api.twitter.com/1.1/search/tweets.json?q=' . $valeur_search .'&result_type=popular&count=5' ;
                    // echo $query.'<br><br>';
                     $content = $connection->get($query);      
                     
