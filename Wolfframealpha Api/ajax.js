@@ -12,8 +12,8 @@ $(document).ready(function(){
 		    	dataType: 'html',                //data format      
                         success: function(data)          //on recieve of reply
                         {   
-                            $('#output').html("")    
-                            $('#output').append(data);    //Set output element html
+                            $('#data_wolframe').html("")    
+                            $('#data_wolframe').append(data);    //Set output element html
                         } 
         });
    });
