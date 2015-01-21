@@ -11,6 +11,9 @@ ul#legende {
     right: 0px;
     list-style: none;
     z-index:9999;
+    //height:120px;
+    overflow:scroll;
+    overflow-x:hidden;
 }
 ul#legende li {
     width: 100px;
