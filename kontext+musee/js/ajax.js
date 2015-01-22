@@ -3,7 +3,7 @@ $(document).ready(function(){
      
     $('.bubblingG').css('display','none');
     
-    //$('#wolfram').fadeIn(2000);
+    
     //$('#wolfram').fadeOut(2000);
     
    
@@ -45,24 +45,8 @@ $(document).ready(function(){
     });
     $('#load').load("../twitter/index.php?"+dataString);
     $('#load2').load("../weather/index.php?"+dataString);
-    /*$.ajax({
-                        url: "../twitter/index.php",
-                        type: "POST",
-                        dataType: 'json',
-                        data: dataString,
-                        success: function(data)          //on recieve of reply
-                        {   
-                           //console.log('Response received : '+data["completeness"]);
-                           $('.bubblingG').css('display','none'); 
-                           data.forEach(function(entry) {
-                                
-                                $('#output').append(entry["completeness"]+"==>"+entry["image"]+"<br>");     //Set output element html
-                          });   
-                         
-                        },error : function(xhr, status){
-                            console.log(status);
-                        }
-    });*/
+    //$('#wolfram').fadeIn(2000);
+    
        
        
     
@@ -84,7 +68,9 @@ $(document).ready(function(){
     
    });
    
-   
+    $('#wolfram').click(function(){
+        $('a.poplight[href^=#]').click();
+    });
    
    /*$('#requete-corpus').bind("enterKey",function(e){
         
