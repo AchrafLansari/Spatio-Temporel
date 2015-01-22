@@ -1,49 +1,81 @@
-
 <html>
 <head>
   <meta charset="UTF-8">
   <link rel="stylesheet" href="style.css" type="text/css" charset="utf-8"/>
 </head>
-<body>
+<body onload="$('a.poplight[href^=#]').click();">
 
 
-Search:
-       <input type="text" id ="q" name="q" value="">
-       <input type="submit" id="valider" name="Search" value="Search">
 
-<br><br>
-
- <div id="legende1">  
-           <ul id="legende">
-                            
-                   <li class=""><a  title="legende"><img id="twitter_icones" src="icones/twitter2.png" />
-                    
-                                <div id="data_wolframe"> </div>;
+ 
+        <a href="#?w=700" rel="popup_name" class="poplight" style="display:none" ></a>
+        
+        
+        <div id="popup_name" class="popup_block" style="height: 500px;overflow:scroll;" >
+                <h2>Wolfram Search :</h2>
+                
+                <div id="data_wolframe"> <img id="ajax" src="icones/ajax.gif" style="display: none;position:absolute;left:50%;top:50%;" /> </div>
+        </div>
+                                
                                
                                 
                         
-                   </a>
-                   </li>
-            </ul>';
-                
-</div>
+                   
 
 <div id="output">    
 </div>
 
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> 
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
 <script type="text/javascript" src="ajax.js"></script>
 <script>
-    $('#legende a').stop().animate({'marginLeft':'100px'},500);
+    
 
-                $('#legende > li').hover(
-                    function () {
-                        $('a',$(this)).stop().animate({'marginLeft':'-450px'},1000);
-                    },
-                    function () {
-                        $('a',$(this)).stop().animate({'marginLeft':'100px'},1000);
-                    }
-                );
+                    $(function() {
+                    $('a.poplight[href^=#]').click(function() {
+                    $('#ajax').css('display','block');    
+                    $('#data_wolframe').load('wolframe.php?q=Paris');
+                    
+                    var popID = $(this).attr('rel'); //Trouver la pop-up correspondante
+                    var popURL = $(this).attr('href'); //Retrouver la largeur dans le href
+
+                    //Rï¿½cupï¿½rer les variables depuis le lien
+                    var query= popURL.split('?');
+                    var dim= query[1].split('&amp;');
+                    var popWidth = dim[0].split('=')[1]; //La premiï¿½re valeur du lien
+
+                    //Faire apparaitre la pop-up et ajouter le bouton de fermeture
+                    $('#' + popID).fadeIn().css({
+                            'width': Number(popWidth)
+                    })
+                    .prepend('<a href="#" class="close"><img src="icones/close_pop.png" class="btn_close" title="Fermer" alt="Fermer" /></a>');
+
+                    //Rï¿½cupï¿½ration du margin, qui permettra de centrer la fenï¿½tre - on ajuste de 80px en conformitï¿½ avec le CSS
+                    var popMargTop = ($('#' + popID).height() + 80) / 2;
+                    var popMargLeft = ($('#' + popID).width() + 80) / 2;
+
+                    //On affecte le margin
+                    $('#' + popID).css({
+                            'margin-top' : -popMargTop,
+                            'margin-left' : -popMargLeft
+                    });
+
+                    //Effet fade-in du fond opaque
+                    $('body').append('<div id="fade"></div>'); //Ajout du fond opaque noir
+                    //Apparition du fond - .css({'filter' : 'alpha(opacity=80)'}) pour corriger les bogues de IE
+                    $('#fade').css({'filter' : 'alpha(opacity=80)'}).fadeIn();
+
+                    return false;
+            });
+
+            //Fermeture de la pop-up et du fond
+            $('a.close, #fade').live('click', function() { //Au clic sur le bouton ou sur le calque...
+                    $('#fade , .popup_block').fadeOut(function() {
+                            $('#fade, a.close').remove();  //...ils disparaissent ensemble
+                    });
+                    return false;
+            });    
+
+                        });
 </script>    
 </body>
 </html>

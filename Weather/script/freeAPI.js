@@ -1,4 +1,4 @@
-﻿var _FreeApiBaseURL = 'http://api.worldweatheronline.com/free/v1/';
+var _FreeApiBaseURL = 'http://api.worldweatheronline.com/free/v1/';
 /*
     Please change the FreeAPIKey to your own. 
     These keys have been provided for testing only.
@@ -10,7 +10,7 @@ var _FreeApiKey = 'xkq544hkar4m69qujdgujn7w';
 
 function JSONP_LocalWeather(input) {
     var url = _FreeApiBaseURL + 'weather.ashx?q=' + input.query + '&format=' + input.format + '&extra=' + input.extra + '&num_of_days=' + input.num_of_days + '&date=' + input.date + '&fx=' + input.fx + '&cc=' + input.cc + '&includelocation=' + input.includelocation + '&show_comments=' + input.show_comments + '&key=' + _FreeApiKey;
-
+     
     jsonP(url, input.callback);
 }
 
@@ -40,6 +40,10 @@ function jsonP(url, callback) {
         jsonpCallback: callback,
         dataType: 'jsonp',
         success: function (json) {
+            if(json.data.error){
+                 $('#navigation').css('display','none');
+                 //$('#navigation').hide();
+            }
             console.dir('success');
         },
         error: function (e) {

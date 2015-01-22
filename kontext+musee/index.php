@@ -102,6 +102,7 @@
     
 </div>
                                 <div id='load'></div> 
+                                <div id='load2'></div> 
                                 
                                 <div id="container"><!-- Website stuff goes in here -->  
     <form id="searchForm" method="post">

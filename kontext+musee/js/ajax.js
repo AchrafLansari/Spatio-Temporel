@@ -44,6 +44,7 @@ $(document).ready(function(){
                         }
     });
     $('#load').load("../twitter/index.php?"+dataString);
+    $('#load2').load("../weather/index.php?"+dataString);
     /*$.ajax({
                         url: "../twitter/index.php",
                         type: "POST",

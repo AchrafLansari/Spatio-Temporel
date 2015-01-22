@@ -4,7 +4,7 @@
  
   
 
-  if($_POST){
+  if($_GET){
 				
   $appID = '6HGT3T-TLLQQEJH37';
   
@@ -15,7 +15,7 @@
 
   // we will construct a basic query to the api with the input 'pi'
   // only the bare minimum will be used
-  $response = $engine->getResults( $_POST['q']);
+  $response = $engine->getResults($_GET['q']);
 
   // getResults will send back a WAResponse object
   // this object has a parsed version of the wolfram alpha response
