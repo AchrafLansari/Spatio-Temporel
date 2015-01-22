@@ -2,10 +2,8 @@
 <html lang="en">
 	<head>
             <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-            <title>Kontext: A context-shift transition inspired by iOS</title>
-        	<meta name="description" content="A context-shift transition inspired by iOS. Created using JavaScript, CSS 3D transforms and CSS Animations.">
-		<meta name="author" content="Hakim El Hattab">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+            <title>Navigateur Spatio temporelle</title>
+        	
 		<link rel="stylesheet" href="css/kontext.css">
                 <link rel="stylesheet" href="style.css">
 		<link rel="stylesheet" href="css/demo.css">
@@ -103,6 +101,8 @@
     
     
 </div>
+                                <div id='load'></div> 
+                                
                                 <div id="container"><!-- Website stuff goes in here -->  
     <form id="searchForm" method="post">
 		<fieldset>
