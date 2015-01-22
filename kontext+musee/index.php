@@ -40,7 +40,7 @@
                                 <div id="map">  </div>
                                 <div id="container2"><!-- Website stuff goes in here -->  
     
-<div class=" timeline-container" id="timeline" style="width:99%; height:100px; border:1px solid black; margin-left:0.5%">
+<div class="timeline-container" id="timeline" style="width:85%; height:100px; border:1px solid black; margin-left:0.5%">
         <div style="top: 35px; left: -1em;" class="timeline-band-input">
             <input type="text"></div>
        <div style="top: 0px; height: 71.4px; left: -2404px; width: 6010px;" class="timeline-band">
@@ -95,14 +95,19 @@
                
                </div>
          </div>
+     
+    <img src='icones/wolframe2.png' width="96px" height="96px" id='wolfram'/>
     <input id="timeFrom" value="" type="text"/>
-    <input id="timeTo" value="" type="text"/>     
+    <input id="timeTo" value="" type="text"/>
+    
+    
+    
 </div>
                                 <div id="container"><!-- Website stuff goes in here -->  
     <form id="searchForm" method="post">
 		<fieldset>
         
-           	<input id="s" type="text" />
+           	<input id="s" type="text" />    
                  <div class="dropdown">
                     <select id="rows" name="one" class="dropdown-select">
                       <option value="12">12</option> 

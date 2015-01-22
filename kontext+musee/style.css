@@ -383,3 +383,10 @@ span.arrow{
             }
 
             }
+            #wolfram{
+                left: 98%;
+                position: absolute;
+                top: 0;
+                cursor : pointer;
+                display : none;
+            }
