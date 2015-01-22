@@ -45,31 +45,16 @@ $(document).ready(function(){
     });
     $('#load').load("../twitter/index.php?"+dataString);
     $('#load2').load("../weather/index.php?"+dataString);
-    //$('#wolfram').fadeIn(2000);
+    $('#data_wolframe').load('../wolfram/wolframe.php?'+dataString);
+    $('#wolfram').fadeIn(2000);
     
-       
-       
-    
-     $.ajax({
-                        type: "POST",
-                        url: "../wolfram/wolframe.php",
-                        data: dataString,
-		    	dataType: 'html',                //data format      
-                        success: function(data)          //on recieve of reply
-                        {   
-                            
-                            $('#data_wolframe').html("")    
-                            $('#data_wolframe').append(data);    //Set output element html
-                        } 
-        });
-    
-    
-    
+      
     
    });
    
     $('#wolfram').click(function(){
         $('a.poplight[href^=#]').click();
+       //alert('test');
     });
    
    /*$('#requete-corpus').bind("enterKey",function(e){

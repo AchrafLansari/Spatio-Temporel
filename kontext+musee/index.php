@@ -25,6 +25,7 @@
                 <script src="js/timeline_002.js" type="text/javascript"></script>
                 <script src="js/labellers_002.js" type="text/javascript"></script>
                 <script src="js/date.js" type="text/javascript"></script> 
+                <script src="js/popup.js" type="text/javascript"></script> 
                 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
                 <script src="script.js"></script>
                 <script src="js/ajax.js" type="text/javascript"></script>
