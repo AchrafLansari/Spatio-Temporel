@@ -2,7 +2,7 @@
                     $(function() {
                     $('a.poplight[href^=#]').click(function() {
                     $('#ajax').css('display','block');    
-                    $('#data_wolframe').load('wolframe.php?q=Paris');
+                   
                     
                     var popID = $(this).attr('rel'); //Trouver la pop-up correspondante
                     var popURL = $(this).attr('href'); //Retrouver la largeur dans le href
@@ -16,7 +16,7 @@
                     $('#' + popID).fadeIn().css({
                             'width': Number(popWidth)
                     })
-                    .prepend('<a href="#" class="close"><img src="icones/close_pop.png" class="btn_close" title="Fermer" alt="Fermer" /></a>');
+                    .prepend('<a href="#" class="close"><img src="../wolfram/icones/close_pop.png" class="btn_close" title="Fermer" alt="Fermer" /></a>');
 
                     //R�cup�ration du margin, qui permettra de centrer la fen�tre - on ajuste de 80px en conformit� avec le CSS
                     var popMargTop = ($('#' + popID).height() + 80) / 2;
@@ -29,7 +29,7 @@
                     });
 
                     //Effet fade-in du fond opaque
-                    $('body').append('<div id="fade"></div>'); //Ajout du fond opaque noir
+                    $('#load3').append('<div id="fade"></div>'); //Ajout du fond opaque noir
                     //Apparition du fond - .css({'filter' : 'alpha(opacity=80)'}) pour corriger les bogues de IE
                     $('#fade').css({'filter' : 'alpha(opacity=80)'}).fadeIn();
 

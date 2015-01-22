@@ -510,8 +510,11 @@ ul#navigation li a {
 	border-radius: 10px;
 }
 img.btn_close {
-	float: right;
-	margin: -55px -55px 0 0;
+	
+	//margin: -55px -55px 0 0;
+        position : absolute;
+        top :0px;
+        right:0px;
 }
 /*--Gérer la position fixed pour IE6--*/
 *html #fade {

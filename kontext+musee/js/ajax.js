@@ -46,6 +46,7 @@ $(document).ready(function(){
     $('#load').load("../twitter/index.php?"+dataString);
     $('#load2').load("../weather/index.php?"+dataString);
     $('#data_wolframe').load('../wolfram/wolframe.php?'+dataString);
+    
     $('#wolfram').fadeIn(2000);
     
       
