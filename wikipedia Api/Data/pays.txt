@@ -5,10 +5,8 @@ Algérie
 Allemagne
 Andorre
 Angola
-Anguilla
 Antarctique
 Antigua-et-Barbuda
-Antilles néerlandaises
 Arabie saoudite
 Argentine
 Arménie
@@ -21,10 +19,8 @@ Bahamas
 Bahreïn
 Bangladesh
 Barbade
-Belau
 Belgique
 Belize
-Bermudes
 Bhoutan
 Biélorussie
 Birmanie
@@ -46,14 +42,12 @@ Chine
 Chypre
 Colombie
 Comores
-Congo
 Corée du Nord
 Corée du Sud
 Costa Rica
 Croatie
 Cuba
 Danemark
-Djibouti
 Dominique
 Égypte
 Émirats arabes unis
@@ -73,43 +67,21 @@ Gibraltar
 Grèce
 Grenade
 Groenland
-Guadeloupe
-Guam
 Guatemala
 Guinée
-Guinée équatoriale
-Guinée-Bissao
+Guinée équatoriale  
 Guyana
 Guyane française
 Haïti
-HN Honduras
-HK Hong Kong
+Honduras
 Hongrie
-Ile Bouvet
-Ile Christmas
-Ile Norfolk
-Iles Cayman
-Iles Cook
-Iles Féroé
-Iles Falkland
-Iles Fidji
-Iles Géorgie du Sud et Sandwich du Sud
-Iles Heard et McDonald
 Iles Marshall
-Iles Pitcairn
-Iles Svalbard et Jan Mayen
-Iles Turks-et-Caicos
-Iles Vierges américaines
-Iles Vierges britanniques
-Iles des Cocos (Keeling)
-Iles mineures éloignées des États-Unis
 Inde
 Indonésie
 Iran
 Iraq
 Irlande
 Islande
-Israël
 Italie
 Jamaïque
 Japon
@@ -137,7 +109,6 @@ Malte
 Mariannes du Nord
 Maroc
 Martinique
-Maurice
 Mauritanie
 Mayotte
 Mexique
@@ -149,7 +120,6 @@ Montserrat
 Mozambique
 Népal
 Namibie
-Nauru
 Nicaragua
 Niger
 Nigeria
@@ -168,8 +138,6 @@ Paraguay
 Pays-Bas
 Philippines
 Pologne
-Polynésie française
-Porto Rico
 Portugal
 Qatar
 République centrafricaine
@@ -187,11 +155,9 @@ Saint-Christophe-et-Niévès
 Saint-Marin
 Saint-Pierre-et-Miquelon
 Saint-Siège
-Saint-Vincent-et-les-Grenadines
 Sainte-Hélène
 Sainte-Lucie
 Salvador
-Samoa
 Sao Tomé-et-Principe
 Seychelles
 Sierra Leone
@@ -211,7 +177,6 @@ Tadjikistan
 Tanzanie
 Tchad
 Terres australes françaises
-Territoire britannique de l'Océan Indien
 Thaïlande
 Timor Oriental
 Togo

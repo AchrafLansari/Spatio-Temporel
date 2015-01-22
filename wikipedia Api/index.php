@@ -35,31 +35,44 @@ $wiki = new Wikimate($api_url);
 
     $tab_mots = tokenization($texte , "\n",0,1);
     
-    $band_keys1 =  $tab_mots[mt_rand (0, count($tab_mots)-1)];
-    $rand_afficher = substr(rtrim($band_keys1) , -1);
     
+    $band_keys1 =  $tab_mots[mt_rand (0, count($tab_mots)-1)];
+    //$band_keys1 =  $tab_mots[3];
+    $rand_afficher = substr(rtrim($band_keys1) , -1);
+    $pays_test = substr(rtrim($band_keys1) ,0,strlen(rtrim($band_keys1)));
+    var_dump($pays_test);echo'<br>';
         if($rand_afficher =='e'){
-                $pays_test = substr(rtrim($band_keys1) ,0,strlen(rtrim($band_keys1)));
-                if(($pays_test =='Mexique' ) or ($pays_test=='Combodge' ) or ($pays_test=='Mozambique' ) or ($pays_test=='ZaÃ¯re Zimbabwe'))  
+                
+                
+                if(($pays_test =='Mexique' ) or ($pays_test=='Combodge' ) or ($pays_test=='Mozambique' ) or ($pays_test=='Zimbabwe') or ($pays_test =='Nigéria') or ($pays_test =='Japon') or (($pays_test =='Sénégal')) or ($pays_test =='Mali')  or ($pays_test =='Bangladesh') or ($pays_test =='Liban') or  ($pays_test =='Suriname'))  
                 {
                     $paye =  "au_"  .(substr($band_keys1 ,0,strlen($band_keys1))) ;
+                }else {
+                    $paye =  "en_"  .(substr($band_keys1 ,0,strlen($band_keys1))) ;
                 }
-                else 
-                   $paye = "en_"  .substr($band_keys1 , 0,strlen($band_keys1));
+                
         }
-        elseif( (substr(rtrim($band_keys1) ,0,strlen(rtrim($band_keys1)))=='Cuba')|| (substr(rtrim($band_keys1) ,0,strlen(rtrim($band_keys1)))=='Singapour')){
-                        $paye = "Ã _"  .substr($band_keys1 ,0,strlen($band_keys1));
-                    }
-        else {
-                $pos = strpos(substr($band_keys1 ,0,strlen($band_keys1)),' ');
-                if($pos === false) {
+        if ($rand_afficher  != 'e' ){
+                   
+                   $paye = "au_"  .substr($band_keys1 , 0,strlen($band_keys1));
+        }
+        if( ($pays_test=='Cuba') || (substr(rtrim($band_keys1) ,0,strlen(rtrim($band_keys1)))=='Singapour')|| (substr(rtrim($band_keys1) ,0,strlen(rtrim($band_keys1)))=='Madagascar')|| (substr(rtrim($band_keys1) ,0,strlen(rtrim($band_keys1)))=='Oman') || (substr(rtrim($band_keys1) ,0,strlen(rtrim($band_keys1)))=='Saint-Christophe-et-Niévès') || (substr(rtrim($band_keys1) ,0,strlen(rtrim($band_keys1)))=='Antigua-et-Barbuda') || (substr(rtrim($band_keys1) ,0,strlen(rtrim($band_keys1)))=='Monaco') || (substr(rtrim($band_keys1) ,0,strlen(rtrim($band_keys1)))=='Bahreïn' )){
+                        $paye = "à_"  .substr($band_keys1 ,0,strlen($band_keys1));
+        }
+        
+        $pos = strpos(substr($band_keys1 ,0,strlen($band_keys1)),' ');
+        $pos2 = strpos(substr($band_keys1 ,0,strlen($band_keys1)),'-');
+         
+        if($pos != false || $pos2 != false  ||  $pays_test == 'Maldives' || $pays_test == 'Seychelles'  ) {
 
-                $paye = "au_"  .(substr($band_keys1 ,0,strlen($band_keys1)));
-                }
-                else {
-                    $paye = "aux_"  .(substr($band_keys1 ,0,strlen($band_keys1)));
-                }           
-        }    
+         $paye = "aux_"  .(substr($band_keys1 ,0,strlen($band_keys1)));
+        }
+        
+        if( $pays_test == 'Afrique du Sud'){
+            $paye = "en_".$pays_test;
+        }
+                       
+         
 
              $pays = str_replace (" ", "_", $paye);
             $url_final = 'Liste_du_patrimoine_mondial_'.$pays;
@@ -75,7 +88,13 @@ $wiki = new Wikimate($api_url);
 	echo "Page doesn't exist.\n";
        } 
     else {
+        
         $section = utf8_decode($page->getSection('Patrimoine mondial'));
+        //var_dump($page->getSection('Patrimoine mondial'));
+        if($section == null){
+        $section = utf8_decode($page->getSection('Listes'));
+        }
+        
         $tab = tokenization($section,"{}",0,1);        
         for($i=1;$i<count($tab);$i++){
         $coord = explode("name=", $tab[$i]);            
@@ -102,5 +121,5 @@ $wiki = new Wikimate($api_url);
     }
 
 
-
+    
 

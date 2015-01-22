@@ -1,5 +1,3 @@
-Liste_du_patrimoine_mondial_aux_Iles_Salomon
-Liste_du_patrimoine_mondial_au_Macao
 
    /*elseif ($pays_test =='Tokélaou')
                $paye = "au_" . 'Tokélou';
@@ -20,3 +18,6 @@ Liste_du_patrimoine_mondial_au_Macao
          
            * 
          */
+
+
+Liste_du_patrimoine_mondial_à_la_Barbade
