@@ -41,10 +41,13 @@ $wiki = new Wikimate($api_url);
     $rand_afficher = substr(rtrim($band_keys1) , -1);
     $pays_test = substr(rtrim($band_keys1) ,0,strlen(rtrim($band_keys1)));
     var_dump($pays_test);echo'<br>';
+    
+    
+        
+    
         if($rand_afficher =='e'){
-                
-                
-                if(($pays_test =='Mexique' ) or ($pays_test=='Combodge' ) or ($pays_test=='Mozambique' ) or ($pays_test=='Zimbabwe') or ($pays_test =='Nigéria') or ($pays_test =='Japon') or (($pays_test =='Sénégal')) or ($pays_test =='Mali')  or ($pays_test =='Bangladesh') or ($pays_test =='Liban') or  ($pays_test =='Suriname'))  
+                               
+                if(($pays_test=='Burkina Faso') or ($pays_test=='Martinique' ) or ($pays_test=='Mozambique' ) or ($pays_test=='Zimbabwe') or ($pays_test =='Nigéria') or ($pays_test =='Japon') or (($pays_test =='Sénégal')) or ($pays_test =='Mali')  or ($pays_test =='Bangladesh') or ($pays_test =='Liban') or  ($pays_test =='Suriname'))  
                 {
                     $paye =  "au_"  .(substr($band_keys1 ,0,strlen($band_keys1))) ;
                 }else {
@@ -56,22 +59,22 @@ $wiki = new Wikimate($api_url);
                    
                    $paye = "au_"  .substr($band_keys1 , 0,strlen($band_keys1));
         }
-        if( ($pays_test=='Cuba') || (substr(rtrim($band_keys1) ,0,strlen(rtrim($band_keys1)))=='Singapour')|| (substr(rtrim($band_keys1) ,0,strlen(rtrim($band_keys1)))=='Madagascar')|| (substr(rtrim($band_keys1) ,0,strlen(rtrim($band_keys1)))=='Oman') || (substr(rtrim($band_keys1) ,0,strlen(rtrim($band_keys1)))=='Saint-Christophe-et-Niévès') || (substr(rtrim($band_keys1) ,0,strlen(rtrim($band_keys1)))=='Antigua-et-Barbuda') || (substr(rtrim($band_keys1) ,0,strlen(rtrim($band_keys1)))=='Monaco') || (substr(rtrim($band_keys1) ,0,strlen(rtrim($band_keys1)))=='Bahreïn' )){
+        if( ($pays_test=='Cuba') || (substr(rtrim($band_keys1) ,0,strlen(rtrim($band_keys1)))=='Singapour')|| (substr(rtrim($band_keys1) ,0,strlen(rtrim($band_keys1)))=='Madagascar')|| (substr(rtrim($band_keys1) ,0,strlen(rtrim($band_keys1)))=='Oman') || (substr(rtrim($band_keys1) ,0,strlen(rtrim($band_keys1)))=='Saint-Christophe-et-Niévès') || (substr(rtrim($band_keys1) ,0,strlen(rtrim($band_keys1)))=='Antigua-et-Barbuda') || (substr(rtrim($band_keys1) ,0,strlen(rtrim($band_keys1)))=='Monaco') || (substr(rtrim($band_keys1) ,0,strlen(rtrim($band_keys1)))=='Bahreïn') || (substr(rtrim($band_keys1) ,0,strlen(rtrim($band_keys1))) =='Chypre')){
                         $paye = "à_"  .substr($band_keys1 ,0,strlen($band_keys1));
         }
+        
         
         $pos = strpos(substr($band_keys1 ,0,strlen($band_keys1)),' ');
         $pos2 = strpos(substr($band_keys1 ,0,strlen($band_keys1)),'-');
          
-        if($pos != false || $pos2 != false  ||  $pays_test == 'Maldives' || $pays_test == 'Seychelles'  ) {
+        if($pos != false || $pos2 != false  ||  $pays_test == 'Maldives' || $pays_test == 'Seychelles' || $pays_test == 'Kiribati' || $pays_test == 'Tonga' ) {
 
          $paye = "aux_"  .(substr($band_keys1 ,0,strlen($band_keys1)));
         }
         
         if( $pays_test == 'Afrique du Sud'){
             $paye = "en_".$pays_test;
-        }
-                       
+        }            
          
 
              $pays = str_replace (" ", "_", $paye);
