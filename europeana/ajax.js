@@ -22,11 +22,11 @@ $(document).ready(function(){
                               },
                         success: function(data)          //on recieve of reply
                         {   
-                           //console.log('Response received : '+data["completeness"]);
+                          // console.log('Response received : '+data);
                            $('.bubblingG').css('display','none'); 
                            data.forEach(function(entry) {
                                 
-                                $('#output').append(entry["completeness"]+"==>"+entry["image"]+"<br>");     //Set output element html
+                                $('#output').append(entry["completeness"]+"==>"+entry["image"]+"==>"+entry["latitude"]+"==>"+entry["longitude"]+"<br>");     //Set output element html
                           });   
                          
                         },error : function(xhr, status){

@@ -31,18 +31,20 @@
         $i=0;
         foreach ($parsed_json['items'] as $items) {
          
-        $record_path = "http://europeana.eu/api/v2/record".$items['id'].".json?wskey=".$key."&profile=full";
+       /* $record_path = "http://europeana.eu/api/v2/record".$items['id'].".json?wskey=".$key."&profile=full";
         $json_record = file_get_contents($record_path);
         $parsed_json_record = json_decode($json_record,true);
-        
+        */
         
         //var_dump($parsed_json_record);
         
         //echo $parsed_json_record['edmCountry']; // country
         //echo $parsed_json_record['edmLanguage'][0]; // language a confirmer
-        //echo $parsed_json_record['places']; // si il a un tableau de places veut dire qu'il est géolocalisable 
-        //echo $parsed_json_record['latitude']; // il faut récuperer la latitude
-        //echo $parsed_json_record['longitude']; // il faut récuperer la longitude
+        if(isset($parsed_json_record['places']))
+        { // si il a un tableau de places veut dire qu'il est géolocalisable 
+       // echo $parsed_json_record['latitude']; // il faut récuperer la latitude
+       // echo $parsed_json_record['longitude']; // il faut récuperer la longitude
+        }
         //echo $parsed_json_record['timespans']; // si il a timespans veut dire qu'il a une début de période et une fin :
         //echo $parsed_json_record['begin']; // il faut récuperer le début
         //echo $parsed_json_record['end']; // il faut récupérer la fin
@@ -63,7 +65,7 @@
         //echo 'Contexte temporel  array a retravailler :'.$items['edmTimespanLabel'].'<br>';
         
         //echo 'Qualité sur 10 des metadatas :';
-        $data2[$i] = array('completeness'=>$items['completeness'],'type'=>$items['type'],'id'=>$items['id'],'image'=>urldecode($url_image[0]));
+        
         
         //<a href="/path/to/image.png" download> image a mettre dans le path image de kontext + musee
         
@@ -74,10 +76,15 @@
         
         if(isset($items['edmPlaceLatitude'])){
         if($items['edmPlaceLatitude'][0] != '0.0' && $items['edmPlaceLongitude'][0] !='0.0' ){
-        //echo $items['edmPlaceLatitude'][0]." , ".$items['edmPlaceLongitude'][0]."<br>";
+            
+             $data2[$i] = array('completeness'=>$items['completeness'],'type'=>$items['type'],'id'=>$items['id'],'image'=>urldecode($url_image[0]),'latitude'=>$items['edmPlaceLatitude'][0],'longitude'=>$items['edmPlaceLongitude'][0]);
+             $i++;
+             
         }
         }
         
+        
+       
         //if(isset($items['year'][0])){echo $items['year'][0];}
         
         //echo "<br><br>";
@@ -88,7 +95,7 @@
         
         //array_push($data['image'],urldecode($url_image[0]));
         //$data2[$i] = $data['completeness'][$i];
-        $i++;
+        
         }
          
         echo json_encode($data2);
