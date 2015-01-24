@@ -74,15 +74,15 @@
         //if(isset($items['dcCreator'][0])){echo  $items['dcCreator'][0].'<br>';}
         
         //echo ($items['title'][0]).'<br>';
-        
+        if(isset($items['edmPreview'][0])){ // a voir comment gerer les textes aussi et pas que les images 
         if(isset($items['edmPlaceLatitude'])){
         if($items['edmPlaceLatitude'][0] != '0.0' && $items['edmPlaceLongitude'][0] !='0.0' ){
             
-             $data2[$i] = array('completeness'=>$items['completeness'],'type'=>$items['type'],'id'=>$items['id'],'image'=>urldecode($url_image[0]),'latitude'=>$items['edmPlaceLatitude'][0],'longitude'=>$items['edmPlaceLongitude'][0]);
+             $data2[$i] = array('completeness'=>$items['completeness'],'type'=>$items['type'],'id'=>$items['id'],'image'=>'<img  class="images" width="250px" height="250px"  src='.urldecode($url_image[0]).'>','latitude'=>$items['edmPlaceLatitude'][0],'longitude'=>$items['edmPlaceLongitude'][0]);
              $i++;
              
         }
-        }
+        }}
         
         
        

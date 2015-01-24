@@ -5,7 +5,6 @@ Algérie
 Allemagne
 Andorre
 Angola
-Antarctique
 Antigua-et-Barbuda
 Arabie saoudite
 Argentine
@@ -96,6 +95,7 @@ Libye
 Liechtenstein
 Lituanie
 Luxembourg
+Macédoine
 Madagascar
 Malaisie
 Malawi
@@ -109,7 +109,6 @@ Micronésie
 Moldavie
 Monaco
 Mongolie
-Montserrat
 Mozambique
 Népal
 Namibie
@@ -177,5 +176,4 @@ Venezuela
 Yémen
 Yougoslavie
 Zambie
-Zimbabwe
-République yougoslave de Macédoine 
+Zimbabwe 
