@@ -40,14 +40,14 @@ $wiki = new Wikimate($api_url);
     //$band_keys1 =  $tab_mots[3];
     $rand_afficher = substr(rtrim($band_keys1) , -1);
     $pays_test = substr(rtrim($band_keys1) ,0,strlen(rtrim($band_keys1)));
-    var_dump($pays_test);echo'<br>';
+   // var_dump($pays_test);echo'<br>';
     
     
         
     
         if($rand_afficher =='e'){
                                
-                if(($pays_test=='Burkina Faso') or ($pays_test=='Martinique' ) or ($pays_test=='Mozambique' ) or ($pays_test=='Zimbabwe') or ($pays_test =='Nigéria') or ($pays_test =='Japon') or (($pays_test =='Sénégal')) or ($pays_test =='Mali')  or ($pays_test =='Bangladesh') or ($pays_test =='Liban') or  ($pays_test =='Suriname'))  
+                if(($pays_test=='Burkina Faso') or ($pays_test=='Martinique' ) or ($pays_test=='Mozambique' ) or ($pays_test=='Zimbabwe') or ($pays_test =='Nigï¿½ria') or ($pays_test =='Japon') or (($pays_test =='Sï¿½nï¿½gal')) or ($pays_test =='Mali')  or ($pays_test =='Bangladesh') or ($pays_test =='Liban') or  ($pays_test =='Suriname'))  
                 {
                     $paye =  "au_"  .(substr($band_keys1 ,0,strlen($band_keys1))) ;
                 }else {
@@ -59,8 +59,8 @@ $wiki = new Wikimate($api_url);
                    
                    $paye = "au_"  .substr($band_keys1 , 0,strlen($band_keys1));
         }
-        if( ($pays_test=='Cuba') || (substr(rtrim($band_keys1) ,0,strlen(rtrim($band_keys1)))=='Singapour')|| (substr(rtrim($band_keys1) ,0,strlen(rtrim($band_keys1)))=='Madagascar')|| (substr(rtrim($band_keys1) ,0,strlen(rtrim($band_keys1)))=='Oman') || (substr(rtrim($band_keys1) ,0,strlen(rtrim($band_keys1)))=='Saint-Christophe-et-Niévès') || (substr(rtrim($band_keys1) ,0,strlen(rtrim($band_keys1)))=='Antigua-et-Barbuda') || (substr(rtrim($band_keys1) ,0,strlen(rtrim($band_keys1)))=='Monaco') || (substr(rtrim($band_keys1) ,0,strlen(rtrim($band_keys1)))=='Bahreïn') || (substr(rtrim($band_keys1) ,0,strlen(rtrim($band_keys1))) =='Chypre')){
-                        $paye = "à_"  .substr($band_keys1 ,0,strlen($band_keys1));
+        if( ($pays_test=='Cuba') || (substr(rtrim($band_keys1) ,0,strlen(rtrim($band_keys1)))=='Singapour')|| (substr(rtrim($band_keys1) ,0,strlen(rtrim($band_keys1)))=='Madagascar')|| (substr(rtrim($band_keys1) ,0,strlen(rtrim($band_keys1)))=='Oman') || (substr(rtrim($band_keys1) ,0,strlen(rtrim($band_keys1)))=='Saint-Christophe-et-Niï¿½vï¿½s') || (substr(rtrim($band_keys1) ,0,strlen(rtrim($band_keys1)))=='Antigua-et-Barbuda') || (substr(rtrim($band_keys1) ,0,strlen(rtrim($band_keys1)))=='Monaco') || (substr(rtrim($band_keys1) ,0,strlen(rtrim($band_keys1)))=='Bahreï¿½n') || (substr(rtrim($band_keys1) ,0,strlen(rtrim($band_keys1))) =='Chypre')){
+                        $paye = "ï¿½_"  .substr($band_keys1 ,0,strlen($band_keys1));
         }
         
         
@@ -80,7 +80,8 @@ $wiki = new Wikimate($api_url);
              $pays = str_replace (" ", "_", $paye);
             $url_final = 'Liste_du_patrimoine_mondial_'.$pays;
             $url_final = rtrim($url_final);            
-            var_dump($url_final);echo'<br>';            
+            var_dump($url_final);
+			echo'<br>';            
             $page = $wiki->getPage($url_final);
     if($url_final = '') {
       
@@ -102,12 +103,13 @@ $wiki = new Wikimate($api_url);
         for($i=1;$i<count($tab);$i++){
         $coord = explode("name=", $tab[$i]);            
             if (isset($coord[1])) { 
-               echo $coord[1].'<br>';
+			
+               echo "<h3>" . $coord[1]. "</h3>";
             }
             $lien = explode("http", $tab[$i]);
             if (isset($lien[1])) { 
                 $lien_final = explode("]",$lien[1]);
-                echo '<a href="http'.$lien_final[0].'" target="_blank"> --></a> <br>'; 
+                echo '<a href="http'.$lien_final[0].'" target="_blank"> <img src="img/fleche.png" alt="suivant" height="42" width="42"></a> <br>'; 
             }
         }
 }
