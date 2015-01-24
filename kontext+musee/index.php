@@ -30,6 +30,19 @@
                 <script src="script.js"></script>
                 <script src="js/ajax.js" type="text/javascript"></script>
                 
+                <style>
+                    .style-1 input[type="text"] {
+                        padding: 10px;
+                        border: solid 1px #dcdcdc;
+                        transition: box-shadow 0.3s, border 0.3s;
+                      }
+                      .style-1 input[type="text"]:focus,
+                      .style-1 input[type="text"].focus {
+                        border: solid 1px #707070;
+                        box-shadow: 0 0 5px 1px #969696;
+                      }
+                </style>   
+                
                
 	</head>
 	<body onload="initialisation();setupTimeline();">
@@ -96,8 +109,12 @@
          </div>
      
     <img src='icones/wolframe2.png' width="96px" height="96px" id='wolfram'/>
-    <input id="timeFrom" value="" type="text"/>
-    <input id="timeTo" value="" type="text"/>
+     <div class="input-list style-1 clearfix" style="width: 90%;position:absolute;">
+
+              <input type="text" id="timeFrom" placeholder=":time From"  style="float:left;margin-left: 8px;width:70px;" />
+              <input type="text" id="timeTo" placeholder=":time To"  style="float:right;margin-right: 20px;width:70px;" />
+
+     </div>
     
     
     
