@@ -245,7 +245,7 @@ span.arrow{
 }
 
 #submitButton:hover{
-	background-position:left bottom;
+	/*background-position:left bottom;*/
 }
 .bubblingG {
             text-align: center;
