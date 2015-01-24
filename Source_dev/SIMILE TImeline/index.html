@@ -67,8 +67,8 @@ function setupTimeline() {
       eventSource:    eventSource,
       width:          "70%",
       intervalUnit:   Timeline.DateTime.MONTH,
-      intervalPixels: 100,
-      zoomIndex:      10,
+      intervalPixels: 125,
+      zoomIndex:      13,
             zoomSteps:      new Array(
               {pixelsPerInterval: 280,  unit: Timeline.DateTime.HOUR},
               {pixelsPerInterval: 140,  unit: Timeline.DateTime.HOUR},
@@ -78,9 +78,12 @@ function setupTimeline() {
               {pixelsPerInterval: 200,  unit: Timeline.DateTime.DAY},
               {pixelsPerInterval: 100,  unit: Timeline.DateTime.DAY},
               {pixelsPerInterval:  50,  unit: Timeline.DateTime.DAY},
-              {pixelsPerInterval: 400,  unit: Timeline.DateTime.MONTH},
               {pixelsPerInterval: 200,  unit: Timeline.DateTime.MONTH},
-              {pixelsPerInterval: 100,  unit: Timeline.DateTime.MONTH} // DEFAULT zoomIndex
+              {pixelsPerInterval: 100,  unit: Timeline.DateTime.MONTH},
+              {pixelsPerInterval: 25,  unit: Timeline.DateTime.MONTH}, 
+              {pixelsPerInterval: 200,  unit: Timeline.DateTime.YEAR}, 
+              {pixelsPerInterval: 100,  unit: Timeline.DateTime.YEAR}, 
+              {pixelsPerInterval: 50,  unit: Timeline.DateTime.YEAR} 
             )
 		}),
 		Timeline.createBandInfo({
