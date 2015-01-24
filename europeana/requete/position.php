@@ -9,12 +9,13 @@
         
         if($_POST){
         
-        $lat  = $_POST['latitude'];
-        $long = $_POST['longitude'];    
-       
-        $path = "http://www.europeana.eu/api/v2/search.json?wskey=".$key."&query=pl_wgs84_pos_lat:[".$lat."]+AND+pl_wgs84_pos_long:[".$long."]";
+        $lat  = ''.$_POST['latitude'];
+        $long = ''.$_POST['longitude']; 
         
-           
+        $path = 'http://europeana.eu/api/v2/search.json?wskey='.$key.'&query=pl_wgs84_pos_lat%3A%5B'.$lat.'+TO+'.$lat.'.5%5D+AND+pl_wgs84_pos_long%3A%5B'.$long.'+TO+'.$long.'.5%5D;&start=1&rows=24&profile=standard';
+        //$path = "http://www.europeana.eu/api/v2/search.json?wskey=".$key."&query=pl_wgs84_pos_lat:[".$lat."]+AND+pl_wgs84_pos_long:[".$long."]";
+        
+        
         $json = file_get_contents($path);
         $parsed_json = json_decode($json,true);
         

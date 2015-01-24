@@ -277,15 +277,15 @@ function initialisation(){
     // On crée notre carte en lui passant toutes nos options en paramètre
     carte = new google.maps.Map(document.getElementById("map"), mesOptions);
 
-    google.maps.event.addListener(carte, "dblclick", function (e) { 
+    google.maps.event.addListener(carte, "dblclick", function (event) { 
                var lat = event.latLng.lat();
                var lng = event.latLng.lng(); 
                $.ajax({
                         url: "../europeana/requete/position.php",
                         type: "POST",
                         dataType: 'json',
-                        data: { latitude : lat,
-                                longitude : lng
+                        data: { latitude : parseInt(lat),
+                                longitude : parseInt(lng)
                               },
                         success: function(data)          //on recieve of reply
                         {   
