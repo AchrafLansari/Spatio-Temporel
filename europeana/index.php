@@ -30,8 +30,7 @@
         
         $path = "http://www.europeana.eu/api/v2/search.json?wskey=".$key."&query=".$query."&rows=94";
         
-        $path2 = "http://europeana.eu/api/v2/search.json?wskey=".$key."&query=".$query."&qf=YEAR%3A%5B".$date_d."+TO+".$date_f."%5D&start=1&rows=96&profile=standard";
-        
+       
         //search of person  des resultats sans geoposition ni year
         $path3 = "http://www.europeana.eu/api/v2/search.json?wskey=".$key."&query=who:Leonardo+da+Vinci";
         

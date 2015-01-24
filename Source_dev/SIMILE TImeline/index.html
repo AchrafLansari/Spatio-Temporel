@@ -30,22 +30,22 @@ function update(thisTimer) {
       
     }
     else {
-
+        
       $.ajax({
-                        url: "../../europeana/requete/simple.php",
+                        url: "../../europeana/requete/date.php",
                         type: "POST",
                         dataType: 'json',
-                        data: { query : 'requete',
-                                date_d : document.getElementById("timeFrom").value,
-                                date_f : document.getElementById("timeTo").value,
+                        data: { query : 'paris',
+                                date_d : document.getElementById("timeFrom").value.toString().substring(0,4),
+                                date_f : document.getElementById("timeTo").value.toString().substring(0,4),
                               },
                         success: function(data)          //on recieve of reply
                         {   
-                           console.log('Response received : '+data["completeness"]);
-                           //$('.bubblingG').css('display','none'); 
                            
+                           //$('.bubblingG').css('display','none'); 
+                            $('#output').html("");  
                            data.forEach(function(entry) {
-                                
+                               
                                 $('#output').append(entry["completeness"]+"==>"+entry["image"]);     //Set output element html
                           });   
                          
@@ -209,7 +209,7 @@ getMaxVisibleDate()
                </div>
          </div>
      
-     
+      <div id="output"></div>
         
 <!-- It would be great if you leave the link back to the tutorial. Thanks! -->
     
