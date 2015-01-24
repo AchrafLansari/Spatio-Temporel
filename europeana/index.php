@@ -27,9 +27,7 @@
         $date_d = "1863";
         $date_f = "2014";
         
-        
-        $path = "http://www.europeana.eu/api/v2/search.json?wskey=".$key."&query=".$query."&rows=94";
-        
+       
        
         //search of person  des resultats sans geoposition ni year
         $path3 = "http://www.europeana.eu/api/v2/search.json?wskey=".$key."&query=who:Leonardo+da+Vinci";
@@ -38,9 +36,6 @@
         
         // search of place or many with OR like the example : a corriger
         $path4 ="http://www.europeana.eu/api/v2/search.json?wskey=".$key."&query=where:(Paris+OR+London)";
-        
-        // search with latitude + longitude 
-        $path5 = "http://www.europeana.eu/api/v2/search.json?wskey=".$key."&query=pl_wgs84_pos_lat:[45+TO+47]+AND+pl_wgs84_pos_long:[7+TO+8]";
         
         // search with concatenation
         $path6 = "http://www.europeana.eu/api/v2/search.json?wskey=".$key."&query=Westminster&qf=where:London";

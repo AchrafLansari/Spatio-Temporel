@@ -77,7 +77,7 @@
         if(isset($items['edmPlaceLatitude'])){
         if($items['edmPlaceLatitude'][0] != '0.0' && $items['edmPlaceLongitude'][0] !='0.0' ){
             
-             $data2[$i] = array('completeness'=>$items['completeness'],'type'=>$items['type'],'id'=>$items['id'],'image'=>urldecode($url_image[0]),'latitude'=>$items['edmPlaceLatitude'][0],'longitude'=>$items['edmPlaceLongitude'][0]);
+            $data2[$i] = array('completeness'=>$items['completeness'],'type'=>$items['type'],'id'=>$items['id'],'image'=>urldecode($url_image[0]),'latitude'=>$items['edmPlaceLatitude'][0],'longitude'=>$items['edmPlaceLongitude'][0]);
              $i++;
              
         }

@@ -1,14 +1,19 @@
 
 <?php
         
-        $key = 'wRRkGVyyG';
-        $query= $_POST['query'];
-        $rows= $_POST['rows'];
+       $key = 'wRRkGVyyG';
+       
+              
+        
         
         
         if($_POST){
-            
-        $path = "http://www.europeana.eu/api/v2/search.json?wskey=".$key."&query=".$query."&rows=".$rows;
+        
+        $lat  = $_POST['latitude'];
+        $long = $_POST['longitude'];    
+       
+        $path = "http://www.europeana.eu/api/v2/search.json?wskey=".$key."&query=pl_wgs84_pos_lat:[".$lat."]+AND+pl_wgs84_pos_long:[".$long."]";
+        
            
         $json = file_get_contents($path);
         $parsed_json = json_decode($json,true);
@@ -20,29 +25,34 @@
         
            
             
-        echo '<br>';
+        //echo '<br>';
         //var_dump($parsed_json);
         
         
-        echo '<br>'.count($parsed_json['items']).'<br>';
+       // echo '<br>'.count($parsed_json['items']).'<br>';
+        $data2 =array();
         
+        $i=0;
         foreach ($parsed_json['items'] as $items) {
-            
-        $record_path = "http://europeana.eu/api/v2/record".$items['id'].".json?wskey=".$key."&profile=full";
+         
+       /* $record_path = "http://europeana.eu/api/v2/record".$items['id'].".json?wskey=".$key."&profile=full";
         $json_record = file_get_contents($record_path);
-        $parsed_json_record = json_decode($json_record,true);  
+        $parsed_json_record = json_decode($json_record,true);
+        */
         
         //var_dump($parsed_json_record);
         
         //echo $parsed_json_record['edmCountry']; // country
         //echo $parsed_json_record['edmLanguage'][0]; // language a confirmer
-        //echo $parsed_json_record['places']; // si il a un tableau de places veut dire qu'il est géolocalisable 
-        //echo $parsed_json_record['latitude']; // il faut récuperer la latitude
-        //echo $parsed_json_record['longitude']; // il faut récuperer la longitude
+        if(isset($parsed_json_record['places']))
+        { // si il a un tableau de places veut dire qu'il est géolocalisable 
+       // echo $parsed_json_record['latitude']; // il faut récuperer la latitude
+       // echo $parsed_json_record['longitude']; // il faut récuperer la longitude
+        }
         //echo $parsed_json_record['timespans']; // si il a timespans veut dire qu'il a une début de période et une fin :
         //echo $parsed_json_record['begin']; // il faut récuperer le début
         //echo $parsed_json_record['end']; // il faut récupérer la fin
-            
+         
         
         if(isset($items['edmPreview'][0])){    
         $url_image = explode('?uri=', $items['edmPreview'][0]); 
@@ -59,29 +69,40 @@
         //echo 'Contexte temporel  array a retravailler :'.$items['edmTimespanLabel'].'<br>';
         
         //echo 'Qualité sur 10 des metadatas :';
-        echo $items['completeness'].'<br>';
-        echo $items['type'].'<br>';
-        echo $items['id'].'<br>';
         
-        if(isset($items['dcCreator'][0])){echo  $items['dcCreator'][0].'<br>';}
         
-        echo ($items['title'][0]).'<br>';
+        //<a href="/path/to/image.png" download> image a mettre dans le path image de kontext + musee
+        
+        
+        //if(isset($items['dcCreator'][0])){echo  $items['dcCreator'][0].'<br>';}
+        
+        //echo ($items['title'][0]).'<br>';
         
         if(isset($items['edmPlaceLatitude'])){
         if($items['edmPlaceLatitude'][0] != '0.0' && $items['edmPlaceLongitude'][0] !='0.0' ){
-        echo $items['edmPlaceLatitude'][0]." , ".$items['edmPlaceLongitude'][0]."<br>";
+            
+            $data2[$i] = array('completeness'=>$items['completeness'],'type'=>$items['type'],'id'=>$items['id'],'image'=>urldecode($url_image[0]),'latitude'=>$items['edmPlaceLatitude'][0],'longitude'=>$items['edmPlaceLongitude'][0]);
+             $i++;
+             
         }
         }
         
-        if(isset($items['year'][0])){echo $items['year'][0];}
         
-        echo "<br><br>";
+       
+        //if(isset($items['year'][0])){echo $items['year'][0];}
+        
+        //echo "<br><br>";
         
         
         //echo '<img  width="50px" height="50px" src='.$items['edmPreview'][0].'>';    
-        echo '<img  class="images" width="250px" height="250px"  src='.urldecode($url_image[0]).'>';
+        //echo '<img  class="images" width="250px" height="250px"  src='.urldecode($url_image[0]).'>';
+        
+        //array_push($data['image'],urldecode($url_image[0]));
+        //$data2[$i] = $data['completeness'][$i];
         
         }
+         
+        echo json_encode($data2);
         
         }else { 
             echo "Recherche Introuvable"; 

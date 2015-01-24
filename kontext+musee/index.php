@@ -277,20 +277,55 @@ function initialisation(){
     // On crée notre carte en lui passant toutes nos options en paramètre
     carte = new google.maps.Map(document.getElementById("map"), mesOptions);
 
-    // On place un listener sur la carte qui contrôle une action qui sera déclenchée lors de l'événement 'zoom_changed'
-    // Quand le zoom sera modifié la carte sera recentrée sur les coordonnées de The Coding Machine
-    google.maps.event.addListener(carte,'zoom_changed', function() {
-       setTimeout(allerChezTCM,3000);
-    });
+    google.maps.event.addListener(carte, "dblclick", function (e) { 
+               var lat = event.latLng.lat();
+               var lng = event.latLng.lng(); 
+               $.ajax({
+                        url: "../europeana/requete/position.php",
+                        type: "POST",
+                        dataType: 'json',
+                        data: { latitude : lat,
+                                longitude : lng
+                              },
+                        success: function(data)          //on recieve of reply
+                        {   
+                           //console.log('Response received : '+data["completeness"]);
+                           $('.bubblingG').css('display','none'); 
+                           data.forEach(function(entry) {
+                                
+                                $('#output').append(entry["completeness"]+"==>"+entry["image"]+"<br>");     //Set output element html
+                                
+                                var message = "Vous �tes ici !";
+                                var infowindow = new google.maps.InfoWindow({
+                                    content: message,
+                                    size: new google.maps.Size(50,50)
+                                });
+                                
+                                
+                                
+                                marker = new google.maps.Marker({
+                                        position: new google.maps.LatLng(entry['latitude'], entry['longitude']),
+                                        map:carte,
+                                        draggable:false,
+                                        animation: google.maps.Animation.DROP,
+                                    });
+                                 google.maps.event.addListener(marker, 'click', function() {
+                                        infowindow.open(carte,marker);
+                                });
+                                 
+                                
+                                
+                                
+                          });   
+                         
+                        },error : function(xhr, status){
+                            console.log(status);
+                        }
+            });
+               
+            });
     
     /*
-    // On crée un marqueur que l'on positionne grâce au paramètre "position"
-    var marker = new google.maps.Marker ({
-       position: maLatlng,
-       map: carte,
-       title: "Hello world :) !"
-    });
-
     // On place un listener sur le marqueur qui contrôle une action qui sera déclenchée lors de l'évènement 'click'
     // Quand on clique sur le marqueur, le zoom de la carte passera à 8
     google.maps.event.addListener(marker, 'click', function(){
@@ -298,7 +333,7 @@ function initialisation(){
     });
     */
 }
-
+   
 if (navigator.geolocation){
     var watchId = navigator.geolocation.watchPosition(successCallback,
                             null,
@@ -313,6 +348,7 @@ if (navigator.geolocation){
         position: new google.maps.LatLng(position.coords.latitude, position.coords.longitude),
         map: carte
       }); 
+      
   }
 </script>
 

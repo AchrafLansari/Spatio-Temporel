@@ -37,6 +37,34 @@ $(document).ready(function(){
                            data.forEach(function(entry) {
                                 
                                 $('#output').append(entry["completeness"]+"==>"+entry["image"]+"<br>");     //Set output element html
+                                
+                                var message = "Vous êtes ici !";
+                                var infowindow = new google.maps.InfoWindow({
+                                    content: message,
+                                    size: new google.maps.Size(50,50)
+                                });
+                                
+                                /*var marker = new google.maps.Marker({
+                                    position: new google.maps.LatLng(entry['latitude'], entry['longitude']),
+                                    map: carte
+                                }); 
+                                google.maps.event.addListener(marker, 'click', function() {
+                                        infowindow.open(carte,marker);
+                                });*/
+                                
+                                marker = new google.maps.Marker({
+                                        position: new google.maps.LatLng(entry['latitude'], entry['longitude']),
+                                        map:carte,
+                                        draggable:false,
+                                        animation: google.maps.Animation.DROP,
+                                    });
+                                 google.maps.event.addListener(marker, 'click', function() {
+                                        infowindow.open(carte,marker);
+                                });
+                                 
+                                
+                                
+                                
                           });   
                          
                         },error : function(xhr, status){
