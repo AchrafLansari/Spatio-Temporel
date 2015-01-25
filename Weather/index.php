@@ -16,7 +16,8 @@
 
     $(document).ready(function () {
         
-        GetLocalWeather('<?php echo $_GET["q"]; ?>');
+       GetLocalWeather('<?php echo $_GET["q"]; ?>');
+         
         
     });
 </script>

@@ -40,17 +40,13 @@ function jsonP(url, callback) {
         jsonpCallback: callback,
         dataType: 'jsonp',
         success: function (json) {
-            if(json.data.error){
-                 
-                 $('#navigation').css('display','none');
-                 $('#navigation').hide();
-            }
-            console.dir('success');
+            
+            console.log('success');
         },
         error: function (e) {
+            console.log('error');
             $('#navigation').css('display','none');
-            $('#navigation').hide();
-            //console.log(e.message);
+           
         }
     });
 }

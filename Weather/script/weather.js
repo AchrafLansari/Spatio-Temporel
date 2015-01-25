@@ -19,10 +19,10 @@
     }
 
     function LocalWeatherCallback(localWeather) {
-        
-        
+                
+               
         if(localWeather.data.error == null ){
-            
+        
         //output = "<br/> Cloud Cover: " + localWeather.data.current_condition[0].cloudcover;
         output += "<br/> Humidity: " + localWeather.data.current_condition[0].humidity+"%";
         output += "<br/> Temp C: " + localWeather.data.current_condition[0].temp_C+"°C";
@@ -33,8 +33,11 @@
         
         resultContainer.empty();
         resultContainer.html(output);
+        
+        }else {
+            $('#navigation').css('display','none');
+            resultContainer.empty();
         }
-    
     }
 
     //-------------------------------------------

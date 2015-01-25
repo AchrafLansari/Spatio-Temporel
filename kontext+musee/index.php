@@ -291,18 +291,15 @@ function initialisation(){
                         {   
                            //console.log('Response received : '+data["completeness"]);
                            $('.bubblingG').css('display','none');
-                           carte.setAllMap(null);
+                           setAllMap(null);
                            var i = 0;
-                           var message;
                            data.forEach(function(entry) {
                                 
                                 $('#output').append(entry["completeness"]+"==>"+entry["image"]+"<br>");     //Set output element html
                                 
-                                message = ""+i;
+                                var message = ""+i;
                                 i++;
-                          });   
-                          
-                          var infowindow = new google.maps.InfoWindow({
+                                var infowindow = new google.maps.InfoWindow({
                                     content: message,
                                     size: new google.maps.Size(50,50)
                                 });
@@ -319,9 +316,11 @@ function initialisation(){
                                         infowindow.open(carte,marker);
                                 });
                                  
-                                //carte.panTo(entry['latitude'], entry['longitude']);
-                            
-                            
+                                
+                                
+                                
+                          });   
+                         
                         },error : function(xhr, status){
                             console.log(status);
                         }
@@ -329,7 +328,13 @@ function initialisation(){
                
             });
     
-    
+    /*
+    // On place un listener sur le marqueur qui contrôle une action qui sera déclenchée lors de l'évènement 'click'
+    // Quand on clique sur le marqueur, le zoom de la carte passera à 8
+    google.maps.event.addListener(marker, 'click', function(){
+       carte.setZoom(8);
+    });
+    */
 }
    
 if (navigator.geolocation){
