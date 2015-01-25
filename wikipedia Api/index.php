@@ -104,12 +104,14 @@ $wiki = new Wikimate($api_url);
         $coord = explode("name=", $tab[$i]);            
             if (isset($coord[1])) { 
 			
-               echo "<h3>" . $coord[1]. "<img src='icones/fleche1.png' alt='suivant' height='35' width='42'></h3>";
+               echo " <div class = 'ligne'> <h3>" . $coord[1];
             }
             $lien = explode("http", $tab[$i]);
             if (isset($lien[1])) { 
                 $lien_final = explode("]",$lien[1]);
-               // echo '<a href="http'.$lien_final[0].'" target="_blank"> <img src="img/fleche.png" alt="suivant" height="42" width="42"></a>'; 
+                echo '<a href="http'.$lien_final[0].'" target="_blank"> <img src="img/fleche1.png" alt="suivant" style="float: right;" height="42" width="42" cursor:  pointer;></a>'; 
+               echo "</h3>";
+                
             }
         }
 }
