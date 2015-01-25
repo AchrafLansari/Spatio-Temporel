@@ -37,7 +37,8 @@ position: absolute;
 *html .popup_block {
 position: absolute;
 }
-			.submitButton{
+
+#submitButton{
 	background:url('img/images.jpg') no-repeat;
 	width:83px;
 	height:73px;
