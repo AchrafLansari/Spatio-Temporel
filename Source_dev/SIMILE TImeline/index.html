@@ -74,6 +74,11 @@ function update(thisTimer) {
 
 function setupTimeline() {
   eventSource = new Timeline.DefaultEventSource();
+  
+   
+            
+  
+  
   var bands = [
 		Timeline.createBandInfo({
       eventSource:    eventSource,
@@ -109,16 +114,28 @@ function setupTimeline() {
     })
   ];
 
-   
   
   // synchronise bands
   bands[1].syncWith = 0;
   bands[1].highlight = true;
   timeline = Timeline.create(document.getElementById("timeline"), bands);
   
-  
-        
+    for(var i=0;i<4;i++){
+            var evt = new Timeline.DefaultEventSource.Event({
 
+                    'start': new Date(2015, 1, 1),
+                    'end': new Date(2015, 2, 8+i),
+                    'title': 'added event',
+                    'description': 'added event',
+                    'color': 'yellow'
+
+            });
+            
+   // eventSource1 is defined lower, you should really refactor this code :-)
+            eventSource._events.add(evt);
+            eventSource._fire("onAddMany", []);
+            timeline.layout();
+        }
   for(var i = 0; i < timeline.getBandCount(); i++) {
       
     timeline.getBand(i).addOnScrollListener(function(band){
