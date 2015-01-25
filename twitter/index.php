@@ -21,24 +21,29 @@
                    // echo $query.'<br><br>';
                     $content = $connection->get($query);      
                     
-                    }                   
-                    echo  '<ul id="legende">';
+                                  
+                                          
+                            if(!empty($content)){
+                                if(count($content->statuses) != 0){
+                                
+                                echo  '<ul id="legende">';
                             
-                    echo '<li class=""><a  title="legende"><img id="twitter_icones" src="../twitter/icones/twitter2.png" />';
-                    if(!empty($consumer_key) && !empty($consumer_secret) && !empty($oauth_token) && !empty($oauth_token_secret)) {                        
-                            if(!empty($content)){ 
+                                echo '<li class=""><a  title="legende"><img id="twitter_icones" src="../twitter/icones/twitter2.png" />';
                                 
                                 foreach($content->statuses as $tweet){
                                  
                                 echo '<div id="tweet"> ' . $tweet->text . '</div>';
                                
-                                 }}
+                                 }
+                               }
+                                
                         
                     } else {
                         echo'<p>Please update your settings to provide valid credentials</p>';
                     }
                     echo '</a></li>';
                     echo '</ul>';
+                    }
                 ?>
         </div>
                     
