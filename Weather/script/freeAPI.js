@@ -41,13 +41,16 @@ function jsonP(url, callback) {
         dataType: 'jsonp',
         success: function (json) {
             if(json.data.error){
+                 
                  $('#navigation').css('display','none');
-                 //$('#navigation').hide();
+                 $('#navigation').hide();
             }
             console.dir('success');
         },
         error: function (e) {
-            console.log(e.message);
+            $('#navigation').css('display','none');
+            $('#navigation').hide();
+            //console.log(e.message);
         }
     });
 }

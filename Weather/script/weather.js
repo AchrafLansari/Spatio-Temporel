@@ -20,7 +20,6 @@
 
     function LocalWeatherCallback(localWeather) {
         
-       
         
         if(localWeather.data.error == null ){
             
@@ -34,7 +33,8 @@
         
         resultContainer.empty();
         resultContainer.html(output);
-    }
+        }
+    
     }
 
     //-------------------------------------------
