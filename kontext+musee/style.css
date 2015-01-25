@@ -1,7 +1,6 @@
 @font-face {
   font-family: "Economica-Italic";
-  
-  src: url('font/Economica-Italic.ttf.otf');
+  src: url('font/Economica-Italic.ttf');
 }
 body,
 html{
@@ -399,7 +398,7 @@ ul#legende {
     position: fixed;
     margin: 0px;
     padding: 0px;
-    top: 50px;
+    top: 150px;
     right: 0px;
     list-style: none;
     z-index:9999;
