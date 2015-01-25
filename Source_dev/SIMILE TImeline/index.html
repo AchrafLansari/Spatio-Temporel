@@ -57,7 +57,25 @@ function update(thisTimer) {
                            //$('.bubblingG').css('display','none'); 
                             $('#output').html("");  
                            data.forEach(function(entry) {
-                               
+                                
+             /*                    
+            var evt = new Timeline.DefaultEventSource.Event({
+
+                    'start': new Date(2015, 1, 1),
+                    'end': new Date(2015, 2, 8),
+                    'title': 'added event',
+                    'description': 'added event',
+                    'link' : 'http://www.myurl.com',
+                    'image' : entry["image"],
+                    'color': 'yellow'
+
+            });
+            
+   // eventSource1 is defined lower, you should really refactor this code :-)
+            eventSource._events.add(evt);
+            eventSource._fire("onAddMany", []);
+            timeline.layout();*/
+        
                                 $('#output').append(entry["completeness"]+"==>"+entry["image"]);     //Set output element html
                           });   
                          
@@ -76,7 +94,6 @@ function setupTimeline() {
   eventSource = new Timeline.DefaultEventSource();
   
    
-            
   
   
   var bands = [
@@ -120,22 +137,27 @@ function setupTimeline() {
   bands[1].highlight = true;
   timeline = Timeline.create(document.getElementById("timeline"), bands);
   
-    for(var i=0;i<4;i++){
-            var evt = new Timeline.DefaultEventSource.Event({
+  var evt = new Timeline.DefaultEventSource.Event({
 
                     'start': new Date(2015, 1, 1),
-                    'end': new Date(2015, 2, 8+i),
+                    'end': new Date(2015, 2, 8),
                     'title': 'added event',
                     'description': 'added event',
+                    'link' : 'http://www.myurl.com',
+                    'image' : "",
                     'color': 'yellow'
 
             });
+               
+            
             
    // eventSource1 is defined lower, you should really refactor this code :-)
             eventSource._events.add(evt);
             eventSource._fire("onAddMany", []);
             timeline.layout();
-        }
+            
+            
+   
   for(var i = 0; i < timeline.getBandCount(); i++) {
       
     timeline.getBand(i).addOnScrollListener(function(band){

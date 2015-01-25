@@ -33,27 +33,27 @@ $(document).ready(function(){
                         success: function(data)          //on recieve of reply
                         {   
                            //console.log('Response received : '+data["completeness"]);
-                           $('.bubblingG').css('display','none'); 
+                           //setAllMap(null);
+                           $('.bubblingG').css('display','none');
+                            var message;
+                            var lng,lat;    
                            data.forEach(function(entry) {
-                                
+                                message = ""+i;
+                                i++;
                                 $('#output').append(entry["completeness"]+"==>"+entry["image"]+"<br>");     //Set output element html
+                                 lat = entry['latitude'];
+                                 lng = entry['longitude'];
                                 
-                                var message = "Vous êtes ici !";
+                                });
                                 var infowindow = new google.maps.InfoWindow({
                                     content: message,
                                     size: new google.maps.Size(50,50)
                                 });
                                 
-                                /*var marker = new google.maps.Marker({
-                                    position: new google.maps.LatLng(entry['latitude'], entry['longitude']),
-                                    map: carte
-                                }); 
-                                google.maps.event.addListener(marker, 'click', function() {
-                                        infowindow.open(carte,marker);
-                                });*/
+                                
                                 
                                 marker = new google.maps.Marker({
-                                        position: new google.maps.LatLng(entry['latitude'], entry['longitude']),
+                                        position: new google.maps.LatLng(lat,lng),
                                         map:carte,
                                         draggable:false,
                                         animation: google.maps.Animation.DROP,
@@ -62,10 +62,12 @@ $(document).ready(function(){
                                         infowindow.open(carte,marker);
                                 });
                                  
+                                //carte.panTo(new google.maps.LatLng(lat,lng));
+                                 carte.setCenter(new google.maps.LatLng(lat,lng));
                                 
                                 
                                 
-                          });   
+                          
                          
                         },error : function(xhr, status){
                             console.log(status);
