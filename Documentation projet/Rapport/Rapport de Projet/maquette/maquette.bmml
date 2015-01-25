@@ -1,42 +1,45 @@
-<mockup version="1.0" skin="sketch" fontFace="Balsamiq Sans" measuredW="1034" measuredH="461" mockupW="817" mockupH="441">
+<mockup version="1.0" skin="sketch" fontFace="Balsamiq Sans" measuredW="2605" measuredH="441" mockupW="2528" mockupH="441">
   <controls>
-    <control controlID="6" controlTypeID="com.balsamiq.mockups::Image" x="217" y="20" w="-1" h="-1" measuredW="817" measuredH="441" zOrder="0" locked="false" isInGroup="-1">
+    <control controlID="0" controlTypeID="com.balsamiq.mockups::BrowserWindow" x="77" y="0" w="817" h="441" measuredW="450" measuredH="400" zOrder="0" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>A%20Web%20Page%0Ahttp%3A//</text>
+      </controlProperties>
+    </control>
+    <control controlID="1" controlTypeID="com.balsamiq.mockups::Map" x="80" y="138" w="810" h="288" measuredW="252" measuredH="222" zOrder="1" locked="false" isInGroup="-1"/>
+    <control controlID="2" controlTypeID="com.balsamiq.mockups::SearchBox" x="292" y="370" w="284" h="-1" measuredW="120" measuredH="25" zOrder="2" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>search</text>
+      </controlProperties>
+    </control>
+    <control controlID="3" controlTypeID="com.balsamiq.mockups::PointyButton" x="655" y="369" w="90" h="-1" measuredW="70" measuredH="27" zOrder="3" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderStyle>none</borderStyle>
+        <color>6710886</color>
+        <direction>left</direction>
+        <newLayout>true</newLayout>
+        <text>search</text>
+      </controlProperties>
+    </control>
+    <control controlID="4" controlTypeID="com.balsamiq.mockups::ComboBox" x="585" y="370" w="62" h="-1" measuredW="44" measuredH="24" zOrder="4" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>12</text>
+      </controlProperties>
+    </control>
+    <control controlID="5" controlTypeID="com.balsamiq.mockups::Image" x="77" y="72" w="817" h="77" measuredW="77" measuredH="79" zOrder="5" locked="false" isInGroup="-1">
+      <controlProperties>
+        <src>./image/Capture.PNG</src>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="6" controlTypeID="com.balsamiq.mockups::Image" x="1788" y="0" w="-1" h="-1" measuredW="817" measuredH="441" zOrder="6" locked="false" isInGroup="-1">
       <controlProperties>
         <src>./assets/maquette.png</src>
       </controlProperties>
     </control>
-    <control controlID="8" controlTypeID="com.balsamiq.mockups::Icon" x="910" y="183" w="-1" h="-1" measuredW="24" measuredH="24" zOrder="2" locked="false" isInGroup="-1">
+    <control controlID="7" controlTypeID="com.balsamiq.mockups::Image" x="2291" y="149" w="314" h="277" measuredW="337" measuredH="390" zOrder="7" locked="false" isInGroup="-1">
       <controlProperties>
-        <icon>XIcon%7Csmall</icon>
-      </controlProperties>
-    </control>
-    <control controlID="9" controlTypeID="com.balsamiq.mockups::Canvas" x="319" y="183" w="615" h="240" measuredW="100" measuredH="70" zOrder="1" locked="false" isInGroup="-1">
-      <controlProperties>
-        <color>10066329</color>
-      </controlProperties>
-    </control>
-    <control controlID="10" controlTypeID="com.balsamiq.mockups::Label" x="334" y="192" w="161" h="-1" measuredW="123" measuredH="36" zOrder="3" locked="false" isInGroup="-1">
-      <controlProperties>
-        <size>28</size>
-        <text>Wikipedia</text>
-      </controlProperties>
-    </control>
-    <control controlID="11" controlTypeID="com.balsamiq.mockups::Label" x="471" y="243" w="116" h="-1" measuredW="63" measuredH="36" zOrder="4" locked="false" isInGroup="-1">
-      <controlProperties>
-        <size>28</size>
-        <text>lien%201</text>
-      </controlProperties>
-    </control>
-    <control controlID="12" controlTypeID="com.balsamiq.mockups::Label" x="471" y="279" w="116" h="-1" measuredW="70" measuredH="36" zOrder="5" locked="false" isInGroup="-1">
-      <controlProperties>
-        <size>28</size>
-        <text>lien%202</text>
-      </controlProperties>
-    </control>
-    <control controlID="14" controlTypeID="com.balsamiq.mockups::Label" x="471" y="323" w="116" h="-1" measuredW="69" measuredH="36" zOrder="6" locked="false" isInGroup="-1">
-      <controlProperties>
-        <size>28</size>
-        <text>lien%203</text>
+        <src>./Capture.PNG</src>
+        <text/>
       </controlProperties>
     </control>
   </controls>
