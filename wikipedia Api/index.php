@@ -80,8 +80,12 @@ $wiki = new Wikimate($api_url);
              $pays = str_replace (" ", "_", $paye);
             $url_final = 'Liste_du_patrimoine_mondial_'.$pays;
             $url_final = rtrim($url_final);            
-           // var_dump($url_final);
-		//	echo'<br>';            
+            $paystable = explode('_' ,$pays );
+            for($i=1 ; $i< count($paystable) ; $i++)
+            {
+              $payepropre = $paystable[$i]. '' ;
+            }
+	     echo "<h4>Liste du patrimoine mondial " . $paystable[0] . ' ' . $payepropre.  '</h4><br>';            
             $page = $wiki->getPage($url_final);
     if($url_final = '') {
       
@@ -104,12 +108,12 @@ $wiki = new Wikimate($api_url);
         $coord = explode("name=", $tab[$i]);            
             if (isset($coord[1])) { 
 			
-               echo " <div style='height: 40px; witdh:500px; '> <h3>" . $coord[1]. "</h3>" . "<br>";
+               echo '<div style="height: 40px; witdh:500px;text-decoration:none; "> <h3> '. "<a href='' style='text-decoration:none; cursor:pointer;'>" . $coord[1] .  "</a></h3>" . "<br>";
             }
             $lien = explode("http", $tab[$i]);
             if (isset($lien[1])) { 
                 $lien_final = explode("]",$lien[1]);
-               echo '<a href="http'.$lien_final[0].'" target="_blank"> <img src="img/fleche1.png" alt="suivant" style="float: right;cursor:  pointer;" height="42" width="42" ></a>'; 
+               echo '<a href="http'.$lien_final[0].'" target="_blank"> <img src="icones/fleche.jpg" alt="suivant" style="float: right;cursor:  pointer;" height="50" width="50" ></a>'; 
                 
             }
         }
