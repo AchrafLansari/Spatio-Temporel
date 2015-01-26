@@ -1,4 +1,4 @@
-<mockup version="1.0" skin="sketch" fontFace="Balsamiq Sans" measuredW="2605" measuredH="441" mockupW="2528" mockupH="441">
+<mockup version="1.0" skin="sketch" fontFace="Balsamiq Sans" measuredW="894" measuredH="441" mockupW="817" mockupH="441">
   <controls>
     <control controlID="0" controlTypeID="com.balsamiq.mockups::BrowserWindow" x="77" y="0" w="817" h="441" measuredW="450" measuredH="400" zOrder="0" locked="false" isInGroup="-1">
       <controlProperties>
@@ -11,7 +11,7 @@
         <text>search</text>
       </controlProperties>
     </control>
-    <control controlID="3" controlTypeID="com.balsamiq.mockups::PointyButton" x="655" y="369" w="90" h="-1" measuredW="70" measuredH="27" zOrder="3" locked="false" isInGroup="-1">
+    <control controlID="3" controlTypeID="com.balsamiq.mockups::PointyButton" x="655" y="369" w="90" h="-1" measuredW="60" measuredH="27" zOrder="3" locked="false" isInGroup="-1">
       <controlProperties>
         <borderStyle>none</borderStyle>
         <color>6710886</color>
@@ -20,26 +20,30 @@
         <text>search</text>
       </controlProperties>
     </control>
-    <control controlID="4" controlTypeID="com.balsamiq.mockups::ComboBox" x="585" y="370" w="62" h="-1" measuredW="44" measuredH="24" zOrder="4" locked="false" isInGroup="-1">
+    <control controlID="4" controlTypeID="com.balsamiq.mockups::ComboBox" x="585" y="370" w="62" h="-1" measuredW="46" measuredH="23" zOrder="4" locked="false" isInGroup="-1">
       <controlProperties>
         <text>12</text>
       </controlProperties>
     </control>
-    <control controlID="5" controlTypeID="com.balsamiq.mockups::Image" x="77" y="72" w="817" h="77" measuredW="77" measuredH="79" zOrder="5" locked="false" isInGroup="-1">
+    <control controlID="8" controlTypeID="com.balsamiq.mockups::Image" x="77" y="72" w="817" h="79" measuredW="77" measuredH="79" zOrder="5" locked="false" isInGroup="-1">
       <controlProperties>
-        <src>./image/Capture.PNG</src>
-        <text/>
+        <text>Simile%20Timeline</text>
       </controlProperties>
     </control>
-    <control controlID="6" controlTypeID="com.balsamiq.mockups::Image" x="1788" y="0" w="-1" h="-1" measuredW="817" measuredH="441" zOrder="6" locked="false" isInGroup="-1">
+    <control controlID="9" controlTypeID="com.balsamiq.mockups::Image" x="194" y="223" w="41" h="32" measuredW="77" measuredH="79" zOrder="6" locked="false" isInGroup="-1">
       <controlProperties>
-        <src>./assets/maquette.png</src>
+        <text>Marker</text>
       </controlProperties>
     </control>
-    <control controlID="7" controlTypeID="com.balsamiq.mockups::Image" x="2291" y="149" w="314" h="277" measuredW="337" measuredH="390" zOrder="7" locked="false" isInGroup="-1">
+    <control controlID="10" controlTypeID="com.balsamiq.mockups::Image" x="769" y="270" w="41" h="32" measuredW="77" measuredH="79" zOrder="7" locked="false" isInGroup="-1">
       <controlProperties>
-        <src>./Capture.PNG</src>
-        <text/>
+        <text>Marker</text>
+      </controlProperties>
+    </control>
+    <control controlID="11" controlTypeID="com.balsamiq.mockups::Tooltip" x="670" y="215" w="127" h="62" measuredW="108" measuredH="54" zOrder="8" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Image%20+%20Texte%20+%20Description</text>
+        <tooltipDirection>SE</tooltipDirection>
       </controlProperties>
     </control>
   </controls>
