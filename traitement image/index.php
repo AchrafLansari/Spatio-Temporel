@@ -27,17 +27,31 @@ and open the template in the editor.
      echo "tableau : " . $k . "<br>";
      
      //$_COOKIE["id_itilisateur"]=$k;
-     setcookie ("id_utilisateur", $k, time() - 3600);
+     
      
      if(isset($_COOKIE["id_utilisateur"])) {
-     
+     setcookie ("id_utilisateur", $k, time() - 3600);
     echo '<img src="images/image1.jpg" id="imgc" alt="" width="250" height="250" /><br>';
     echo '<img src="images/image2.jpg" id="imgc" alt="" width="250" height="250" /><br>';
     echo '<img src="images/image3.jpg" id="imgc" alt="" width="250" height="250" /><br>';
     echo '<img src="images/image4.jpg" id="imgc" alt="" width="250" height="250" /><br>';
      }
      else {
-          mkdir("/" .$k , 0700);
+           $file = "./" . $k;   
+         if (!mkdir($file , 0777, true)) {
+            
+          die('Echec lors de la création des répertoires...');
+        }
+         //$image = "http://uploads.siteduzero.com/files/192001_193000/192501.png";
+         //$image  = "http://www.mondomaine.com/son_image.jpg";
+         $image = "images/image1.jpg";
+            $current = file_get_contents($image);
+            //$file = "./mini.png";
+            
+         $path = "./" . $k ."/mini.png";  
+       file_put_contents($path , $current);
+         
+        
      }
      
      ?>
