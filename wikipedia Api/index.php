@@ -85,7 +85,7 @@ $wiki = new Wikimate($api_url);
             {
               $payepropre = $paystable[$i]. '' ;
             }
-	     echo "<h4>Liste du patrimoine mondial " . $paystable[0] . ' ' . $payepropre.  '</h4><br>';            
+	     echo "<h4>Liste du patrimoine mondial " . $paystable[0] . ' ' . $payepropre .  '</h4><br>';            
             $page = $wiki->getPage($url_final);
     if($url_final = '') {
       

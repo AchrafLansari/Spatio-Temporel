@@ -1,22 +1,16 @@
+<html>
+<head>
+ <link rel="stylesheet" href="style.css" />
+</head>
 <?php
-  include 'wa_wrapper/WolframAlphaEngine.php';
-
- 
-  
-
+  include 'wa_wrapper/WolframAlphaEngine.php'; 
   if($_GET){
-				
   $appID = '6HGT3T-TLLQQEJH37';
-  
- 
-  
   // instantiate an engine object with your app id
   $engine = new WolframAlphaEngine( $appID );
-
   // we will construct a basic query to the api with the input 'pi'
   // only the bare minimum will be used
   $response = $engine->getResults($_GET['q']);
-
   // getResults will send back a WAResponse object
   // this object has a parsed version of the wolfram alpha response
   // as well as the raw xml ($response->rawXML) 
@@ -26,19 +20,16 @@
 ?>
   <h1>There was an error in the request</h1>
   
-<?php
-    die();
-  }
-?>
-
-
+<?php     die();  } ?>
 <br>
-
 <?php
   // if there are any assumptions, display them 
   if ( count($response->getAssumptions()) > 0 ) {
 ?>
-    <h2>Nos Suppositions :</h2>
+ <div id = "titre"> Wolfram Search :</div>
+ <br><br>
+     <div id = "titres">Nos Suppositions :</div>
+    <br>
     <ul>
 <?php
       // assumptions come as a hash of type as key and array of assumptions as value
@@ -70,8 +61,9 @@
   // if there are any pods, display them
   if ( count($response->getPods()) > 0 ) {
 ?>
-    <h2>Vos informations :</h2>
-    <table border=1 width="80%" align="center">
+    <div id = "titres">Vos informations :</div>
+    <br> <br> 
+    <table border=1 width="80%" align="center" style="margin-left:40px;">
 <?php
     foreach ( $response->getPods() as $pod ) {
 ?>
@@ -98,5 +90,6 @@
 <?php
   }}
 ?>
+</html>
 
 
