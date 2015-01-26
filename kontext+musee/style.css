@@ -6,7 +6,7 @@ body,
 html{
 height: 100%;
 width: 100%;
-background-color: black;
+background-image: 'img/back.jpg';
 } 
 
 #map{
@@ -24,8 +24,7 @@ z-index: 1; }
     padding: 5px;
     position: relative;
     top: 0;
-    left: 100px;
-    width: 90%;
+    width: 100%;
     z-index: 2;
 }
 #timeFrom{
@@ -393,12 +392,20 @@ span.arrow{
 
             }
             #wolfram{
-                left: 98%;
+                left: 92%;
                 position: absolute;
                 top: 0;
                 cursor : pointer;
                 display : none;
             }
+            #generateur{
+                left: 0;
+                position: absolute;
+                top: 0;
+                cursor : pointer;
+                
+            }
+           
 ul#legende {
     position: fixed;
     margin: 0px;

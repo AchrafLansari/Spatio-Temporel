@@ -53,7 +53,10 @@
                                 <div id="map">  </div>
                                 <div id="container2"><!-- Website stuff goes in here -->  
     
-<div class="timeline-container" id="timeline" style="width:85%; height:100px; border:1px solid black; margin-left:0.5%">
+                                    <img id="generateur" src="icones/Unesco.png" width="100px" height="100px"  />                               
+                                    
+                                    
+<div class="timeline-container" id="timeline" style="width:80%; height:100px; border:1px solid black;  margin-left: 10.5%;">
         <div style="top: 35px; left: -1em;" class="timeline-band-input">
             <input type="text"></div>
        <div style="top: 0px; height: 71.4px; left: -2404px; width: 6010px;" class="timeline-band">
@@ -112,8 +115,8 @@
     <img src='icones/wolframe2.png' width="96px" height="96px" id='wolfram'/>
      <div class="input-list style-1 clearfix" style="width: 90%;position:absolute;">
 
-              <input type="text" id="timeFrom" placeholder=":time From"  style="float:left;margin-left: 8px;width:70px;" />
-              <input type="text" id="timeTo" placeholder=":time To"  style="float:right;margin-right: 20px;width:70px;" />
+              <input type="text" id="timeFrom" placeholder=":time From"  style="float:left;margin-left: 161px;width:70px;" />
+              <input type="text" id="timeTo" placeholder=":time To"  style="float:right;margin-right: 0px;width:70px;" />
 
      </div>
     
