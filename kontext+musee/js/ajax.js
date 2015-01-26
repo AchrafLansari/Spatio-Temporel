@@ -17,7 +17,8 @@ $(document).ready(function(){
        $('.bubblingG').css('display','block');
      
        
-       var dataString = 'q='+requete;
+       var dataString = 'q='+$('#s').val()+'';
+       dataString = dataString.replace(" ", "+");
       
       
        
@@ -27,7 +28,7 @@ $(document).ready(function(){
                         url: "../europeana/requete/simple.php",
                         type: "POST",
                         dataType: 'json',
-                        data: { query : requete,
+                        data: { query : $('#s').val(),
                                 rows : rows
                               },
                         success: function(data)          //on recieve of reply
@@ -73,7 +74,9 @@ $(document).ready(function(){
                             console.log(status);
                         }
     });
+    
     $('#load').load("../twitter/index.php?"+dataString);
+    
     $('#load2').load("../weather/index.php?"+dataString);
     $('#data_wolframe').load('../wolfram/wolframe.php?'+dataString);
     
