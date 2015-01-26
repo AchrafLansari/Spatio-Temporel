@@ -134,11 +134,21 @@
                                 </div>
                                 
 
-                                <div id="container"><!-- Website stuff goes in here -->  
-    <form id="searchForm" method="post">
+ <div id="container"><!-- Website stuff goes in here -->  
+      <form id="searchForm" method="post">
 		<fieldset>
         
-           	<input id="s" type="text" />    
+           	<input id="s" type="text" />
+                <div class="dropdown1"> 
+                     <select id="type"  name="type" class="dropdown1-select">
+                      <option value="ALL" selected>ALL</option> 
+                      <option value="IMAGE" >IMAGE</option>
+                      <option value="TEXT">TEXT</option>
+                      <option value="VIDEO">VIDEO</option>
+                      <option value="SOUND">SOUND</option>
+                      <option value="3D">3D</option>
+                    </select>
+                </div>    
                  <div class="dropdown">
                     <select id="rows" name="one" class="dropdown-select">
                       <option value="12">12</option> 
@@ -147,19 +157,11 @@
                       <option value="48">48</option>
                       <option value="96">96 </option>
                     </select>
+                    
                   </div>
                               
             <input type="submit" value="Submit" id="submitButton" />
-            
-            
-                        
-            <ul class="icons">
-                <li class="web" title="Web Search" data-searchType="web">Web</li>
-                <li class="images" title="Image Search" data-searchType="images">Images</li>
-                <li class="news" title="News Search" data-searchType="news">News</li>
-                <li class="videos" title="Video Search" data-searchType="video">Videos</li>
-            </ul>
-            
+                 
         </fieldset>
     </form>
     
@@ -170,7 +172,7 @@
             </span>
             <span id="bubblingG_3">
             </span>
-    </div>      
+    </div>  
     
 </div>
 <script type="text/javascript">

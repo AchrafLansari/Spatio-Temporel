@@ -79,6 +79,8 @@ $(document).ready(function(){
     
     $('#wolfram').fadeIn(2000);
     
+    $('#wolfram').delay(15000).fadeOut(2000);
+   
       
     
    });

@@ -60,7 +60,8 @@ function parseTweet($text) {
 ?>
         <script type="text/javascript">
             $(function() {
-               
+                    
+                    $('#legende').delay(15000).fadeOut(2000); 
                     
                    $('#legende a').stop().animate({'marginLeft':'100px'},500);
 
