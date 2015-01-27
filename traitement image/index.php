@@ -20,37 +20,27 @@ and open the template in the editor.
           
         </script> 
         <?php
-        $add = array();
      $add = md5($_SERVER['REMOTE_ADDR']);
-     echo "IP: $add" . "<br>";
-     $k = substr($add, 0 , strlen($add)/2 );
-     echo "tableau : " . $k . "<br>";
-     
-     //$_COOKIE["id_itilisateur"]=$k;
-     
-     
+     $k = substr($add, 0 , strlen($add)/2 );     
      if(isset($_COOKIE["id_utilisateur"])) {
      setcookie ("id_utilisateur", $k, time() - 3600);
-    echo '<img src="images/image1.jpg" id="imgc" alt="" width="250" height="250" /><br>';
-    echo '<img src="images/image2.jpg" id="imgc" alt="" width="250" height="250" /><br>';
-    echo '<img src="images/image3.jpg" id="imgc" alt="" width="250" height="250" /><br>';
-    echo '<img src="images/image4.jpg" id="imgc" alt="" width="250" height="250" /><br>';
      }
      else {
-           $file = "./" . $k;   
-         if (!mkdir($file , 0777, true)) {
+           $file = "./" . $k; 
+           if (file_exists($file)) {
+            $image = "http://uploads.siteduzero.com/files/192001_193000/192501.png"; 
             
-          die('Echec lors de la création des répertoires...');
-        }
-         //$image = "http://uploads.siteduzero.com/files/192001_193000/192501.png";
-         //$image  = "http://www.mondomaine.com/son_image.jpg";
-         $image = "images/image1.jpg";
             $current = file_get_contents($image);
-            //$file = "./mini.png";
-            
-         $path = "./" . $k ."/mini.png";  
-       file_put_contents($path , $current);
-         
+            $path = "./" . $k ."/mini.png";  
+            file_put_contents($path , $current); 
+           }
+         else {
+            mkdir($file , 0777, true);
+            $image = "http://uploads.siteduzero.com/files/192001_193000/192501.png";         
+            $current = file_get_contents($image);
+            $path = "./" . $k ."/mini.png";  
+            file_put_contents($path , $current);
+        }         
         
      }
      
