@@ -102,22 +102,18 @@ function setupTimeline() {
       width:          "70%",
       intervalUnit:   Timeline.DateTime.MONTH,
       intervalPixels: 125,
-      zoomIndex:      13,
+      zoomIndex:      7,
             zoomSteps:      new Array(
-              {pixelsPerInterval: 280,  unit: Timeline.DateTime.HOUR},
-              {pixelsPerInterval: 140,  unit: Timeline.DateTime.HOUR},
-              {pixelsPerInterval:  70,  unit: Timeline.DateTime.HOUR},
-              {pixelsPerInterval:  35,  unit: Timeline.DateTime.HOUR},
-              {pixelsPerInterval: 400,  unit: Timeline.DateTime.DAY},
-              {pixelsPerInterval: 200,  unit: Timeline.DateTime.DAY},
-              {pixelsPerInterval: 100,  unit: Timeline.DateTime.DAY},
-              {pixelsPerInterval:  50,  unit: Timeline.DateTime.DAY},
-              {pixelsPerInterval: 200,  unit: Timeline.DateTime.MONTH},
-              {pixelsPerInterval: 100,  unit: Timeline.DateTime.MONTH},
-              {pixelsPerInterval: 25,  unit: Timeline.DateTime.MONTH}, 
-              {pixelsPerInterval: 200,  unit: Timeline.DateTime.YEAR}, 
-              {pixelsPerInterval: 100,  unit: Timeline.DateTime.YEAR}, 
-              {pixelsPerInterval: 50,  unit: Timeline.DateTime.YEAR} 
+              //{pixelsPerInterval: 145,  unit: Timeline.DateTime.HOUR},
+              {pixelsPerInterval: 800,  unit: Timeline.DateTime.DAY},// 1jour et quelques heures
+              //{pixelsPerInterval: 400,  unit: Timeline.DateTime.DAY},
+              {pixelsPerInterval: 200,  unit: Timeline.DateTime.DAY},//8 jours
+              {pixelsPerInterval: 800,  unit: Timeline.DateTime.MONTH},//presque 2 mois
+              {pixelsPerInterval: 250,  unit: Timeline.DateTime.MONTH},//6 mois
+              {pixelsPerInterval: 125,  unit: Timeline.DateTime.MONTH},//1 an
+              {pixelsPerInterval: 200,  unit: Timeline.DateTime.YEAR}, //5 an
+              {pixelsPerInterval: 100,  unit: Timeline.DateTime.YEAR}, //10 an
+              {pixelsPerInterval: 15,  unit: Timeline.DateTime.YEAR} // 100 an
             )
 		}),
 		Timeline.createBandInfo({
