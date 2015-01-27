@@ -37,20 +37,33 @@ $(document).ready(function(){
                            //setAllMap(null);
                            $('.bubblingG').css('display','none');
                             var message;
-                            var lng,lat;    
+                            var lng,lat;  
+                            var textimage;
                            data.forEach(function(entry) {
                                 message = ""+i;
                                 i++;
                                 $('#output').append(entry["completeness"]+"==>"+entry["image"]+"<br>");     //Set output element html
                                  lat = entry['latitude'];
                                  lng = entry['longitude'];
+                                 if(entry["image"]!="undefined") {
+                                  textimage +=  '<img class="img_europena" src="'+ entry["image"] +'" alt="image europeana" height="150" width="150">  <img src="icones/telecharger.png" alt="telecharger" title="telecharger" height="32" width="32"/><br> ';
+                                    }
+                               });
                                 
-                                });
+                                    var contentString = '<div id="content">'+
+                                    '<div id="siteNotice">'+
+                                    '</div>'+
+                                    '<h1 id="firstHeading" class="firstHeading">Europeana search</h1> <br><br>'+
+                                    '<div id="bodyContent" style="color:#000000;">'+                                   
+                                    textimage +    
+                                    '(last visited June 22, 2009).</p>'+
+                                    '</div>'+
+                                    '</div>';
+
                                 var infowindow = new google.maps.InfoWindow({
-                                    content: message,
-                                    size: new google.maps.Size(50,50)
+                                    content: contentString
                                 });
-                                
+
                                 
                                 
                                 marker = new google.maps.Marker({
