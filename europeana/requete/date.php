@@ -32,10 +32,9 @@
         $i=0;
         foreach ($parsed_json['items'] as $items) {
          
-       /* $record_path = "http://europeana.eu/api/v2/record".$items['id'].".json?wskey=".$key."&profile=full";
+        $record_path = "http://europeana.eu/api/v2/record".$items['id'].".json?wskey=".$key."&profile=full";
         $json_record = file_get_contents($record_path);
         $parsed_json_record = json_decode($json_record,true);
-        */
         
         //var_dump($parsed_json_record);
         
@@ -63,10 +62,15 @@
         //echo 'Lien json pour recuperer informations de l'article :'.$items['link'].'<br>';
         //echo 'Liens Copiryght de l'article :'.$items['rights'][0].'<br>';
         
-        //echo 'Contexte temporel  array a retravailler :'.$items['edmTimespanLabel'].'<br>';
+        //echo 'Contexte temporel  array a retravailler :'.
+        
+        //var_dump($items['edmTimespanLabel']);
         
         //echo 'Qualité sur 10 des metadatas :';
-        
+        if(isset($parsed_json_record['timespans']))
+        { // si il a un tableau de places veut dire qu'il est géolocalisable 
+          // echo 'pipi :'.var_dump($parsed_json_record['timespans']);
+        }
         
         //<a href="/path/to/image.png" download> image a mettre dans le path image de kontext + musee
         
@@ -74,6 +78,8 @@
         //if(isset($items['dcCreator'][0])){echo  $items['dcCreator'][0].'<br>';}
         
         //echo ($items['title'][0]).'<br>';
+        
+        
         if(isset($items['edmPreview'][0])){ // a voir comment gerer les textes aussi et pas que les images 
         if(isset($items['edmPlaceLatitude'])){
         if($items['edmPlaceLatitude'][0] != '0.0' && $items['edmPlaceLongitude'][0] !='0.0' ){
