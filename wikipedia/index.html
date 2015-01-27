@@ -1,0 +1,30 @@
+
+        <a href="#?w=700" rel="popup_name" class="poplight" style="display:none" ></a>
+        <div id="popup_name" class="popup_block" style="height: 500px;overflow:scroll;" >
+            <img src="icones/actualise.jpg" alt="actualiser la page" title="actualiser la page courante" style=" cursor:  pointer;" height="62" width="62"  onclick="actualiser();" />
+                              
+                               
+                <div id="minijeu"> </div>
+ 
+        </div>
+   
+<script type="text/javascript">
+        $(document).ready(function(){
+            $('a.poplight[href^=#]').click();
+            
+
+                    $(function() {
+                    
+
+            //Fermeture de la pop-up et du fond
+            $('a.close, #fade').live('click', function() { //Au clic sur le bouton ou sur le calque...
+                    $('#fade , .popup_block').fadeOut(function() {
+                            $('#fade, a.close').remove();  //...ils disparaissent ensemble
+                    });
+                    return false;
+            });    
+
+                        });
+         });
+        </script>
+

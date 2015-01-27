@@ -26,7 +26,7 @@
                 <script src="js/timeline_002.js" type="text/javascript"></script>
                 <script src="js/labellers_002.js" type="text/javascript"></script>
                 <script src="js/date.js" type="text/javascript"></script> 
-                <script src="js/popup.js" type="text/javascript"></script> 
+                
                 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
                 <script src="script.js"></script>
                 <script src="js/ajax.js" type="text/javascript"></script>
@@ -56,7 +56,7 @@
                                     <img id="generateur" src="icones/Unesco.png" width="100px" height="100px"  />                               
                                     
                                     
-<div class="timeline-container" id="timeline" style="width:80%; height:100px; border:1px solid black;  margin-left: 10.5%;">
+<div class="timeline-container" id="timeline" style="width:77%; height:100px; border:1px solid black;  margin-left: 11.5%;">
         <div style="top: 35px; left: -1em;" class="timeline-band-input">
             <input type="text"></div>
        <div style="top: 0px; height: 71.4px; left: -2404px; width: 6010px;" class="timeline-band">
@@ -115,8 +115,8 @@
     <img src='icones/wolframe2.png' width="96px" height="96px" id='wolfram'/>
      <div class="input-list style-1 clearfix" style="width: 90%;position:absolute;">
 
-              <input type="text" id="timeFrom" placeholder=":time From"  style="float:left;margin-left: 161px;width:70px;" />
-              <input type="text" id="timeTo" placeholder=":time To"  style="float:right;margin-right: 0px;width:70px;" />
+              <input type="text" id="timeFrom" placeholder=":time From"  style="float:left;margin-left: 156px;width:70px;" />
+              <input type="text" id="timeTo" placeholder=":time To"  style="float:right;margin-right: 26px;width:70px;" />
 
      </div>
     
@@ -132,11 +132,13 @@
         
         <div id="popup_name" class="popup_block" style="height: 500px;overflow:scroll;" >
                
-                
-                <div id="data_wolframe"> <img id="ajax" src="icones/ajax.gif" width="72" height="72" style="display: none;position:absolute;left:48%;top:50%;" /> </div>
+                 <img src="icones/actualise.jpg"  id="actualiser" alt="actualiser la page" title="actualiser la page courante" style=" cursor:  pointer;" height="62" width="62"/>
+                <div id="data_wolframe"> </div>
         </div>
                                 </div>
                                 
+                                
+                                    
 
  <div id="container"><!-- Website stuff goes in here -->  
       <form id="searchForm" method="post">
@@ -352,7 +354,7 @@ if (navigator.geolocation){
     }
     
     function successCallback(position){
-      carte.panTo(new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
+      
       var marker = new google.maps.Marker({
         position: new google.maps.LatLng(position.coords.latitude, position.coords.longitude),
         map: carte

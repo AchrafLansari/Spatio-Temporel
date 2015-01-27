@@ -1,8 +1,15 @@
 
                     $(function() {
+                        var flag="";
                     $('a.poplight[href^=#]').click(function() {
-                    $('#ajax').css('display','block');    
-                   
+                        
+                        if(flag == true){
+                            $('#data_wolframe').load('../wikipedia/index.php');
+                             $('#actualiser').css('display','block');  
+                        }else {
+                            $('#ajax').css('display','block');
+                             $('#actualiser').css('display','none');
+                        }
                     
                     var popID = $(this).attr('rel'); //Trouver la pop-up correspondante
                     var popURL = $(this).attr('href'); //Retrouver la largeur dans le href
@@ -35,13 +42,19 @@
 
                     return false;
             });
-
+            
+            
+           
             //Fermeture de la pop-up et du fond
             $('a.close, #fade').live('click', function() { //Au clic sur le bouton ou sur le calque...
                     $('#fade , .popup_block').fadeOut(function() {
                             $('#fade, a.close').remove();  //...ils disparaissent ensemble
                     });
                     return false;
-            });    
+            });  
+            
+            
+            
+           
 
                         });

@@ -105,7 +105,7 @@ $wiki = new Wikimate($api_url);
         $coord = explode("name=", $tab[$i]);            
             if (isset($coord[1])) { 
 			
-               echo '<div style="height: 40px; witdh:500px;text-decoration:none; "> <h3> '. "<a href='' style='text-decoration:none; cursor:pointer;'>" . $coord[1] .  "</a></h3>" . "<br>";
+               echo '<div style="height: 40px; witdh:500px;text-decoration:none; "> <h3> '. "<a  id='lien_patrimoine' style='text-decoration:none; cursor:pointer;'>" . utf8_encode($coord[1]) .  "</a></h3>" . "<br>";
             }
             $lien = explode("http", $tab[$i]);
             if (isset($lien[1])) { 

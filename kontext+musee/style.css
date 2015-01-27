@@ -2,6 +2,10 @@
   font-family: "Economica-Italic";
   src: url('font/Economica-Italic.ttf');
 }
+@font-face {
+  font-family: "Economica-Regular";
+  src: url('font/Economica-Regular.ttf');
+}
 body,
 html{
 height: 100%;
@@ -249,7 +253,6 @@ span.arrow{
 	text-transform:uppercase;
 	border:none;
 	cursor:pointer;
-        margin-right:65px;
 }
 
 #submitButton:hover{
@@ -394,15 +397,15 @@ span.arrow{
             #wolfram{
                 left: 92%;
                 position: absolute;
-                top: 0;
+                top: 22px;
                 cursor : pointer;
                 display : none;
             }
             #generateur{
-                left: 0;
+                cursor: pointer;
+                left: 40px;
                 position: absolute;
-                top: 0;
-                cursor : pointer;
+                top: 25px;
                 
             }
            
@@ -528,8 +531,8 @@ img.btn_close {
 	
 	//margin: -55px -55px 0 0;
         position : absolute;
-        top :0px;
-        right:0px;
+        right: 20px;
+        top: 30px;
 }
 /*--G�rer la position fixed pour IE6--*/
 *html #fade {
@@ -635,3 +638,30 @@ position: absolute;
 
 /* Dirty fix for Firefox adding padding where it shouldn't. */
 @-moz-document url-prefix() { .dropdown-select1 { padding-left: 6px; } }
+
+
+h3 {
+    color: navy;
+    margin-left: 30px;
+	height:22px;
+	margin-top:-6px;
+	text-decoration:none;
+    font-family: "Economica-Regular";
+	
+}
+
+h4 {
+    color: #8b0000;
+    height:22px;
+    margin-right: 50px;
+}
+img {
+     margin-left: -24px;
+	 margin-top : -24px;
+}
+#noir {
+color:#000000;
+margin-left: 400px;
+margin-top: -24px;
+width : auto;
+}
