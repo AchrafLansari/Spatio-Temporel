@@ -33,7 +33,20 @@
                 <script type="text/javascript">
                     function rajouter(id){   
                         var src  = document.getElementById(id);
-                       // src.src
+                       var imgsrc = src.src;
+                       
+    $.ajax({            
+                        url: "../traitement/index.php",
+                        type: "POST",
+                        data: { src : imgsrc
+                              },
+                        success: function(data)          //on recieve of reply
+                        {      
+                         console.log('done');                       
+                        },error : function(xhr, status){
+                            console.log(status);
+                        }
+    });
                     }
                      function imgError(image) {
                         image.onerror = "";
