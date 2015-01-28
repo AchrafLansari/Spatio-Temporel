@@ -3,12 +3,10 @@ $(document).ready(function(){
     
     $('.bubblingG').css('display','none');
    
-    $('#lien_patrimoine').click(function(){
-        alert('l3fouu');
-        console.log($(this).text());
-        $('a.close').click();
+    
        
-    });
+       
+    
         
    
    $('#submitButton').click(function(){
@@ -22,7 +20,10 @@ $(document).ready(function(){
      
        
        var dataString = 'q='+$('#s').val()+'';
-       dataString = dataString.replace(" ", "+");
+       for(i=0;i<dataString.length;i++){
+           dataString = dataString.replace(" ","+");
+       }
+       
       
       
        
