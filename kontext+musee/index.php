@@ -2,7 +2,7 @@
 <html lang="en">
 	<head>
             <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-            <title>Navigateur Spatio temporelle</title>
+            <title>Navigateur Spatio-Temporel</title>
         	
 		<link rel="stylesheet" href="css/kontext.css">
                 <link rel="stylesheet" href="style.css">
