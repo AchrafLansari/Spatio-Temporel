@@ -103,7 +103,7 @@ $(document).ready(function(){
     
     $('#load').load("../twitter/index.php?"+dataString);
     
-    //$('#load2').load("../weather/index.php?"+dataString);
+    $('#load2').load("../weather/index.php?"+dataString);
     
     $('#data_wolframe').empty();
     $('#data_wolframe').html('<img id="ajax" src="icones/ajax.gif" width="72" height="72" style="display: none;position:absolute;left:48%;top:50%;" /> ');

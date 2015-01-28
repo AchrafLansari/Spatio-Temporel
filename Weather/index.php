@@ -24,16 +24,16 @@
 <script type="text/javascript">
             $(function() {
                 
-                $('#navigation').delay(10000).hide(500);
+               // $('#navigation').delay(10000).hide(500);
                 
-                $('#navigation a').stop().animate({'marginTop':'-80px'},1000);
+                $('#navigation a').stop().animate({'marginTop':'-90px'},1000);
 
                 $('#navigation > li').hover(
                     function () {
-                        $('a',$(this)).stop().animate({'marginTop':'-20px'},200);
+                        $('a',$(this)).stop().animate({'marginTop':'-60px'},200);
                     },
                     function () {
-                        $('a',$(this)).stop().animate({'marginTop':'-80px'},200);
+                        $('a',$(this)).stop().animate({'marginTop':'-90px'},200);
                     }
                 );
                     

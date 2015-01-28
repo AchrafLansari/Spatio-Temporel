@@ -142,8 +142,8 @@
     <img src='icones/wolframe2.png' width="96px" height="96px" id='wolfram' title="Wolfram Search"/>
      <div class="input-list style-1 clearfix" style="width: 90%;position:absolute;">
 
-              <input type="text" id="timeFrom" placeholder=":time From"  style="float:left;margin-left: 136px;width:70px;" />
-              <input type="text" id="timeTo" placeholder=":time To"  style="float:right;margin-right: 26px;width:70px;" />
+              <input type="text" id="timeFrom" placeholder=":time From"  style="float:left;margin-left: 117px;width:70px;" />
+              <input type="text" id="timeTo" placeholder=":time To"  style="float:right;margin-right: 22px;width:70px;" />
 
      </div>
     
