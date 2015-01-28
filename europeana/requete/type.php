@@ -8,7 +8,7 @@
         if($_POST){
         
         $query= $_POST['query'];
-        $rows= $_POST['type'];    
+        $type= $_POST['type'];    
         
         $path="http://www.europeana.eu/api/v2/search.json?wskey=".$key."&query=".$query."&qf=TYPE:".$type;  
         $json = file_get_contents($path);
@@ -20,12 +20,10 @@
             
         
            
-            
-        //echo '<br>';
+       
         //var_dump($parsed_json);
         
-        
-       // echo '<br>'.count($parsed_json['items']).'<br>';
+   
         $data2 =array();
         
         $i=0;
