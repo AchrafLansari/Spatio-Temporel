@@ -56,7 +56,7 @@ $(document).ready(function(){
                                  lat = entry['latitude'];
                                  lng = entry['longitude'];
                                  if(entry["image"]!="undefined") {
-                                  textimage +=  '<img class="img_europena" src="'+ entry["image"] +'" alt="image europeana" height="150" width="150">  <img src="icones/telecharger.png" alt="telecharger" title="telecharger" height="32" width="32"/><br> ';
+                                  textimage +=  '<img class="img_europena" src="'+ entry["image"] +'" alt="image europeana" height="150" width="150" onerror="imgError(this);" >  <img src="icones/telecharger.png" alt="telecharger" title="telecharger" height="32" width="32"/><br> ';
                                     }
                                });
                                 
@@ -97,6 +97,11 @@ $(document).ready(function(){
                             console.log(status);
                         }
     });
+    function imgError(image) {
+    image.onerror = "";
+    $(image).css('display','none');
+    return true;
+    }
     
     $('#load').load("../twitter/index.php?"+dataString);
     
