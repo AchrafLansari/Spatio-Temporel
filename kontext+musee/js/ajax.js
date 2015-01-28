@@ -1,17 +1,7 @@
 $(document).ready(function(){
-   
-    
-    $('.bubblingG').css('display','none');
-   
-    
-    
-            
-    
-       
-       
-    
-        
-   
+      
+   $('.bubblingG').css('display','none');
+ 
    $('#submitButton').click(function(){
        
        
@@ -48,6 +38,8 @@ $(document).ready(function(){
                         {   
                            //console.log('Response received : '+data["completeness"]);
                            //setAllMap(null);
+                           
+                           
                            $('.bubblingG').css('display','none');
                             var message;
                             var lng,lat;  
@@ -59,7 +51,7 @@ $(document).ready(function(){
                                  lat = entry['latitude'];
                                  lng = entry['longitude'];
                                  if(entry["image"]!="undefined") {
-                                  textimage +=  '<div id="content-search"><img class="img_europeana" id="'+i+'" src="'+ entry["image"] +'" alt="image europeana" height="250" width="250" onerror="imgError(this);" >  <img src="icones/telecharger.png" alt="telecharger" class="telecharger" title="Rajouter Au Musee" height="32" width="32" onclick="rajouter('+i+');"/></div> ';
+                                  textimage +=  '<div id="content-search"><a href="'+entry['link']+'" target="_blank"><img class="img_europeana" id="'+i+'" src="'+ entry["image"] +'" alt="image europeana" height="250" width="250" onerror="imgError(this);" > </a> <img src="icones/telecharger.png" alt="telecharger" class="telecharger" title="Rajouter Au Musee" height="32" width="32" onclick="rajouter('+i+');"/>  <h3 id="titre_search">"'+ entry["titre"]+ '" </h3> </div> ';
                                     }
                                });
                                 
@@ -76,7 +68,8 @@ $(document).ready(function(){
                                      
 
                                 var infowindow = new google.maps.InfoWindow({
-                                    content: contentString
+                                    content: contentString,
+                                    maxWidth: 600
                                 });
 
                                 
@@ -92,10 +85,11 @@ $(document).ready(function(){
                                 });
                                  
                                 //carte.panTo(new google.maps.LatLng(lat,lng));
+                                if(lat!=0 && lng!=0 ){
                                  carte.setCenter(new google.maps.LatLng(lat,lng));
+                                }  
                                  
-                                 
-                                 
+                                 google.maps.event.trigger(map, 'resize');
                                 
                                 
                                 

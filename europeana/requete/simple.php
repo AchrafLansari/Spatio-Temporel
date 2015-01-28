@@ -36,10 +36,7 @@
         $parsed_json_record = json_decode($json_record,true);
         */
         
-        //var_dump($parsed_json_record);
         
-        //echo $parsed_json_record['edmCountry']; // country
-        //echo $parsed_json_record['edmLanguage'][0]; // language a confirmer
         if(isset($parsed_json_record['places']))
         { // si il a un tableau de places veut dire qu'il est géolocalisable 
        // echo $parsed_json_record['latitude']; // il faut récuperer la latitude
@@ -54,8 +51,7 @@
         $url_image = explode('?uri=', $items['edmPreview'][0]); 
         $url_image = explode('&size',$url_image[1]); 
         }
-        //echo 'Total items :'.$items['totalResults'].'<br>';
-         
+        
         //echo 'Fournisseurs :'.$items['dataProvider'][0].'<br>'; 
         
         //echo 'Lien externes vers l'article :'.$items['guid'].'<br>';
@@ -64,20 +60,12 @@
         
         //echo 'Contexte temporel  array a retravailler :'.$items['edmTimespanLabel'].'<br>';
         
-        //echo 'Qualité sur 10 des metadatas :';
         
-        
-        //<a href="/path/to/image.png" download> image a mettre dans le path image de kontext + musee
-        
-        
-        //if(isset($items['dcCreator'][0])){echo  $items['dcCreator'][0].'<br>';}
-        
-        //echo ($items['title'][0]).'<br>';
         
         if(isset($items['edmPlaceLatitude'])){
         if($items['edmPlaceLatitude'][0] != '0.0' && $items['edmPlaceLongitude'][0] !='0.0' ){
             
-            $data2[$i] = array('completeness'=>$items['completeness'],'type'=>$items['type'],'id'=>$items['id'],'image'=>urldecode($url_image[0]),'latitude'=>$items['edmPlaceLatitude'][0],'longitude'=>$items['edmPlaceLongitude'][0]);
+            $data2[$i] = array('completeness'=>$items['completeness'],'type'=>$items['type'],'id'=>$items['id'],'image'=>urldecode($url_image[0]),'latitude'=>$items['edmPlaceLatitude'][0],'longitude'=>$items['edmPlaceLongitude'][0],'titre'=>$items['title'][0],'link'=>$items['guid'],'fournisseur'=>$items['dataProvider'][0]);
              $i++;
              
         }
@@ -87,14 +75,6 @@
        
         //if(isset($items['year'][0])){echo $items['year'][0];}
         
-        //echo "<br><br>";
-        
-        
-        //echo '<img  width="50px" height="50px" src='.$items['edmPreview'][0].'>';    
-        //echo '<img  class="images" width="250px" height="250px"  src='.urldecode($url_image[0]).'>';
-        
-        //array_push($data['image'],urldecode($url_image[0]));
-        //$data2[$i] = $data['completeness'][$i];
         
         }
          

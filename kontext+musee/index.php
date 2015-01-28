@@ -35,18 +35,18 @@
                         var src  = document.getElementById(id);
                        var imgsrc = src.src;
                        
-    $.ajax({            
-                        url: "../traitement/index.php",
-                        type: "POST",
-                        data: { src : imgsrc
-                              },
-                        success: function(data)          //on recieve of reply
-                        {      
-                         console.log('done');                       
-                        },error : function(xhr, status){
-                            console.log(status);
-                        }
-    });
+                        $.ajax({            
+                                            url: "../traitement/index.php",
+                                            type: "POST",
+                                            data: { src : imgsrc
+                                                  },
+                                            success: function(data)          //on recieve of reply
+                                            {      
+                                             console.log('done');                       
+                                            },error : function(xhr, status){
+                                                console.log(status);
+                                            }
+                        });
                     }
                      function imgError(image) {
                         image.onerror = "";
@@ -310,7 +310,7 @@ function initialisation(){
     // On crée notre carte en lui passant toutes nos options en paramètre
     carte = new google.maps.Map(document.getElementById("map"), mesOptions);
 
-    google.maps.event.addListener(carte, "dblclick", function (event) { 
+    google.maps.event.addListener(carte, "rightclick", function (event) { 
                var lat = event.latLng.lat();
                var lng = event.latLng.lng(); 
                $.ajax({
@@ -324,7 +324,7 @@ function initialisation(){
                         {   
                            //console.log('Response received : '+data["completeness"]);
                            $('.bubblingG').css('display','none');
-                           setAllMap(null);
+                           //setAllMap(null);
                            var i = 0;
                            data.forEach(function(entry) {
                                 
@@ -361,13 +361,7 @@ function initialisation(){
                
             });
     
-    /*
-    // On place un listener sur le marqueur qui contrôle une action qui sera déclenchée lors de l'évènement 'click'
-    // Quand on clique sur le marqueur, le zoom de la carte passera à 8
-    google.maps.event.addListener(marker, 'click', function(){
-       carte.setZoom(8);
-    });
-    */
+    
 }
    
 if (navigator.geolocation){

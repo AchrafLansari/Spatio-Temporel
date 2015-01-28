@@ -38,7 +38,8 @@ function update(thisTimer) {
     currentMilis = currentMilis - deltaMilis;
     
     if (currentMilis > 0) {
-      setTimeout("update(" + thisTimer + ")", deltaMilis);
+      
+       setTimeout("update(" + thisTimer + ")", deltaMilis);
       
     }
     else {
@@ -47,7 +48,7 @@ function update(thisTimer) {
                         url: "../../europeana/requete/date.php",
                         type: "POST",
                         dataType: 'json',
-                        data: { query : 'paris',
+                        data: { query : 'Paris',
                                 date_d : document.getElementById("timeFrom").value.toString().substring(0,4),
                                 date_f : document.getElementById("timeTo").value.toString().substring(0,4),
                               },
@@ -61,16 +62,19 @@ function update(thisTimer) {
                                 
             var evt = new Timeline.DefaultEventSource.Event({
 
-                    'start': new Date(2015, 1, 1),
-                    'end': new Date(2015, 2, 8),
-                    'title': 'added event',
-                    'description': 'added event',
-                    'link' : 'http://www.myurl.com',
-                    'image' : entry["image"],
+                    'start': new Date(entry["year_d"], 1, 1),
+                    'end': new Date(entry["year_f"], 2, 8),
+                    
+                    'title': ''+entry["titre"],
+                    'description': ''+entry["titre"],
+                    'link' : ''+entry["link"],
+                    'image' : ''+entry["img"],
                     'color': 'yellow'
+                            //'#'+Math.floor(Math.random()*16777215).toString(16)
 
             });
-            
+               
+               
                     // eventSource1 is defined lower, you should really refactor this code :-)
                     eventSource._events.add(evt);
            
@@ -88,7 +92,9 @@ function update(thisTimer) {
       lastTimer = 1;
       
     }
+    
   }
+  
 }
 
 function setupTimeline() {

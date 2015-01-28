@@ -31,11 +31,11 @@
         
         $i=0;
         foreach ($parsed_json['items'] as $items) {
-         
+         /*
         $record_path = "http://europeana.eu/api/v2/record".$items['id'].".json?wskey=".$key."&profile=full";
         $json_record = file_get_contents($record_path);
         $parsed_json_record = json_decode($json_record,true);
-        
+        */
         //var_dump($parsed_json_record);
         
         //echo $parsed_json_record['edmCountry']; // country
@@ -67,9 +67,10 @@
         //var_dump($items['edmTimespanLabel']);
         
         //echo 'Qualité sur 10 des metadatas :';
+        
         if(isset($parsed_json_record['timespans']))
         { // si il a un tableau de places veut dire qu'il est géolocalisable 
-          // echo 'pipi :'.var_dump($parsed_json_record['timespans']);
+            var_dump($parsed_json_record['timespans']);
         }
         
         //<a href="/path/to/image.png" download> image a mettre dans le path image de kontext + musee
@@ -83,10 +84,15 @@
         if(isset($items['edmPreview'][0])){ // a voir comment gerer les textes aussi et pas que les images 
         if(isset($items['edmPlaceLatitude'])){
         if($items['edmPlaceLatitude'][0] != '0.0' && $items['edmPlaceLongitude'][0] !='0.0' ){
-            
-             $data2[$i] = array('completeness'=>$items['completeness'],'type'=>$items['type'],'id'=>$items['id'],'image'=>'<img  class="images" width="250px" height="250px"  src='.urldecode($url_image[0]).'>','latitude'=>$items['edmPlaceLatitude'][0],'longitude'=>$items['edmPlaceLongitude'][0]);
+            if(isset($items['year'][0])){
+             if(isset($items['year'][1])){
+                 $year_f=$items['year'][1];
+             }else {
+                 $year_f = date("Y"); 
+             }   
+             $data2[$i] = array('completeness'=>$items['completeness'],'type'=>$items['type'],'id'=>$items['id'],'image'=>'<img  class="images" width="250px" height="250px"  src='.urldecode($url_image[0]).'>','latitude'=>$items['edmPlaceLatitude'][0],'longitude'=>$items['edmPlaceLongitude'][0],'year_d'=>$items['year'][0],'year_f'=>$year_f,'titre'=>$items['title'][0],'link'=>$items["guid"][0],'img'=>urldecode($url_image[0]));
              $i++;
-             
+            }
         }
         }}
         
