@@ -20,12 +20,14 @@
                 <script src="js/imageTransform3D.js"></script>
                 
                 <script type="text/javascript" src="https://maps-api-ssl.google.com/maps/api/js?v=3.4&sensor=true"></script> 
-                <script src="js/timeline-api.js" type="text/javascript"></script>
+                
+                
+                <script src="http://api.simile-widgets.org/timeline/2.3.1/timeline-api.js" type="text/javascript"></script>   
                 <script src="js/timeline.js" type="text/javascript"></script>
                 <script src="js/labellers.js" type="text/javascript"></script>
                 <script src="js/timeline_002.js" type="text/javascript"></script>
                 <script src="js/labellers_002.js" type="text/javascript"></script>
-                <script src="js/date.js" type="text/javascript"></script> 
+                <script src="js/date.js" type="text/javascript"></script>
                 
                 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
                 <script src="script.js"></script>
@@ -207,8 +209,7 @@
     
 </div>
 <script type="text/javascript">
-    
-
+   
 // timeline
 var timeline = null;
 var eventSource = null;
@@ -220,52 +221,121 @@ var lastTimer = 1;
 
 function update(thisTimer) {
     
-  if (thisTimer == lastTimer) {
+  if(thisTimer == lastTimer) {
     currentMilis = currentMilis - deltaMilis;
+    
     if (currentMilis > 0) {
-      setTimeout("update(" + thisTimer + ")", deltaMilis);
+      
+       setTimeout("update(" + thisTimer + ")", deltaMilis);
+      
     }
     else {
-      // alert('actualizar: ' + thisTimer);
+        if($('#s').val() !=''){
+      $.ajax({
+                        url: "../europeana/requete/date.php",
+                        type: "POST",
+                        dataType: 'json',
+                        data: { query : $('#s').val(),
+                                date_d : document.getElementById("timeFrom").value.toString().substring(0,4),
+                                date_f : document.getElementById("timeTo").value.toString().substring(0,4),
+                              },
+                        success: function(data)          //on recieve of reply
+                        {   
+                           
+                           //$('.bubblingG').css('display','none'); 
+                            $('#output').html("");  
+                           data.forEach(function(entry) {
+                                
+                                
+            var evt = new Timeline.DefaultEventSource.Event({
+
+                    'start': new Date(entry["year_d"], 1, 1),
+                    'end': new Date(entry["year_f"], 2, 8),
+                    
+                    'title': ''+entry["titre"],
+                    'description': ''+entry["titre"],
+                    'link' : ''+entry["link"],
+                    'image' : ''+entry["img"],
+                    'color': '#'+((1<<24)*Math.random()|0).toString(16)
+                            //'#'+Math.floor(Math.random()*16777215).toString(16)
+
+            });
+               
+               
+                    // eventSource1 is defined lower, you should really refactor this code :-)
+                    eventSource._events.add(evt);
+           
+        
+                                $('#output').append(entry["completeness"]+"==>"+entry["image"]);     //Set output element html
+                          });   
+                           //eventSource._fire("onAddMany", []);
+                           // timeline.layout();
+                         
+                        },error : function(xhr, status){
+                            console.log(status);
+                        }
+    });}
       currentMilis = totalMilis;
       lastTimer = 1;
       
     }
+    
   }
+  
 }
-
 
 function setupTimeline() {
   eventSource = new Timeline.DefaultEventSource();
+  
+   
+  
+  
   var bands = [
 		Timeline.createBandInfo({
       eventSource:    eventSource,
       width:          "70%",
-      intervalUnit:   Timeline.DateTime.WEEK,
-      intervalPixels: 80
+      intervalUnit:   Timeline.DateTime.MONTH,
+      intervalPixels: 125,
+      zoomIndex:      7,
+            zoomSteps:      new Array(
+              //{pixelsPerInterval: 145,  unit: Timeline.DateTime.HOUR},
+              {pixelsPerInterval: 800,  unit: Timeline.DateTime.DAY},// 1jour et quelques heures
+              //{pixelsPerInterval: 400,  unit: Timeline.DateTime.DAY},
+              {pixelsPerInterval: 200,  unit: Timeline.DateTime.DAY},//8 jours
+              {pixelsPerInterval: 800,  unit: Timeline.DateTime.MONTH},//presque 2 mois
+              {pixelsPerInterval: 250,  unit: Timeline.DateTime.MONTH},//6 mois
+              {pixelsPerInterval: 125,  unit: Timeline.DateTime.MONTH},//1 an
+              {pixelsPerInterval: 200,  unit: Timeline.DateTime.YEAR}, //5 an
+              {pixelsPerInterval: 100,  unit: Timeline.DateTime.YEAR}, //10 an
+              {pixelsPerInterval: 15,  unit: Timeline.DateTime.YEAR} // 100 an
+            )
 		}),
 		Timeline.createBandInfo({
+      overview:       true,
       eventSource:    eventSource,
       width:          "30%",
-      intervalUnit:   Timeline.DateTime.MONTH,
-      intervalPixels: 60,
+      intervalUnit:   Timeline.DateTime.YEAR,
+      intervalPixels: 200,
       showEventText:  false,
-      trackHeight:    0.4,
-      trackGap:       0.2
+      
     })
   ];
 
+  
   // synchronise bands
   bands[1].syncWith = 0;
   bands[1].highlight = true;
   timeline = Timeline.create(document.getElementById("timeline"), bands);
-
-
+  
+  
+            
+   
   for(var i = 0; i < timeline.getBandCount(); i++) {
+      
     timeline.getBand(i).addOnScrollListener(function(band){
       var dFrom;
       var dTo;
-      // alert("min/max date: " + band.getMinVisibleDate() + "..." + band.getMaxVisibleDate());
+      //console.log("min/max date: " + band.getMinVisibleDate() + "..." + band.getMaxVisibleDate());
       dFrom = band.getMinVisibleDate();
       document.getElementById("timeFrom").value = dFrom.toString('yyyy-MM-dd');
       // Mon Dec 15 2008 18:42:29 GMT+0100 -> 2008-12-15
@@ -279,6 +349,14 @@ function setupTimeline() {
   } 
 }
 
+function Change(){
+    var date_d = document.getElementById("timeFrom").value;
+    var date_f = document.getElementById("timeTo").value;
+ 
+      timeline.getBand(0).setMinVisibleDate(Timeline.DateTime.parseGregorianDateTime(date_d)); 
+      //timeline.getBand(0).setMaxVisibleDate(Timeline.DateTime.parseGregorianDateTime(date_f)); 
+    //timeline.getBand(0).setCenterVisibleDate(Timeline.DateTime.parseGregorianDateTime(date_d));
+}
 /*
 addOnScrollListener  ( listener ) 
 getMinVisibleDate()
@@ -287,7 +365,7 @@ getMaxVisibleDate()
 
     //]]>
     </script>
-
+    
 
 <script type="text/javascript">
  

@@ -1,4 +1,4 @@
-
+fillInfoBubble
 
 /* timeline.js */
 
@@ -4438,6 +4438,7 @@ elmt.className="timeline-event-bubble-time";
 }
 }
 };
+this.mouseWheel = 'zoom';
 };
 
 /* units.js */
