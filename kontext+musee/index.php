@@ -243,7 +243,8 @@ function update(thisTimer) {
                         {   
                            
                            //$('.bubblingG').css('display','none'); 
-                            $('#output').html("");  
+                            $('#output').html(""); 
+                            var textimage;
                            data.forEach(function(entry) {
                                 
                                 
@@ -264,9 +265,52 @@ function update(thisTimer) {
                
                     // eventSource1 is defined lower, you should really refactor this code :-)
                     eventSource._events.add(evt);
-           
+                    
         
-                                $('#output').append(entry["completeness"]+"==>"+entry["image"]);     //Set output element html
+                                $('#output').append(entry["completeness"]+"==>"+entry["image"]);   
+                                lat = entry['latitude'];
+                                 lng = entry['longitude'];
+                                 if(entry["image"]!="undefined") {
+                                  textimage +=  '<div id="content-search"><a href="'+entry['link']+'" target="_blank"><img class="img_europeana" id="'+i+'" src="'+ entry["img"] +'" alt="image europeana" height="250" width="250" onerror="imgError(this);" > </a> <img src="icones/telecharger.png" alt="telecharger" class="telecharger" title="Rajouter Au Musee" height="32" width="32" onclick="rajouter('+i+');"/>  <h3 id="titre_search">"'+ entry["titre"]+ '" </h3> </div> ';
+                                    }
+                               
+                                
+                                    var contentString = '<div id="content">'+
+                                    '<div id="siteNotice">'+
+                                    '</div>'+
+                                    '<div id="europeana_search" > Europeana Search Result : </div> <br><br>'+
+                                    '<div id="bodyContent" style="color:#000000;">'+                                   
+                                    textimage +    
+                                    
+                                    '</div>'+
+                                    '</div>';
+                                    
+                                     
+
+                                var infowindow = new google.maps.InfoWindow({
+                                    content: contentString,
+                                    maxWidth: 600
+                                });
+
+                                
+                                
+                                marker = new google.maps.Marker({
+                                        position: new google.maps.LatLng(lat,lng),
+                                        map:carte,
+                                        draggable:false,
+                                        animation: google.maps.Animation.DROP,
+                                    });
+                                 google.maps.event.addListener(marker, 'click', function() {
+                                        infowindow.open(carte,marker);
+                                });
+                                 
+                                //carte.panTo(new google.maps.LatLng(lat,lng));
+                                if(lat!=0 && lng!=0 ){
+                                 carte.setCenter(new google.maps.LatLng(lat,lng));
+                                }  
+                                 
+                                 google.maps.event.trigger(map, 'resize');
+                                //Set output element html
                           });   
                            //eventSource._fire("onAddMany", []);
                            // timeline.layout();
