@@ -126,7 +126,7 @@ $wiki = new Wikimate($api_url);
        for(i=0;i<dataString.length;i++){
            dataString = dataString.replace(" ","+");
        }
-             $.ajax({
+             $.ajax({   
                         url: "../europeana/requete/simple.php",
                         type: "POST",
                         dataType: 'json',

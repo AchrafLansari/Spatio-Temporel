@@ -26,15 +26,20 @@ $(document).ready(function(){
        
       
       
-       
-       
-    
-    $.ajax({
-                        url: "../europeana/requete/simple.php",
+       if($("#type").val()=="ALL"){
+        var url ="../europeana/requete/simple.php";
+        var type ="";
+       }else{
+           var url ="../europeana/requete/type.php";
+           var type = $("#type").val();
+       }
+    $.ajax({            
+                        url: url,
                         type: "POST",
                         dataType: 'json',
                         data: { query : $('#s').val(),
-                                rows : rows
+                                rows : rows,
+                                type : type
                               },
                         success: function(data)          //on recieve of reply
                         {   
