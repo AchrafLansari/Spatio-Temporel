@@ -30,7 +30,19 @@
                 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
                 <script src="script.js"></script>
                 <script src="js/ajax.js" type="text/javascript"></script>
-                
+                <script type="text/javascript">
+                    function rajouter(id){   
+                        var src  = document.getElementById(id);
+                       // src.src
+                    }
+                     function imgError(image) {
+                        image.onerror = "";
+                        $(image).css('display','none');
+                        $(image).html(' ');
+                        return true;
+                    }
+                    
+                </script>
                 <style>
                     .style-1 input[type="text"] {
                         padding: 10px;
@@ -53,7 +65,7 @@
                                 <div id="map">  </div>
                                 <div id="container2"><!-- Website stuff goes in here -->  
     
-                                    <img id="generateur" src="icones/Unesco.png" width="100px" height="100px"  />                               
+                                    <img id="generateur" src="icones/Unesco.png" width="100px" title="Generateur De Patrimoine" height="100px"  />                               
                                     
                                     
 <div class="timeline-container" id="timeline" style="width:77%; height:100px; border:1px solid black;  margin-left: 11.5%;">
@@ -112,10 +124,10 @@
                </div>
          </div>
      
-    <img src='icones/wolframe2.png' width="96px" height="96px" id='wolfram'/>
+    <img src='icones/wolframe2.png' width="96px" height="96px" id='wolfram' title="Wolfram Search"/>
      <div class="input-list style-1 clearfix" style="width: 90%;position:absolute;">
 
-              <input type="text" id="timeFrom" placeholder=":time From"  style="float:left;margin-left: 156px;width:70px;" />
+              <input type="text" id="timeFrom" placeholder=":time From"  style="float:left;margin-left: 136px;width:70px;" />
               <input type="text" id="timeTo" placeholder=":time To"  style="float:right;margin-right: 26px;width:70px;" />
 
      </div>
@@ -269,7 +281,7 @@ getMaxVisibleDate()
 var carte;
 function initialisation(){
     // On rentre les coordonnées(latitude, longitude) de notre choix dans une variable
-    var maLatlng = new google.maps.LatLng(-25.363882,131.044922);
+    var maLatlng = new google.maps.LatLng(51.919438,19.14513599999998);
 
     // On établit les options de notre choix :
     // la profondeur du zoom, les coordonnées sur lesquelles la carte sera centrée, le type de vue (satellite, plan...)
@@ -361,6 +373,10 @@ if (navigator.geolocation){
       }); 
       
   }
+  
+   
+        
+  
 </script>
 
 </div>

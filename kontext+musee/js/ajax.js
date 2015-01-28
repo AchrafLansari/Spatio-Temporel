@@ -4,6 +4,9 @@ $(document).ready(function(){
     $('.bubblingG').css('display','none');
    
     
+    
+            
+    
        
        
     
@@ -56,19 +59,21 @@ $(document).ready(function(){
                                  lat = entry['latitude'];
                                  lng = entry['longitude'];
                                  if(entry["image"]!="undefined") {
-                                  textimage +=  '<img class="img_europena" src="'+ entry["image"] +'" alt="image europeana" height="150" width="150" onerror="imgError(this);" >  <img src="icones/telecharger.png" alt="telecharger" title="telecharger" height="32" width="32"/><br> ';
+                                  textimage +=  '<div id="content-search"><img class="img_europeana" id="'+i+'" src="'+ entry["image"] +'" alt="image europeana" height="250" width="250" onerror="imgError(this);" >  <img src="icones/telecharger.png" alt="telecharger" class="telecharger" title="Rajouter Au Musee" height="32" width="32" onclick="rajouter('+i+');"/></div> ';
                                     }
                                });
                                 
                                     var contentString = '<div id="content">'+
                                     '<div id="siteNotice">'+
                                     '</div>'+
-                                    '<h1 id="firstHeading" class="firstHeading">Europeana search</h1> <br><br>'+
+                                    '<div id="europeana_search" > Europeana Search Result : </div> <br><br>'+
                                     '<div id="bodyContent" style="color:#000000;">'+                                   
                                     textimage +    
-                                    '(last visited June 22, 2009).</p>'+
+                                    
                                     '</div>'+
                                     '</div>';
+                                    
+                                     
 
                                 var infowindow = new google.maps.InfoWindow({
                                     content: contentString
@@ -88,6 +93,9 @@ $(document).ready(function(){
                                  
                                 //carte.panTo(new google.maps.LatLng(lat,lng));
                                  carte.setCenter(new google.maps.LatLng(lat,lng));
+                                 
+                                 
+                                 
                                 
                                 
                                 
@@ -97,11 +105,7 @@ $(document).ready(function(){
                             console.log(status);
                         }
     });
-    function imgError(image) {
-    image.onerror = "";
-    $(image).css('display','none');
-    return true;
-    }
+    
     
     $('#load').load("../twitter/index.php?"+dataString);
     
@@ -206,7 +210,7 @@ $(document).ready(function(){
         $(this).trigger("enterKey");
         }   
     });*/
-   
+    
     
 });
 
