@@ -541,6 +541,8 @@ img.btn_close {
         position : absolute;
         right: 20px;
         top: 30px;
+        width:32px;
+        height:32px;
 }
 /*--G�rer la position fixed pour IE6--*/
 *html #fade {

@@ -50,7 +50,7 @@ $(document).ready(function(){
                                 $('#output').append(entry["completeness"]+"==>"+entry["image"]+"<br>");     //Set output element html
                                  lat = entry['latitude'];
                                  lng = entry['longitude'];
-                                 if(entry["image"]!="undefined") {
+                                 if(entry["image"]!="undefined" && entry["titre"]!="undefined" ) {
                                   textimage +=  '<div id="content-search"><a href="'+entry['link']+'" target="_blank"><img class="img_europeana" id="'+i+'" src="'+ entry["image"] +'" alt="image europeana" height="250" width="250" onerror="imgError(this);" > </a> <img src="icones/telecharger.png" alt="telecharger" class="telecharger" title="Rajouter Au Musee" height="32" width="32" onclick="rajouter('+i+');"/>  <h3 id="titre_search">"'+ entry["titre"]+ '" </h3> </div> ';
                                     }
                                });

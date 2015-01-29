@@ -24,7 +24,7 @@
 <script type="text/javascript">
             $(function() {
                 
-               // $('#navigation').delay(10000).hide(500);
+                $('#navigation').delay(10000).hide(500);
                 
                 $('#navigation a').stop().animate({'marginTop':'-90px'},1000);
 

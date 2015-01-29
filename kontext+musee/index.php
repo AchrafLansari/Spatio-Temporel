@@ -53,7 +53,7 @@
                      function imgError(image) {
                         image.onerror = "";
                         $(image).css('display','none');
-                        $(image).html(' ');
+                        $(image).html('Broken Image');
                         return true;
                     }
                     
@@ -159,7 +159,7 @@
         
         <div id="popup_name" class="popup_block" style="height: 500px;overflow:scroll;" >
                
-                 <img src="icones/actualise.jpg"  id="actualiser" alt="actualiser la page" title="actualiser la page courante" style=" cursor:  pointer;" height="62" width="62"/>
+                 <img src="icones/actualise.png"  id="actualiser" alt="actualiser la page" title="actualiser la page courante" style="margin-left: 5px;margin-top: -13px; cursor : pointer;" height="32" width="32"/>
                 <div id="data_wolframe"> </div>
         </div>
                                 </div>
@@ -261,7 +261,10 @@ function update(thisTimer) {
                             //'#'+Math.floor(Math.random()*16777215).toString(16)
 
             });
-               
+               /* if(marker !=null){
+                marker.setmap(null);
+                }*/
+                    
                
                     // eventSource1 is defined lower, you should really refactor this code :-)
                     eventSource._events.add(evt);
@@ -270,8 +273,8 @@ function update(thisTimer) {
                                 $('#output').append(entry["completeness"]+"==>"+entry["image"]);   
                                 lat = entry['latitude'];
                                  lng = entry['longitude'];
-                                 if(entry["image"]!="undefined") {
-                                  textimage +=  '<div id="content-search"><a href="'+entry['link']+'" target="_blank"><img class="img_europeana" id="'+i+'" src="'+ entry["img"] +'" alt="image europeana" height="250" width="250" onerror="imgError(this);" > </a> <img src="icones/telecharger.png" alt="telecharger" class="telecharger" title="Rajouter Au Musee" height="32" width="32" onclick="rajouter('+i+');"/>  <h3 id="titre_search">"'+ entry["titre"]+ '" </h3> </div> ';
+                                 if(entry["image"]!="undefined" && entry["titre"]!="undefined") {
+                                  textimage +=  '<div id="content-search"><a href="'+entry['link']+'" target="_blank"><img class="img_europeana" id="'+i+'" src="'+ entry["img"] +'" alt="image europeana" height="250" width="250" onerror="imgError(this);" > </a> <img src="icones/telecharger.png" alt="telecharger" class="telecharger" title="Rajouter Au Musee" height="32" width="32" onclick="rajouter('+i+');"/>  <h3 id="titre_search">"'+entry['titre']+ '" </h3> </div> ';
                                     }
                                
                                 
@@ -451,18 +454,29 @@ function initialisation(){
                            data.forEach(function(entry) {
                                 
                                 $('#output').append(entry["completeness"]+"==>"+entry["image"]+"<br>");     //Set output element html
-                                
-                                var message = ""+i;
+                                textimage =  '<div id="content-search"><a href="'+entry['link']+'" target="_blank"><img class="img_europeana" id="'+i+'" src="'+ entry["image"] +'" alt="image europeana" height="250" width="250" onerror="imgError(this);" > </a> <img src="icones/telecharger.png" alt="telecharger" class="telecharger" title="Rajouter Au Musee" height="32" width="32" onclick="rajouter('+i+');"/>  <h3 id="titre_search">"'+ entry["title"]+ '" </h3> </div> ';
                                 i++;
+                               var contentString = '<div id="content">'+
+                                    '<div id="siteNotice">'+
+                                    '</div>'+
+                                    '<div id="europeana_search" > Europeana Search Result : </div> <br><br>'+
+                                    '<div id="bodyContent" style="color:#000000;">'+                                   
+                                    textimage +    
+                                    
+                                    '</div>'+
+                                    '</div>';
+                                    
+                                     
+
                                 var infowindow = new google.maps.InfoWindow({
-                                    content: message,
-                                    size: new google.maps.Size(50,50)
+                                    content: contentString,
+                                    maxWidth: 600
                                 });
-                                
+
                                 
                                 
                                 marker = new google.maps.Marker({
-                                        position: new google.maps.LatLng(entry['latitude'], entry['longitude']),
+                                        position: new google.maps.LatLng(entry['latitude'],entry['longitude']),
                                         map:carte,
                                         draggable:false,
                                         animation: google.maps.Animation.DROP,
