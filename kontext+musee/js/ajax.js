@@ -86,7 +86,7 @@ $(document).ready(function(){
                                  
                                 //carte.panTo(new google.maps.LatLng(lat,lng));
                                 if(lat!=0 && lng!=0 ){
-                                 carte.setCenter(new google.maps.LatLng(lat,lng));
+                                // carte.setCenter(new google.maps.LatLng(lat,lng));
                                 }  
                                  
                                  google.maps.event.trigger(map, 'resize');

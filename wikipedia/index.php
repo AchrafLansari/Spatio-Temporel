@@ -179,7 +179,7 @@ $wiki = new Wikimate($api_url);
                                 });
                                  
                                 //carte.panTo(new google.maps.LatLng(lat,lng));
-                                 carte.setCenter(new google.maps.LatLng(lat,lng));
+                                // carte.setCenter(new google.maps.LatLng(lat,lng));
                                 
                                 
                                 
